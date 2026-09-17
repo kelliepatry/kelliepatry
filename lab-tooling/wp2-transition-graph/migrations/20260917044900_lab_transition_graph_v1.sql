@@ -104,7 +104,11 @@ begin
   if nullif(btrim(coalesce(p_lab_key,'')),'') is null then
     return jsonb_build_object('allowed',false,'reason_code','lab_key_required');
   end if;
-  if p_authority_kind not in ('human','worker','system') then
+  if nullif(btrim(p_from_phase),'') is null or nullif(btrim(p_to_phase),'') is null
+     or nullif(btrim(p_from_status),'') is null or nullif(btrim(p_to_status),'') is null then
+    return jsonb_build_object('allowed',false,'reason_code','phase_and_status_required');
+  end if;
+  if p_authority_kind is null or p_authority_kind not in ('human','worker','system') then
     return jsonb_build_object('allowed',false,'reason_code','invalid_authority_kind');
   end if;
   if p_evidence is null or jsonb_typeof(p_evidence) <> 'object' then

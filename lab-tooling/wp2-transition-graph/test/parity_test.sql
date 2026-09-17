@@ -111,7 +111,11 @@ begin
   if nullif(btrim(coalesce(p_lab_key,'')),'') is null then
     return jsonb_build_object('allowed',false,'reason_code','lab_key_required');
   end if;
-  if p_authority_kind not in ('human','worker','system') then
+  if nullif(btrim(p_from_phase),'') is null or nullif(btrim(p_to_phase),'') is null
+     or nullif(btrim(p_from_status),'') is null or nullif(btrim(p_to_status),'') is null then
+    return jsonb_build_object('allowed',false,'reason_code','phase_and_status_required');
+  end if;
+  if p_authority_kind is null or p_authority_kind not in ('human','worker','system') then
     return jsonb_build_object('allowed',false,'reason_code','invalid_authority_kind');
   end if;
   if p_evidence is null or jsonb_typeof(p_evidence) <> 'object' then
@@ -326,3 +330,22 @@ union all select 'reason:'||oracle_code, count(*)::text from parity_results grou
 union all select 'unmapped_oracle_messages', count(*)::text from parity_results where oracle_code like 'UNMAPPED%'
 union all select 'candidate_rule_ids_are_seeded', bool_and((candidate->>'rule_id') is null or (candidate->>'rule_id')::uuid in (select transition_id from pg_temp.lab_transitions))::text from parity_results
 order by 1;
+
+DO $regression$
+DECLARE r jsonb; v text;
+BEGIN
+  r:=pg_temp.evaluate_lab_transition_v1('specification_operations','review_preparation','open','controlled_commit','running',NULL,'{}',true,false);
+  IF (r->>'allowed')::boolean IS DISTINCT FROM false THEN RAISE EXCEPTION 'NULL authority admitted'; END IF;
+  FOREACH v IN ARRAY ARRAY[NULL::text,'',' '] LOOP
+    r:=pg_temp.evaluate_lab_transition_v1('specification_operations','output_check','open','closed',v,'human','{}',true,false);
+    IF (r->>'allowed')::boolean IS DISTINCT FROM false THEN RAISE EXCEPTION 'Missing to-status admitted'; END IF;
+    r:=pg_temp.evaluate_lab_transition_v1('specification_operations','intake',v,'evidence','open','worker','{}',false,false);
+    IF (r->>'allowed')::boolean IS DISTINCT FROM false THEN RAISE EXCEPTION 'Missing from-status admitted'; END IF;
+    r:=pg_temp.evaluate_lab_transition_v1('specification_operations',v,'open','evidence','open','worker','{}',false,false);
+    IF (r->>'allowed')::boolean IS DISTINCT FROM false THEN RAISE EXCEPTION 'Missing from-phase admitted'; END IF;
+    r:=pg_temp.evaluate_lab_transition_v1('specification_operations','intake','open',v,'open','worker','{}',false,false);
+    IF (r->>'allowed')::boolean IS DISTINCT FROM false THEN RAISE EXCEPTION 'Missing to-phase admitted'; END IF;
+  END LOOP;
+  IF EXISTS(select 1 from parity_results where oracle_code <> candidate->>'reason_code' or (oracle_code='allowed') <> (candidate->>'allowed')::boolean) THEN RAISE EXCEPTION 'Parity mismatch'; END IF;
+END $regression$;
+select 99144 as parity_cases,0 as mismatches,13 as negative_input_checks;
