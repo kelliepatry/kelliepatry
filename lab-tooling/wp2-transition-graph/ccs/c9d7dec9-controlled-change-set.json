@@ -1,0 +1,39 @@
+{
+  "change_set_id": "c9d7dec9-4dc8-4d63-8539-2a571f12218d",
+  "table": "guard.controlled_change_sets",
+  "status": "proposed",
+  "execution_authority": false,
+  "impact_class": "structural",
+  "severity_rank": 40,
+  "executor_class": "controlled_executor",
+  "human_gate_required": true,
+  "commit_token_required": true,
+  "scope_type": "studio",
+  "project_id": null,
+  "target_count": 4,
+  "estimated_rows": 32,
+  "schema_change": true,
+  "physical_delete": false,
+  "external_side_effect": false,
+  "expected_state_hash": "4a8746f3d92f05d0a2683bceff756ab118c2e5e959dbe72a3e970c57b555ac39",
+  "change_set_hash": "6ff00ba8363ee56848594435e07381eaf986f9ce6fd7efc5d9ee5cadd4641b01",
+  "proposed_by": "model:anthropic:claude",
+  "proposed_at": "2026-09-17T04:57:06.849Z",
+  "expires_at": "2026-09-18T04:57:07.459Z",
+  "governing_decision_key": "GOV-20260910-02",
+  "governing_decision_id": null,
+  "execution_authorization_id": null,
+  "work_id": "9b82ac79-58a0-4ba3-ad23-0cc82376077e",
+  "session_id": "e535acdb-1df2-4e33-b5bf-99a67829db00",
+  "files": {
+    "migration": {"path": "lab-tooling/wp2-transition-graph/migrations/20260917044900_lab_transition_graph_v1.sql", "sha256": "4df18511ebde70130c754bbdf3b709c1915f92f9e4392852f3e638120be62516"},
+    "seed": {"path": "lab-tooling/wp2-transition-graph/seed/lab_transitions_specification_operations.sql", "sha256": "69b69aec9ca7c4d0d31c2918bf3a5fd797b5a38612dafaa825206b2929734d32"},
+    "parity_test": {"path": "lab-tooling/wp2-transition-graph/test/parity_test.sql", "sha256": "cc495a86c111a6c82de44cdf8ad2612e6915cc08bfdca3bd6a3d0c3dbb8d0488"}
+  },
+  "parity_result": {"run_at": "2026-09-17T04:55Z", "combinations": 99144, "mismatches": 0, "allowed_both": 10188, "seeded_rules": 31, "rules_admitting_at_least_one": 31, "unmapped_oracle_messages": 0},
+  "execution_queue_rows": {
+    "authorize_ccs": "3de732ea-2011-810f-82a7-e48b7ef0aadc",
+    "ratify_amendment_packet": "3de732ea-2011-81a1-bc8e-c6616f37cd77"
+  },
+  "execution_note": "Apply migration then seed via apply_migration only after a core.decision_execution_authorizations binding (action controlled_change.execute, target controlled_change_set, this id, allowed outcome execute) and a commit token minted by core.authorize_controlled_change_set_v1 with the exact change_set_hash. If expired, re-propose from the same files."
+}

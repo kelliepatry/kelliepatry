@@ -17,7 +17,7 @@ Evidence labels: **Confirmed** = live pull this session; **Assumption** = labell
 | Unregistered STD- serials | STD-0005 (second bearer, above). No STD-0007 or higher found anywhere. |
 | Correction to STD draft page | callout says "observed max STD-0005" → actual observed max is STD-0006 |
 
-Next available serial by arithmetic is STD-0007. **Not issued** — issuance is Kellie's (execution-queue row filed; see below). Per §5 of the brief, Doc ID remains gated on the GPT/Codex review loop e4e520db (still open at scan time).
+Next available serial by arithmetic is STD-0007. **Not issued** — issuance is Kellie's (execution-queue row filed; see below). Per §5 of the brief, Doc ID remains gated on the GPT/Codex review loop e4e520db (still open at scan time). **Update 2026-09-17:** loop closed on Kellie's confirmation; STD-0007 reserved by GOV-20260911-02 and minted at Published; the STD-0005 collision was ruled by GOV-20260911-01 (FINISH NOTES keeps it; the AGT rubric page was retitled without a Doc ID).
 
 ## Surfaces scanned
 

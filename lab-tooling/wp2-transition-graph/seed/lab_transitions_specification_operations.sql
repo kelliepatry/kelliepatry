@@ -1,0 +1,50 @@
+-- ============================================================================
+-- PROPOSAL ONLY — seed rows for lab 'specification_operations' (Instance 01).
+-- Transcribed 1:1 from core.transition_spec_work_item_v1 as read 2026-09-17.
+-- 31 rows: 8 same-phase, 12 mainline/back-edges, 2 human-gate entries, 1 commit exit,
+-- 1 terminal edge from output_check, 7 refuse/cancel edges. Idempotent upsert on (lab_key, from_phase, to_phase).
+-- Apply only after the migration and only under the same CCS authorization.
+-- ============================================================================
+insert into core.lab_transitions (lab_key, from_phase, to_phase, allowed_authority_kinds, entry_condition, exit_evidence_schema, is_human_gate, notes)
+select v.lab_key, v.from_phase, v.to_phase, v.allowed_authority_kinds, v.entry_condition, v.exit_evidence_schema, v.is_human_gate, v.notes
+from (values
+  ('specification_operations','intake','intake',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','evidence','evidence',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','reconciliation','reconciliation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','draft_revision','draft_revision',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','review_preparation','review_preparation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','change_preparation','change_preparation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','controlled_commit','controlled_commit',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','output_check','output_check',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'same-phase update: status/binding/receipt only (transition_spec_work_item_v1: p_to_phase = v_item.phase)'),
+  ('specification_operations','intake','evidence',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (intake -> evidence)'),
+  ('specification_operations','evidence','reconciliation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (evidence -> reconciliation)'),
+  ('specification_operations','reconciliation','evidence',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (reconciliation -> evidence)'),
+  ('specification_operations','reconciliation','draft_revision',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (reconciliation -> draft_revision)'),
+  ('specification_operations','draft_revision','evidence',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (draft_revision -> evidence)'),
+  ('specification_operations','draft_revision','reconciliation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (draft_revision -> reconciliation)'),
+  ('specification_operations','draft_revision','review_preparation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (draft_revision -> review_preparation)'),
+  ('specification_operations','review_preparation','evidence',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (review_preparation -> evidence)'),
+  ('specification_operations','review_preparation','draft_revision',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (review_preparation -> draft_revision)'),
+  ('specification_operations','review_preparation','change_preparation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (review_preparation -> change_preparation)'),
+  ('specification_operations','change_preparation','review_preparation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (change_preparation -> review_preparation)'),
+  ('specification_operations','output_check','review_preparation',array['human','worker','system']::text[],'{}'::jsonb,'{}'::jsonb,false,'mainline/back-edge per transition_spec_work_item_v1 (output_check -> review_preparation)'),
+  ('specification_operations','review_preparation','controlled_commit',array['human']::text[],'{"effect_class":"gated_transition","requires_authorization_binding":true}'::jsonb,'{}'::jsonb,true,'HUMAN GATE: authority_kind must be human AND an authorization binding (approved approval or authorizing decision, same project) must exist'),
+  ('specification_operations','change_preparation','controlled_commit',array['human']::text[],'{"effect_class":"gated_transition","requires_authorization_binding":true}'::jsonb,'{}'::jsonb,true,'HUMAN GATE: authority_kind must be human AND an authorization binding (approved approval or authorizing decision, same project) must exist'),
+  ('specification_operations','controlled_commit','output_check',array['human','worker','system']::text[],'{}'::jsonb,'{"required":true}'::jsonb,false,'leaving controlled_commit requires commit evidence (evidence <> {})'),
+  ('specification_operations','output_check','closed',array['human','worker','system']::text[],'{"completion_allowed":true,"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"]}'::jsonb,'{"required_when_to_status_in":["completed"]}'::jsonb,false,'terminal edge: completion only from output_check; completion requires output-check evidence; refuse/cancel also admitted here'),
+  ('specification_operations','intake','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)'),
+  ('specification_operations','evidence','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)'),
+  ('specification_operations','reconciliation','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)'),
+  ('specification_operations','draft_revision','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)'),
+  ('specification_operations','review_preparation','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)'),
+  ('specification_operations','change_preparation','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)'),
+  ('specification_operations','controlled_commit','closed',array['human','worker','system']::text[],'{"completion_status":"completed","terminal":true,"terminal_statuses":["completed","refused","cancelled"],"to_status_in":["refused","cancelled"]}'::jsonb,'{}'::jsonb,false,'refusal/cancellation to closed from any non-terminal phase (edge admitted only for to_status refused|cancelled)')
+) as v(lab_key, from_phase, to_phase, allowed_authority_kinds, entry_condition, exit_evidence_schema, is_human_gate, notes)
+on conflict (lab_key, from_phase, to_phase) do update
+set allowed_authority_kinds = excluded.allowed_authority_kinds,
+    entry_condition = excluded.entry_condition,
+    exit_evidence_schema = excluded.exit_evidence_schema,
+    is_human_gate = excluded.is_human_gate,
+    notes = excluded.notes,
+    active = true,
+    updated_at = now();
