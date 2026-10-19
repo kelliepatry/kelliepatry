@@ -12,6 +12,4 @@ This profile holds the process and tooling side of the practice — the systems 
 
 ---
 
-— writing on hospitality design & operations · [Mise en Place](https://meisenplace.substack.com/)
-
-<!-- studio · KPHD Studio — add the live site link once launched -->
+— [studio work](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · writing on hospitality design & operations at [Mise en Place](https://meisenplace.substack.com/)
