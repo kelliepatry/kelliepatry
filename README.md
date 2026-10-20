@@ -12,4 +12,4 @@ This profile holds the process and tooling side of the practice — the systems 
 
 ---
 
-— [studio work](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · writing on hospitality design & operations at [Mise en Place](https://meisenplace.substack.com/)
+— [studio work](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · writing on hospitality design & operations at [Design Matters](https://meisenplace.substack.com/)
