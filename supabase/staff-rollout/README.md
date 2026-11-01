@@ -5,9 +5,27 @@
 | Rev | Change-set | Candidate sha256 | State |
 | --- | --- | --- | --- |
 | r2 | `dfd2b53e-a1a3-4db4-8638-7dad406a27fd` | `63389acf…f49f` | **Installed** 2026-11-01 16:38 UTC (GOV-20261101-RILEY-HANDOFF-INSTALL) |
-| r3 | `8f2ad6b2-18c1-41c5-9b4d-a1f4d89d4e0d` | `fb652ba29c334fb15f61f4d58b250d4ac6645648a46297a01433a2e23f25aadf` | **Proposed**. Expires 2026-11-02 16:45 UTC. Awaiting Kellie's install approval for this exact hash. |
+| r3 | `8f2ad6b2-18c1-41c5-9b4d-a1f4d89d4e0d` | `fb652ba29c334fb15f61f4d58b250d4ac6645648a46297a01433a2e23f25aadf` | Proposed, superseded. GPT review `c6f833ff`: changes_required. |
+| r4 | `e165a340-e0ff-42eb-9a33-65a23665eef0` | `cb47a08e0fa4eb714673dd42a28bdd46f5ead2e1f0fa42ec99cab464245447ad` | **Proposed**. Expires 2026-11-02 18:55 UTC. Awaiting GPT re-review, then Kellie's exact-hash approval. |
 
 The r3 change-set hash is `d68f153262296c47e42fec31d1f75c9f6fb3af865ac172ef366cb4eae7164b3d`. Its expected state hash is `99390f828c23ca538c87ca66761490f3a363c91d5332697a7e9cc6fce26684cc`; the recipe is in `r3_state_hash.sql`.
+
+## What r4 fixes (GPT review c6f833ff of r3)
+
+- **R3-R1 deadlock.** The per-session lock now comes before the session-row lock. The handoff-then-close composition that deadlocked on r3 (reproduced: `40P01`) completes on r4.
+- **R3-R2 isolation.** Callers must run at READ COMMITTED. A REPEATABLE READ caller gets `25000`.
+- **R3-D1 freshness.** State hash v2 (`r4_state_hash.sql`) binds the live call closure (33 functions, with owner, ACL, security mode, volatility and settings), 11 trigger definitions on work_queue, work_events and intake.items, and the 6 organizer contract rows. Value at registration: `0c630e75ba9a2f5ab0f16b5f2311ccb05ebd0a93e1720694585183ae864774a1`.
+- **R3-D2 / R3-I1 tests.** `step2_handoff_to_riley_v1_r4_tests.sql` is pinned to the change-set ID and SHA, fails closed, and adds the auth variants, a positive snapshot write, the isolation refusal and the two-connection close/annotate/same-key/deadlock cases. Receipts are in Supabase checkpoint `0d80f88b-d421-4698-b43d-8d5a9af3ff88`.
+
+### r4 test receipts (2026-11-01, production, every transaction rolled back)
+
+- **Part A: PASS** (pinned e165a340/cb47a08e). First run failed two fixtures on table check constraints (`23514`); fixed (A5 uses `paused`/`retired`; a v3 session cannot have a null thread, so A6 tests legacy-no-thread) and re-run.
+- **ISO: PASS.** REPEATABLE READ → `25000`.
+- **B1/C1: PASS.** Holder pid 1124779, 18:58:07–18:58:32 UTC. Distinct-key create, same-key create, session close and a competing annotate from a second session all `55P03`. Installed r2 let a second create through.
+- **B2/C2 r3 control:** deadlock reproduced, holder close `40P01`.
+- **B2/C2 r4: PASS.** Holder close `NOERR`, contender completed after 3.9 s.
+- **Not tested:** the committed 9→10 boundary with a contender resuming after the holder commits, and outcomes that need a committed winner. A Supabase branch was tried and failed to replay migrations (33 of 635), so it was deleted.
+- The change-set metadata records the pre-run test-file hash (`dae14a5c…`). The file as run is `723c64e3727b0178db66a5dadf60e9b7b1edcde873e93362df36669ced2d2c53`; the only difference is the two fixture fixes.
 
 ## What r3 fixes (GPT source-bound review of r2)
 
