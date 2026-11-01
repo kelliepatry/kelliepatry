@@ -10,6 +10,18 @@
 
 The r3 change-set hash is `d68f153262296c47e42fec31d1f75c9f6fb3af865ac172ef366cb4eae7164b3d`. Its expected state hash is `99390f828c23ca538c87ca66761490f3a363c91d5332697a7e9cc6fce26684cc`; the recipe is in `r3_state_hash.sql`.
 
+## Route check: PASSED (2026-11-01 19:56 UTC)
+
+- **Route check 2 `02074ec9-2c10-47e1-a20b-e65d15a53b10`** (research_evidence) went through every step:
+  - created 19:53:57 via the installed r4 `handoff_to_riley_v1`;
+  - listed by `dot_next_work_v1`;
+  - claimed (`dot_claim`, actor chatgpt_dot) and completed (`dot_progress` complete) at 19:56:17;
+  - final state `complete / completed / completed`, no longer listed.
+
+  Kellie ran the claim and complete in the SQL editor on Riley's behalf, through Dot's own functions. The organizer requests and assessments fired as disclosed.
+- **Route check 1 `1cae1c73`** could not be completed. It was classed `internal_working_state`, and `core.project_delivery_action_policies` sets that class to `prepare_only`, so Dot's complete returns `42501 must go to review`. It was then released at 19:51, which cleared `assigned_agt`. It now sits `active / ready`, unassigned, and is still listed in `dot_next_work_v1`.
+- **Design note:** `handoff_to_riley_v1` defaults `action_class` to `internal_working_state`, so default handoffs can only go to review. Work Riley should close herself must be handed off as `research_evidence` or `prepare_candidate`.
+
 ## GPT review of r4 (b8dd7797, accept_with_findings)
 
 No production-function defect found. Open items:
