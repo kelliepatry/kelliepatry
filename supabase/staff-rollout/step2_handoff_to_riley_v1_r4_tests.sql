@@ -292,6 +292,7 @@ $c1$;
 do $b2$
 declare v text := current_setting('kphd.b2_version'); close_state text; t0 timestamptz := clock_timestamp(); t1 timestamptz;
 begin
+  if v is null or v not in ('r3','r4') then raise exception 'TESTRESULTS(rolled back) PART B2 FAIL: kphd.b2_version must be r3 or r4, got %', v; end if;
   if v = 'r4' then perform pg_temp.load(current_setting('kphd.cs_id'), current_setting('kphd.cs_sha'), 'h');
   else perform pg_temp.load(current_setting('kphd.ctl_id'), current_setting('kphd.ctl_sha'), 'h'); end if;
   perform pg_advisory_xact_lock(hashtextextended('r4test:B2:' || v, 0));
@@ -313,6 +314,7 @@ $b2$;
 do $c2$
 declare v text := current_setting('kphd.b2_version'); holder int; got text; t0 timestamptz; verdict text;
 begin
+  if v is null or v not in ('r3','r4') then raise exception 'TESTRESULTS(rolled back) PART C2 FAIL: kphd.b2_version must be r3 or r4, got %', v; end if;
   if v = 'r4' then perform pg_temp.load(current_setting('kphd.cs_id'), current_setting('kphd.cs_sha'), 'h');
   else perform pg_temp.load(current_setting('kphd.ctl_id'), current_setting('kphd.ctl_sha'), 'h'); end if;
   holder := pg_temp.wait_for('r4test:B2:' || v, 40);
@@ -329,3 +331,38 @@ begin
     v, pg_backend_pid(), holder, got, clock_timestamp() - t0, verdict);
 end
 $c2$;
+
+---------------------------------------------------------------------------------------------------------
+-- PART V (verifier, any connection; read-only). Answers GPT review b8dd7797 finding R4-D1: B2 and C2 run on
+-- separate connections and cannot see each other's results, so the pair is asserted here from their verbatim
+-- outputs. Set, in the same call:
+--   kphd.b2_version = 'r3' | 'r4'
+--   kphd.b2_out     = the holder's full TESTRESULTS text (PART B2 ...)
+--   kphd.c2_out     = the contender's full TESTRESULTS text (PART C2 ...)
+-- PASS requires: both texts are for the same version; the contender observed exactly the holder's pid; and
+--   r4: holder close NOERR and contender NOERR (no 40P01 anywhere)
+--   r3: exactly one of the two is 40P01 (the deadlock control reproduced)
+---------------------------------------------------------------------------------------------------------
+do $v$
+declare
+  v  text := current_setting('kphd.b2_version');
+  b  text := current_setting('kphd.b2_out');
+  c  text := current_setting('kphd.c2_out');
+  b_ver text := substring(b from 'PART B2 version=(r[34])');
+  c_ver text := substring(c from 'PART C2 version=(r[34])');
+  b_pid text := substring(b from 'PART B2 version=r[34] pid=([0-9]+)');
+  c_holder text := substring(c from ' holder=([0-9]+)');
+  b_close text := substring(b from 'close_in_holder=([0-9A-Z]+)');
+  c_state text := substring(c from ' contender=([0-9A-Z]+)');
+  fails text := '';
+begin
+  if v is null or v not in ('r3','r4') then fails := fails || 'bad_version '; end if;
+  if b_ver is distinct from v or c_ver is distinct from v then fails := fails || 'version_mismatch(' || coalesce(b_ver,'?') || '/' || coalesce(c_ver,'?') || ') '; end if;
+  if b_pid is null or c_holder is distinct from b_pid then fails := fails || 'holder_pid_mismatch(' || coalesce(b_pid,'?') || '/' || coalesce(c_holder,'?') || ') '; end if;
+  if b_close is null or c_state is null then fails := fails || 'unparsed_result '; end if;
+  if v = 'r4' and not (b_close = 'NOERR' and c_state = 'NOERR') then fails := fails || 'r4_expected_both_NOERR '; end if;
+  if v = 'r3' and not ((b_close = '40P01') <> (c_state = '40P01')) then fails := fails || 'r3_expected_exactly_one_40P01 '; end if;
+  raise exception using errcode='P0001', message = format('TESTRESULTS PART V version=%s holder_pid=%s holder_close=%s contender=%s %s',
+    v, b_pid, b_close, c_state, case when fails = '' then 'PASS' else 'FAIL: ' || fails end);
+end
+$v$;

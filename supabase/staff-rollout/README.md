@@ -14,9 +14,12 @@ The r3 change-set hash is `d68f153262296c47e42fec31d1f75c9f6fb3af865ac172ef366cb
 
 No production-function defect found. Open items:
 
-- **R4-D1 (test harness):** B2/C2 need a combined assertion. Today a reader must pair the holder and contender results by hand.
-- **R4-R1:** concurrency outcomes that need a committed winner are still untested, and the checkpoint holds structured summaries rather than verbatim driver output.
-- **R4-R2:** lock ordering is guaranteed within one call only. The supported pattern is one handoff per transaction, optionally followed by a same-session close; batched calls need a consistent order.
+- **R4-D1 (test harness): closed.** B2 and C2 now reject any version other than r3/r4, and the new Part V asserts the pair from their verbatim outputs: the same version, the contender observed the holder's pid, r4 both `NOERR`, r3 exactly one `40P01`. On the recorded runs, r4 is PASS and the r3 control is PASS; a deliberately broken pair FAILs on both checks.
+- **R4-R1:** concurrency outcomes that need a committed winner remain **NOT TESTED** (GPT: keep that status; do not run committed production fixtures). The verbatim B2/C2 driver outputs are now stored in Supabase checkpoint `2c08eabf-9073-44d6-b7cb-b1f355dbd38d`.
+- **R4-R2: documented contract.** Supported usage of `studio_api.handoff_to_riley_v1`:
+  - one handoff call per transaction, optionally followed by `studio_api.end_work_v1` on the same session;
+  - the caller must not already hold a `runtime.work_queue` row lock or the session row FOR UPDATE;
+  - batched calls are unsupported. If one is ever needed, sort by (session_id, request_key, task_id) and retry the whole transaction on `40P01`.
 - **R4-I1:** state hash v2 is a bounded manifest; its exclusion classes are listed in `r4_state_hash.sql`. The live hash after install is `706ac035102b5e24025bcb82f0df51316b7555e2b52dec4d3d7d1141219d4de3`.
 - **R4-I2:** both test-file identities are kept (registration `dae14a5c…`, as run `723c64e3…`).
 
