@@ -19,7 +19,7 @@ The r3 change-set hash is `d68f153262296c47e42fec31d1f75c9f6fb3af865ac172ef366cb
   - final state `complete / completed / completed`, no longer listed.
 
   Kellie ran the claim and complete in the SQL editor on Riley's behalf, through Dot's own functions. The organizer requests and assessments fired as disclosed.
-- **Route check 1 `1cae1c73`** could not be completed. It was classed `internal_working_state`, and `core.project_delivery_action_policies` sets that class to `prepare_only`, so Dot's complete returns `42501 must go to review`. It was then released at 19:51, which cleared `assigned_agt`. It now sits `active / ready`, unassigned, and is still listed in `dot_next_work_v1`.
+- **Route check 1 `1cae1c73`** could not be completed. It was classed `internal_working_state`, and `core.project_delivery_action_policies` sets that class to `prepare_only`, so Dot's complete returns `42501 must go to review`. It was then released at 19:51, which cleared `assigned_agt`. It was then suppressed at Kellie's direction ("you decide"): `waiting / suppressed`, evidence kept, work_event `06e99204`, and it is no longer in Riley's queue.
 - **Design note:** `handoff_to_riley_v1` defaults `action_class` to `internal_working_state`, so default handoffs can only go to review. Work Riley should close herself must be handed off as `research_evidence` or `prepare_candidate`.
 
 ## GPT review of r4 (b8dd7797, accept_with_findings)
