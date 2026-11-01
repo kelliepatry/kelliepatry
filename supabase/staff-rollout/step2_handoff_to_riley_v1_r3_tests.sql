@@ -153,7 +153,7 @@ end
 $t$;
 
 ---------------------------------------------------------------------------------------------------------
--- PART B1 (holder): takes the per-session lock via a create, holds it for 8 s, then rolls back.
+-- PART B1 (holder): takes the per-session lock via a create, holds it for 45 s, then rolls back.
 ---------------------------------------------------------------------------------------------------------
 do $b1$
 declare v_sql text; r jsonb; t0 timestamptz := clock_timestamp();
@@ -163,23 +163,32 @@ begin
   execute replace(v_sql, 'studio_api.handoff_to_riley_v1', 'pg_temp.handoff_to_riley_v1');
   r := pg_temp.handoff_to_riley_v1('model:anthropic:claude', current_setting('kphd.test_session')::uuid, 'r5-holder', 'create', null, null,
          '{"title":"TEST r5 holder","outcome_required":"x","acceptance_test":"x"}');
-  perform pg_sleep(8);
+  perform pg_sleep(45);
   raise exception using errcode='P0001', message = format('TESTRESULTS(rolled back) R5-B1 pid=%s locked_at=%s released_at=%s created=%s',
     pg_backend_pid(), t0, clock_timestamp(), r->>'task_id');
 end
 $b1$;
 
 ---------------------------------------------------------------------------------------------------------
--- PART B2 (contender): starts 2 s later on another connection.
+-- PART B2 (contender): another connection. Polls pg_locks (up to 30 s) until a different backend holds the
+-- r3 session advisory lock for the test session, then:
 --   control: installed studio_api version (r2, no session lock) -> expected to proceed (shows the race)
 --   r3     : pg_temp r3 with lock_timeout 2 s -> expected 55P03 (blocked by B1's session lock)
+-- holder_pid_seen=NONE means the two parts did not overlap and the run is inconclusive.
 ---------------------------------------------------------------------------------------------------------
 do $b2$
-declare v_sql text; c text := 'NOERR'; e text := 'NOERR'; t0 timestamptz; t1 timestamptz;
+declare v_sql text; c text := 'NOERR'; e text := 'NOERR'; t0 timestamptz; t1 timestamptz; seen_pid int; ii int;
   S uuid := current_setting('kphd.test_session')::uuid;
+  k bigint := hashtextextended('claude-riley-handoff:session:' || current_setting('kphd.test_session'), 0);
   ok jsonb := '{"title":"TEST r5 contender","outcome_required":"x","acceptance_test":"x"}';
 begin
-  perform pg_sleep(2);
+  for ii in 1..60 loop
+    select pid into seen_pid from pg_locks
+     where locktype='advisory' and granted and objsubid=1 and pid <> pg_backend_pid()
+       and classid = ((k >> 32) & 4294967295)::bigint::oid and objid = (k & 4294967295)::bigint::oid limit 1;
+    exit when seen_pid is not null;
+    perform pg_sleep(0.5);
+  end loop;
   select metadata->>'candidate_sql' into v_sql from guard.controlled_change_sets
    where metadata->>'candidate_key' = 'staff-rollout-step2-r3' order by proposed_at desc limit 1;
   execute replace(v_sql, 'studio_api.handoff_to_riley_v1', 'pg_temp.handoff_to_riley_v1');
@@ -191,7 +200,7 @@ begin
   begin perform pg_temp.handoff_to_riley_v1('model:anthropic:claude', S, 'r5-contender', 'create', null, null, ok);
   exception when others then e := sqlstate; end;
   raise exception using errcode='P0001', message = format(
-    'TESTRESULTS(rolled back) R5-B2 pid=%s control_installed=%s at=%s r3=%s at=%s end=%s',
-    pg_backend_pid(), c, t0, e, t1, clock_timestamp());
+    'TESTRESULTS(rolled back) R5-B2 pid=%s holder_pid_seen=%s control_installed_r2=%s at=%s r3=%s at=%s end=%s',
+    pg_backend_pid(), coalesce(seen_pid::text,'NONE'), c, t0, e, t1, clock_timestamp());
 end
 $b2$;
