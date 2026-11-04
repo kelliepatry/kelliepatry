@@ -34,6 +34,10 @@ The whole practice on one map: every project, every phase it passed through, and
 
 ---
 
+### Writing from the process side
+
+- [A record graph for a one-person design practice](./articles/record-graph-one-person-practice.md) — working paper, November 2026. How a live graph over the studio record showed decision lineage, scope drift and missing ownership that tables did not, positioned against design rationale, traceability, provenance and digital-thread research. Measures, threats to validity and what is not done yet are in the paper.
+
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
 
 [KPHD Index](https://kelliepatry.com/index) · [Studio](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · [Design Matters on Substack](https://meisenplace.substack.com/)
