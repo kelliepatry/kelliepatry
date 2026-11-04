@@ -14,6 +14,10 @@ The whole practice on one map: every project, every phase it passed through, and
 
 ---
 
+**Planning a hospitality project?** Start with “Where are you in your project?” in the [client index](https://kelliepatry.com/index). You can explore freely or email one question about where to begin.
+
+**Introducing your work?** We welcome commercial trade introductions, especially from Los Angeles makers. Include your workshop or company, service area, how you work with designers, and one relevant example. Bench photographs and one reference are welcome. Read the [trade submission guidance](https://kelliepatry.com/for-assistants) before sending. A submission carries no promise of a meeting or commission.
+
 ### On the list
 
 | Bars | Coffee | Restaurant · Hotel |
