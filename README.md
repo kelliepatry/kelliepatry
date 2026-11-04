@@ -36,7 +36,7 @@ The whole practice on one map: every project, every phase it passed through, and
 
 ### Writing from the process side
 
-- [A record graph for a one-person design practice](./articles/record-graph-one-person-practice.md) — working paper, November 2026. How a live graph over the studio record showed decision lineage, scope drift and missing ownership that tables did not, positioned against design rationale, traceability, provenance and digital-thread research. Measures, threats to validity and what is not done yet are in the paper.
+- [What your project record is not telling you](./articles/record-graph-one-person-practice.md) — working paper, November 2026. For small practices: what a live graph over your own record will show you that tables do not (unlinked decisions, scope drift, empty seats), what to build, what to measure, and what the research already settled.
 
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
 
