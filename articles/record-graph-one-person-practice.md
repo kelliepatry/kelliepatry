@@ -4,6 +4,8 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · 4 November 2026 · working draft v0.2**
 
+![A painted face dissolving into horizontal glitch bands: the record is readable in places and torn in others](../assets/record-graph-header.jpg)
+
 > This is a working paper, not a result. The evidence is one practice over two days. The measures in section 7 have a baseline and no second reading. Section 9 lists what has not been done. Read it as a method you could try and a set of claims you should test, and say where it is wrong.
 
 ## Abstract
