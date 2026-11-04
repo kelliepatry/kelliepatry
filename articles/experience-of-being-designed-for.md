@@ -14,7 +14,11 @@ There is a tension between the practical and the emotional, and much of our desi
 
 Recently, I have been thinking about another experience that deserves the same attention: **what it feels like to be the client while that space is being designed.**
 
-> **A place made from decisions.** [The Normandie Club — KPHD project photographs](https://kelliepatry.com/projects/the-normandie-club). The finished environment is the visible result of design judgments, operational needs, and coordination. The gallery is linked rather than reproduced here until image reuse and photographer credit are confirmed.
+![The Normandie Club, Los Angeles — a finished room composed around the hospitality experience.](https://framerusercontent.com/images/a85wwnNbtEL4RkwgvdZ0lOSCM4M.jpg?height=1067&width=1600)
+
+*The Normandie Club, Los Angeles. Photography: Wonho Frank Lee. Photograph reproduced with permission confirmed by KPHD's principal. [Project gallery](https://kelliepatry.com/projects/the-normandie-club).*
+
+The finished environment is the visible result of design judgments, operational needs, and coordination.
 
 ## The experience before the experience
 
