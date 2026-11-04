@@ -1,15 +1,39 @@
-<img src="./assets/kphd-wordmark.svg" alt="[KP/HD] — Kellie Patry Hospitality Design" width="100%">
+<a href="https://kelliepatry.com/index"><img src="./assets/kphd-wordmark.svg" alt="[KP/HD] — Kellie Patry Hospitality Design" width="100%"></a>
 
-# kellie patry
+# Design is the operator's strategy, made physical.
 
-hospitality designer · principal, KPHD Studio · los angeles
+**Kellie Patry** · principal, KPHD Studio · Los Angeles
 
-I design restaurants, bars, and hotels — spaces where an operator's point of view has to survive contact with guests, staff, and margin. Selected work: Normandie Club, Walker Inn, Honeycut, Blacktop.
+KPHD is an operator-first hospitality design studio. Bars, restaurants, cafés, hotels — rooms that have to win over guests, work for staff and hold margin, all on the same night. Front and back of house are one project. Plans are tuned to service flow and revenue up front, not corrected after permit. We're not decorating rooms. We're building businesses.
 
-Design isn't decoration here — it's the operator's strategy made physical. Materials carry memory before anyone reads a room. Plans get tuned to service flow and revenue up front, not corrected after permit. A 3D model is the design contract that carries intent through to fabrication.
+<a href="https://kelliepatry.com/index"><img src="./assets/kphd-index-card.svg" alt="KPHD Index — 17 projects, 6 place types, 5 stages, 14 Field Notes. Open the index at kelliepatry.com/index." width="100%"></a>
 
-This profile holds the process and tooling side of the practice — the systems behind the design work, not the project photography (that lives at the studio site).
+### → [Enter the KPHD Index](https://kelliepatry.com/index)
+
+The whole practice on one map: every project, every phase it passed through, and the Field Notes written along the way. Filter by stage: Discovery · Design · Documents + permits · Build · Opening.
 
 ---
 
-— [studio work](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · writing on hospitality design & operations at [Design Matters](https://meisenplace.substack.com/)
+### On the list
+
+| Bars | Coffee | Restaurant · Hotel |
+|---|---|---|
+| [The Normandie Club](https://kelliepatry.com/projects/the-normandie-club) | [Equator Coffees](https://kelliepatry.com/projects/equator-coffees-culver-city) | [Kensho](https://kelliepatry.com/projects/kensho) |
+| [Walker Inn](https://kelliepatry.com/projects/walker-inn) | [Dedo Coffee](https://kelliepatry.com/projects/dedo-coffee-long-beach) | [The Bungalow at The Lafayette Hotel](https://kelliepatry.com/projects/the-bungalow) |
+| [Seven Grand](https://kelliepatry.com/projects/seven-grand) | [Blacktop](https://kelliepatry.com/projects/blacktop) | |
+| [The Barrelhouse Flat](https://kelliepatry.com/projects/the-barrelhouse-flat) | [The Assembly](https://kelliepatry.com/projects/the-assembly) | |
+| [Honeycut](https://kelliepatry.com/projects/honeycut) | | |
+
+[All 17 projects →](https://kelliepatry.com/index)
+
+### Read first
+
+- [An operator-first design firm](https://kelliepatry.com/notes/operator-first-design-firm)
+- [The room has two sides](https://kelliepatry.com/notes/the-room-has-two-sides)
+- [Is your hospitality project ready for design?](https://kelliepatry.com/notes/hospitality-project-ready-for-design)
+
+---
+
+**Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
+
+[KPHD Index](https://kelliepatry.com/index) · [Studio](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · [Design Matters on Substack](https://meisenplace.substack.com/)

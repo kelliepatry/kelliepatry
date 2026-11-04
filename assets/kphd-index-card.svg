@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="t d">
+  <title id="t">KPHD Index</title>
+  <desc id="d">The KPHD Index: 17 projects, 6 place types, 5 stages, 14 Field Notes. Open at kelliepatry.com/index.</desc>
+  <defs>
+    <style>
+      .m{font-family:'Space Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace}
+    </style>
+  </defs>
+  <rect width="1200" height="440" fill="#161615"/>
+
+  <!-- sheet frame -->
+  <rect x="48" y="40" width="1104" height="360" fill="none" stroke="#3A3A38" stroke-width="1"/>
+  <line x1="48" y1="88" x2="1152" y2="88" stroke="#3A3A38" stroke-width="1"/>
+  <text x="72" y="71" class="m" font-size="15" letter-spacing="3.2" fill="#A6A6A3">SHEET IX — KPHD INDEX</text>
+  <text x="1128" y="71" text-anchor="end" class="m" font-size="15" letter-spacing="3.2" fill="#7C7C79">KELLIEPATRY.COM/INDEX</text>
+
+  <!-- headline -->
+  <text x="72" y="168" class="m" font-size="54" font-weight="700" letter-spacing="-1.5" fill="#F4F4F2">Every room. Every phase.</text>
+  <text x="72" y="222" class="m" font-size="54" font-weight="700" letter-spacing="-1.5" fill="#7C7C79">Every note behind it.</text>
+
+  <!-- scan bar -->
+  <rect x="72" y="246" width="420" height="3" fill="#F4F4F2"/>
+  <rect x="500" y="246" width="64" height="3" fill="#7C7C79"/>
+  <rect x="572" y="246" width="16" height="3" fill="#3A3A38"/>
+
+  <!-- counts -->
+  <g class="m">
+    <text x="72"  y="312" font-size="44" font-weight="700" fill="#F4F4F2">17</text>
+    <text x="72"  y="338" font-size="13" letter-spacing="2.6" fill="#A6A6A3">PROJECTS</text>
+    <text x="272" y="312" font-size="44" font-weight="700" fill="#F4F4F2">06</text>
+    <text x="272" y="338" font-size="13" letter-spacing="2.6" fill="#A6A6A3">PLACE TYPES</text>
+    <text x="472" y="312" font-size="44" font-weight="700" fill="#F4F4F2">05</text>
+    <text x="472" y="338" font-size="13" letter-spacing="2.6" fill="#A6A6A3">STAGES</text>
+    <text x="672" y="312" font-size="44" font-weight="700" fill="#F4F4F2">14</text>
+    <text x="672" y="338" font-size="13" letter-spacing="2.6" fill="#A6A6A3">FIELD NOTES</text>
+  </g>
+
+  <!-- stage strip -->
+  <g class="m" font-size="12" letter-spacing="2" fill="#7C7C79">
+    <line x1="880" y1="128" x2="880" y2="352" stroke="#3A3A38"/>
+    <circle cx="880" cy="140" r="5" fill="#F4F4F2"/><text x="900" y="144">DISCOVERY</text>
+    <circle cx="880" cy="190" r="5" fill="#F4F4F2"/><text x="900" y="194">DESIGN</text>
+    <circle cx="880" cy="240" r="5" fill="#F4F4F2"/><text x="900" y="244">DOCUMENTS + PERMITS</text>
+    <circle cx="880" cy="290" r="5" fill="#F4F4F2"/><text x="900" y="294">BUILD</text>
+    <circle cx="880" cy="340" r="5" fill="#F4F4F2"/><text x="900" y="344">OPENING</text>
+  </g>
+
+  <!-- CTA -->
+  <text x="1152" y="428" text-anchor="end" class="m" font-size="15" letter-spacing="3.2" fill="#F4F4F2">OPEN THE INDEX  →</text>
+  <text x="48" y="428" class="m" font-size="13" letter-spacing="2.6" fill="#7C7C79">COFFEE · BAR · RESTAURANT · HOTEL · RETAIL + SALON · KITCHEN + WORKPLACE</text>
+</svg>
