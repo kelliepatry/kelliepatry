@@ -36,6 +36,7 @@ The whole practice on one map: every project, every phase it passed through, and
 
 ### Writing from the process side
 
+- [The Experience of Being Designed For](./articles/experience-of-being-designed-for.md) — how the ambition to create places that amaze and lift the spirit extends to the client's experience of design, decisions and project continuity.
 - [What your project record is not telling you](./articles/record-graph-one-person-practice.md) — working paper, November 2026. For small practices: what a live graph over your own record will show you that tables do not (unlinked decisions, scope drift, empty seats), what to build, what to measure, and what the research already settled.
 
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
