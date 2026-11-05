@@ -2,7 +2,7 @@
 
 ### Brain, ontology, fascia, orchestration: how a very small practice stops paying the AI guessing tax
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · v1.1**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · v1.2**
 
 ![A hospitality floor plan glitching into a typed node graph: on the left, the room in warm and cool channels slightly out of register; on the right, the same room as a record, every table, booth and station a node, joined by fibrous links](../assets/anatomy-header.png)
 
@@ -22,6 +22,8 @@ A small business has none of those people. If you are a team of one or five, eve
 
 The adoption data shows the gap. In the US Census Bureau's Business Trends and Outlook Survey, about one business in five reported using AI in the period to early May 2026. Among firms with 250 or more employees the rate was 37%. Among firms with four or fewer it was under 20%. Over those six months, use rose among firms with 20 or more employees and didn't change significantly among smaller ones [1].
 
+![Fig. 1. Horizontal bar chart of AI use by firm size: 250+ employees 37%, 100 to 249 employees 32%, all US businesses 19.8%, 1 to 4 employees under 20% (shown as an upper bound). Use rose among firms with 20+ employees; no significant change among smaller firms. Source: US Census Bureau BTOS, Dec 2025 to May 2026.](../assets/anatomy-fig-1.png)
+
 Private surveys of small-business owners report much higher numbers, because they ask a looser question: does the owner use any AI tool at all [2]? Both can be true. Small firms try the tools. Fewer of them get the tools into how the business actually runs.
 
 Our argument is that the difference is rarely the model. It's what the model can read, and whether what it reads holds together.
@@ -31,6 +33,8 @@ Our argument is that the difference is rarely the model. It's what the model can
 When you ask a language model about your business, it has two sources. One is what it learned in training, which knows nothing about you. The other is what you give it now. When the second is missing or contradictory, the model fills the gap with something plausible. Researchers call this hallucination: fluent output that isn't faithful to the source, or isn't true [3].
 
 The obvious fix is to give it more: paste in the folder, attach the thread. That helps less than you'd think. Models use long inputs unevenly. In controlled tests, accuracy was highest when the key fact sat at the start or end of the input, and dropped sharply when it sat in the middle [4]. More text is not more understanding.
+
+![Fig. 2. Schematic U-shaped curve: model accuracy is highest when the key fact sits at the start or end of a long input and lowest when it sits in the middle. Shape after Liu et al. 2023; not their data.](../assets/anatomy-fig-2.png)
 
 What works better is grounding. Retrieval-augmented generation, introduced in 2020, lets a model look things up in an outside store, so its answers come from evidence rather than from memory alone [5]. Pulling up isolated passages has limits, though. It struggles with questions about the whole, like "what are the main themes here?" Graph-based retrieval handles those better. It first maps the things in a collection and how they relate, then reasons over groups of related things [6].
 
@@ -46,9 +50,13 @@ All of these assume one reader: you. We changed the reader. Once AI does real wo
 
 So our working definition became: **a second brain is a record that both minds can read, where the connections carry as much meaning as the contents.**
 
+![Fig. 3. Two readers, one record: a person (warm circle, browses and remembers) and a model (cool square, reads literally and forgets last week) both read the same record, drawn as a box of typed nodes joined by links. The connections carry as much meaning as the contents.](../assets/anatomy-fig-3.png)
+
 The definition has four parts. We named them after anatomy because the comparison holds up: one body, different tissues, and none of them works alone.
 
 ## 4. The anatomy
+
+![Fig. 4. The anatomy in four layers. 01 Brain: one record, one authority, with dashed copies beside it. 02 Ontology: a short fixed list of types: decision (circle), project (square), study (triangle), owner (diamond), rule (three lines). 03 Fascia: links drawn as fibre bundles that carry change from node to node. 04 Orchestration: a central model routes work to four workers, with a person at the start (intention) and at the end (decision).](../assets/anatomy-fig-4.png)
 
 ### The brain: one record that holds what is true
 
@@ -73,6 +81,8 @@ Researchers studying how language models and knowledge graphs can work together 
 Fascia is the connective tissue that wraps and links the body's muscles and organs. For a long time anatomists treated it as packing material. Research over the last twenty years shows more: fascia forms a body-wide network that passes force from one muscle to its neighbours and along whole chains of muscles. That overturns the old picture of muscles as independent motors [13].
 
 Records work the same way. A decision isn't a standalone object. It came from somewhere, it governs something, and one day something will replace it. The links carry that force. When a decision changes, the links are how the change reaches everything it touches. Where a link is missing, the change stops.
+
+![Fig. 5. Fascia: a changed decision pulses (warm) and the change travels along fibre-bundle links to a rule, a project, a study and another decision. A dotted, missing link leads to a dashed absent record, where the change stops. An orphan study floats unconnected: no origin, no effect.](../assets/anatomy-fig-5.png)
 
 Our rule is that nothing floats. Every record links to where it came from and to what it affects. A record with no links is either a gap to fix or leftover to archive.
 
@@ -99,6 +109,8 @@ Put the four layers together and you get a loop:
 3. **Work inside that frame.**
 4. **Write back and link.** The decision, the change or the open question goes into the record, with its type and its links.
 5. **The next read starts further ahead.**
+
+![Fig. 6. The cycle as a loop of five steps: 1 state the intention (one line), 2 read before speaking (rules and current state), 3 work inside the frame, 4 write back and link (typed, same turn), 5 the next read starts ahead. Centre: fewer blanks to fill.](../assets/anatomy-fig-6.png)
 
 The model doesn't get smarter. It gets fewer blanks to fill. That's the whole mechanism, and it compounds: every turn that writes back improves the next turn's read.
 
@@ -163,6 +175,8 @@ NON-GOAL   Replacing human judgment. The model routes and checks; people decide.
 | `intention` | A one-line statement of the desired outcome, set by a person. | |
 | `orphan` | A record with no origin link. Always a defect. | |
 | `absence` | An expected record that does not exist. Report it as a finding, not a null. | dashed node |
+
+Figure 4 encodes this table visually and Figure 6 encodes II.5. Their alt text carries the same content for readers that can't see images.
 
 ## II.3 Minimal record schema
 
