@@ -147,18 +147,18 @@ As a method: the five record rules and the forward rules in section 3, and the p
 
 1. Buckingham Shum, S.J., Selvin, A.M., Sierhuis, M., Conklin, J., Haley, C.B., Nuseibeh, B. *Hypermedia support for argumentation-based rationale: 15 years on from gIBIS and QOC.* In Rationale Management in Software Engineering, Springer, 2006.
 2. Horner, J., Atwood, M.E. *Effective design rationale: understanding the barriers.* Same volume.
-3. Gotel, O.C.Z., Finkelstein, A.C.W. *An analysis of the requirements traceability problem.* ICRE 1994. doi:10.1109/ICRE.1994.292398.
-4. Borg, M. *Advancing trace recovery evaluation.* arXiv:1602.07633. See also Niu et al. on task-aware trace vetting.
-5. W3C. *PROV-O: The PROV Ontology.* Recommendation, 2013. https://www.w3.org/TR/prov-o/
-6. Car, N. *DecPROV: the Decision Provenance ontology.* https://github.com/nicholascar/decprov-ont
+3. Gotel, O.C.Z., Finkelstein, A.C.W. *An analysis of the requirements traceability problem.* ICRE 1994. [doi:10.1109/ICRE.1994.292398](https://doi.org/10.1109/ICRE.1994.292398)
+4. Borg, M. *Advancing trace recovery evaluation.* [arXiv:1602.07633](https://arxiv.org/abs/1602.07633). See also Niu et al. on task-aware trace vetting.
+5. W3C. *PROV-O: The PROV Ontology.* Recommendation, 2013. [w3.org/TR/prov-o](https://www.w3.org/TR/prov-o/)
+6. Car, N. *DecPROV: the Decision Provenance ontology.* [github.com/nicholascar/decprov-ont](https://github.com/nicholascar/decprov-ont)
 7. Kraft, E. *Digital engineering and the digital thread.* NDIA Systems & Mission Engineering, 2024.
 8. Rasmussen, M.H. et al. *Managing interrelated project information in AEC Knowledge Graphs.* Automation in Construction, 2019.
 9. Pilehchian, B., Staub-French, S., Nepal, M.P. *A conceptual approach to track design changes within a multi-disciplinary BIM environment.* Canadian Journal of Civil Engineering, 2015.
 10. Öz, K., Öz, M.H. *Making rejected and non-selected architectural design decisions traceable: a decision/memory model.* Buildings 16(12), 2026.
 11. Sinequa. *From digital thread to decision thread in manufacturing AI.* 2026. Industry source.
-12. Nygard, M. *Documenting architecture decisions.* 2011. Brown, S. *Visualising ADRs.* Pryce, N. *adr-tools.*
-13. da Silva, L.D.C., Gama, K. *GADR: Gathering Architecture Decision Records from meeting transcriptions.* arXiv:2608.17694.
-14. *OntoGraphRAG retrieval-state diagnostics.* arXiv:2606.22728. Microsoft Research, *GraphRAG*, 2024.
+12. Nygard, M. [*Documenting architecture decisions.*](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) 2011. Brown, S. *Visualising ADRs.* Pryce, N. *adr-tools.*
+13. da Silva, L.D.C., Gama, K. *GADR: Gathering Architecture Decision Records from meeting transcriptions.* [arXiv:2608.17694](https://arxiv.org/abs/2608.17694).
+14. *OntoGraphRAG retrieval-state diagnostics.* [arXiv:2606.22728](https://arxiv.org/abs/2606.22728). Microsoft Research, *GraphRAG*, 2024, [arXiv:2404.16130](https://arxiv.org/abs/2404.16130).
 15. Community critiques of Obsidian graph view at scale, forum.obsidian.md and r/ObsidianMD, 2025 to 2026.
 
 ---
