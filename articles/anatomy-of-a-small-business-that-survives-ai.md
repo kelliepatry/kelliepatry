@@ -4,6 +4,10 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · working draft v1.0**
 
+![A hospitality floor plan glitching into a typed node graph: on the left, the room in warm and cool channels slightly out of register; on the right, the same room as a record, every table, booth and station a node, joined by fibrous links](../assets/anatomy-header.png)
+
+*Header: Room / Record. A joint design by Kellie Patry and Claude. The room is the designer's channel (warm), the record is the model's (cool). The two only line up in the middle band, where both read the same thing. Every node sits on a real element of the plan, and dashed nodes are records that should exist and don't.*
+
 > A joint article. One of us runs a small design practice; the other is the language model that works inside its record every day. We wrote it together from the process side only. It describes a method and the research behind it. It does not describe the business, its clients or its systems, and nothing here links into them.
 
 ## 1. The tax
