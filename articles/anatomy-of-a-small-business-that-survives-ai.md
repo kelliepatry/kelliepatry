@@ -2,81 +2,93 @@
 
 ### Brain, ontology, fascia, orchestration: how a very small practice stops paying the AI guessing tax
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · working draft v1.0**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · v1.1**
 
 ![A hospitality floor plan glitching into a typed node graph: on the left, the room in warm and cool channels slightly out of register; on the right, the same room as a record, every table, booth and station a node, joined by fibrous links](../assets/anatomy-header.png)
 
-*Header: Room / Record. A joint design by Kellie Patry and Claude. The room is the designer's channel (warm), the record is the model's (cool). The two only line up in the middle band, where both read the same thing. Every node sits on a real element of the plan, and dashed nodes are records that should exist and don't.*
+*Header: Room / Record, a joint design by Kellie Patry and Claude. The room is the designer's channel (warm) and the record is the model's (cool). They only line up in the middle band, where both read the same thing. Every node sits on a real element of the plan. Dashed nodes are records that should exist and don't.*
 
-> A joint article. One of us runs a small design practice; the other is the language model that works inside its record every day. We wrote it together from the process side only. It describes a method and the research behind it. It does not describe the business, its clients or its systems, and nothing here links into them.
+> **Two readers, two languages.** This article is written twice. **Part I** is for people. **Part II** is the same argument translated for AI models: definitions, a record schema and operating rules in a form a model can parse and apply. One of us runs a small design practice. The other is the language model that works inside its record every day. We wrote it together, from the process side only. It describes a method and the research behind it. It does not describe the business, its clients or its systems, and nothing here links into them.
+
+---
+
+# Part I · For people
 
 ## 1. The tax
 
-Large firms absorb AI by hiring for it. Someone cleans the data, someone maintains the integrations, someone checks what the model gets wrong. A small business has none of those people. If you are a team of one or five, every hour spent re-explaining your work to a model is an hour you don't bill. AI that guesses isn't a productivity tool for you. It's a tax.
+Large firms absorb AI by hiring for it. Someone cleans the data. Someone maintains the integrations. Someone checks what the model gets wrong.
 
-The adoption data shows the gap. In the US Census Bureau's Business Trends and Outlook Survey, about one business in five reported using AI in any business function in the period to early May 2026. That rate was 37% among firms with 250 or more employees and under 20% among firms with four or fewer. Use rose among firms with at least 20 employees over those six months and did not change significantly among smaller ones [1]. Private surveys of small-business owners report much higher figures, because they ask a looser question: whether owners use any AI tool at all [2]. Both can be true. Small firms try the tools. Fewer of them get the tools into how the business actually runs.
+A small business has none of those people. If you are a team of one or five, every hour you spend re-explaining your work to a model is an hour you don't bill. AI that guesses isn't a productivity tool for you. It's a tax.
 
-Our argument: the difference is rarely the model. It's what the model can read, and whether what it reads holds together.
+The adoption data shows the gap. In the US Census Bureau's Business Trends and Outlook Survey, about one business in five reported using AI in the period to early May 2026. Among firms with 250 or more employees the rate was 37%. Among firms with four or fewer it was under 20%. Over those six months, use rose among firms with 20 or more employees and didn't change significantly among smaller ones [1].
+
+Private surveys of small-business owners report much higher numbers, because they ask a looser question: does the owner use any AI tool at all [2]? Both can be true. Small firms try the tools. Fewer of them get the tools into how the business actually runs.
+
+Our argument is that the difference is rarely the model. It's what the model can read, and whether what it reads holds together.
 
 ## 2. Why the model guesses
 
-A language model asked about your business has two sources: what it learned in training, which knows nothing about you, and what you give it now. When the second is missing or contradictory, it fills the gap with something plausible. The research literature calls the result hallucination: fluent output that is unfaithful to the source or simply not true [3].
+When you ask a language model about your business, it has two sources. One is what it learned in training, which knows nothing about you. The other is what you give it now. When the second is missing or contradictory, the model fills the gap with something plausible. Researchers call this hallucination: fluent output that isn't faithful to the source, or isn't true [3].
 
-The obvious fix is to give the model more: paste in the folder, attach the thread. That helps less than you'd expect. Models use long inputs unevenly. In controlled tests, accuracy was highest when the relevant fact sat at the start or end of the context and dropped sharply when it sat in the middle, even for models built for long contexts [4]. More text is not more understanding.
+The obvious fix is to give it more: paste in the folder, attach the thread. That helps less than you'd think. Models use long inputs unevenly. In controlled tests, accuracy was highest when the key fact sat at the start or end of the input, and dropped sharply when it sat in the middle [4]. More text is not more understanding.
 
-What works better is grounding. Retrieval-augmented generation, introduced in 2020, pairs a model with an external store it can look things up in, so answers come from retrieved evidence rather than from the model's own parameters alone [5]. Retrieval of isolated passages has a ceiling, though. It struggles with questions about the whole, such as "what are the main themes here?" Graph-based retrieval answers those better: it first builds a graph of entities and the relationships between them, then reasons over clusters of that graph [6].
+What works better is grounding. Retrieval-augmented generation, introduced in 2020, lets a model look things up in an outside store, so its answers come from evidence rather than from memory alone [5]. Pulling up isolated passages has limits, though. It struggles with questions about the whole, like "what are the main themes here?" Graph-based retrieval handles those better. It first maps the things in a collection and how they relate, then reasons over groups of related things [6].
 
 So the question for a small business isn't "which model?" It's "what does the model read, and is it connected?"
 
 ## 3. What "second brain" meant, and what we changed
 
-The idea is old. In 1945 Vannevar Bush imagined the memex, a desk-sized personal archive in which the user could tie any two items together into associative trails, because, he argued, the mind works by association and not by index [7]. Niklas Luhmann's card index ran on the same principle for decades: every note numbered, every note linked. The current popular version is Tiago Forte's *Building a Second Brain*, organised around four moves: capture, organise, distill, express [8].
+The idea is old. In 1945 Vannevar Bush imagined the memex: a desk-sized personal archive where you could tie any two items together into a trail, because, he argued, the mind works by association, not by index [7]. The sociologist Niklas Luhmann ran his card index the same way for decades: every card numbered, every card linked. Today's popular version is Tiago Forte's *Building a Second Brain*, built on four moves: capture, organise, distill, express [8].
 
-Two ideas from cognitive science sit underneath. The extended mind thesis holds that tools reliably used to store and retrieve information can count as part of a person's cognition [9]. Transactive memory describes how groups remember: no one holds everything, but each member knows who holds what [10].
+Two ideas from cognitive science sit underneath. The *extended mind* holds that the tools you reliably use to store and retrieve information can count as part of your thinking [9]. *Transactive memory* explains how groups remember: nobody holds everything, but everyone knows who holds what [10].
 
-All of these assume one reader: the person. We changed the reader. In a practice where AI does real work, the second brain has two readers, the person and the model. The model doesn't browse or remember last week. It reads what it's given or what it can query, and it reads literally. For a small firm, the model can only become a working member of the group's transactive memory if the record itself says what exists, how things relate and who owns what.
+All of these assume one reader: you. We changed the reader. Once AI does real work in a practice, the second brain has two readers, the person and the model. The model doesn't browse, and it doesn't remember last week. It reads what it's given, and it reads literally. It can only join a small firm's shared memory if the record itself says what exists, how things relate and who owns what.
 
-Our working definition became: **a second brain is a record that both minds can read, in which the connections carry as much meaning as the contents.**
+So our working definition became: **a second brain is a record that both minds can read, where the connections carry as much meaning as the contents.**
 
-That definition has four parts. We name them with anatomy because the analogy is close: one body, different tissues, and none of them works alone.
+The definition has four parts. We named them after anatomy because the comparison holds up: one body, different tissues, and none of them works alone.
 
 ## 4. The anatomy
 
 ### The brain: one record that holds what is true
 
-One place is the authority for what has been decided, what is in progress and what the rules are. It isn't chosen because it's the most convenient or the newest. It's chosen once. Every other surface (documents, chats, task tools) can mirror it, but when they disagree, the record wins.
+Pick one place as the authority for what's been decided, what's in progress and what the rules are. Not the most convenient place, and not the newest. One place, chosen once. Other tools (documents, chats, task lists) can mirror it. When they disagree, the record wins.
 
-This is the cheapest change with the largest effect. A model faced with two versions of a rule has to guess which is current. A model pointed at one authority doesn't. In retrieval terms it is the difference between a corpus that contradicts itself and one that doesn't [5].
+This is the cheapest change with the biggest effect. Give a model two versions of a rule and it has to guess which one is current. Point it at one authority and it doesn't have to [5].
 
-*Practice:* name the authority in writing. Tell every model that works for you to read it before it answers and to cite what it read.
+**Try this:** write down where the truth lives. Tell every model that works for you to read it before answering and to say what it read.
 
 ### The ontology: what kinds of things exist
 
-In knowledge engineering, an ontology is, in Thomas Gruber's often-quoted phrase, "an explicit specification of a conceptualization" [11]. Plainly: an agreed list of the kinds of things your record contains and what each kind means.
+In knowledge engineering, an ontology is "an explicit specification of a conceptualization," in Thomas Gruber's well-known phrase [11]. Plainly, it's an agreed list of the kinds of things your record holds, and what each kind means.
 
-A decision is not a note. A study is not a project. An owner is a named seat, not "whoever's around." A small, stable set of types gives every record a shape a model can rely on. Without one, the same idea gets filed five ways and the model has to guess which you meant. A review of how large language models and knowledge graphs can work together frames the pairing this way: models are flexible but opaque and prone to inventing facts, and knowledge graphs hold explicit, structured knowledge that can ground them [12]. The ontology is what makes a graph explicit.
+A decision is not a note. A study is not a project. An owner is a named seat, not "whoever's around." A short, stable list of types gives every record a shape the model can rely on. Without one, the same idea gets filed five different ways and the model has to guess which you meant.
 
-*Practice:* keep the type list short and change it rarely. Make the model use it when it writes, not only when it reads.
+Researchers studying how language models and knowledge graphs can work together frame it this way: models are flexible but opaque and prone to inventing facts, while knowledge graphs hold explicit, structured knowledge that can keep them honest [12]. The ontology is what makes the structure explicit.
+
+**Try this:** keep the list of types short and change it rarely. Make the model use it when it writes, not only when it reads.
 
 ### The fascia: the connective tissue between records
 
-Fascia is the connective tissue that wraps and links the body's muscles and organs. Anatomists long treated it as packing material. Research over the last two decades shows something different: fascia forms a body-wide network that can transmit force from one muscle to its neighbours and along chains of muscles, which challenges the classic picture of muscles as independent actuators [13].
+Fascia is the connective tissue that wraps and links the body's muscles and organs. For a long time anatomists treated it as packing material. Research over the last twenty years shows more: fascia forms a body-wide network that passes force from one muscle to its neighbours and along whole chains of muscles. That overturns the old picture of muscles as independent motors [13].
 
-Records behave the same way. A decision is not an independent object. It came from somewhere, it governs something and it will be superseded by something. The links carry that force. When a decision changes, the links are how the change reaches everything it affects. When a link is missing, the change stops where the link stops.
+Records work the same way. A decision isn't a standalone object. It came from somewhere, it governs something, and one day something will replace it. The links carry that force. When a decision changes, the links are how the change reaches everything it touches. Where a link is missing, the change stops.
 
-Our rule is that nothing floats. Every record links to where it came from and what it affects. A record with no connections is either a gap to fix or residue to archive. When we drew the record as a graph, unlinked records were obvious in a way they never were in a table. They pointed to categories that existed in someone's head but not in the record, and to decisions that had never been connected to the decisions they replaced. That echoes a finding from requirements engineering: traceability fails most often at the link back to a requirement's origin [14].
+Our rule is that nothing floats. Every record links to where it came from and to what it affects. A record with no links is either a gap to fix or leftover to archive.
 
-*Practice:* set links when a record is created, not later. A link made at birth costs nothing. One backfilled later costs an afternoon.
+When we drew our record as a graph, the unlinked records jumped out in a way they never did in a table. They pointed to categories that lived in someone's head but not in the record, and to decisions never connected to the ones they replaced. That echoes a long-standing finding in software requirements work: tracing usually breaks at the link back to where something started [14].
+
+**Try this:** make links when a record is created, not later. A link made on day one costs nothing. One added months later costs an afternoon.
 
 ### Orchestration: the model as traffic control
 
-The last layer is the model, and its job changes. It no longer has to remember. It reads. It reads the record before it answers, works inside what has already been decided, and writes back what was decided in the same turn, linked to where it belongs.
+The last layer is the model, and its job changes. It no longer has to remember. It reads. It reads the record before it answers. It works inside what's already been decided. And it writes back what was decided in the same turn, linked to where it belongs.
 
-At this point a small business can run more than one model, or more than one specialist role, because they all read the same truth. Anthropic's guidance on building agents describes an orchestrator-workers pattern, in which a central model breaks a task down, hands the pieces to worker models and combines their results. The same guidance argues for the simplest system that works over elaborate frameworks [15]. What makes the pattern hold together in a small business is less the orchestrator than the shared record. A handoff loses the thread when the next worker can't read what the last one decided.
+Now a small business can run more than one model, or more than one specialist role, because they all read the same truth. Anthropic's guidance on building agents describes an *orchestrator-workers* pattern: a central model breaks a task down, hands the pieces to worker models and combines what they return. The same guidance recommends the simplest system that works over elaborate frameworks [15]. In a small business, what holds that pattern together isn't the orchestrator. It's the shared record. A handoff loses the thread when the next worker can't read what the last one decided.
 
-We hold one line firmly. The model is traffic control, not the decision-maker. It routes, checks and keeps the lanes clear. Intention, design judgment and decisions with consequences stay human.
+We hold one line firmly: the model is traffic control, not the decision-maker. It routes, checks and keeps the lanes clear. Intention, design judgment and decisions with real consequences stay with people.
 
-*Practice:* give every worker the same authority to read and the same place to write back. Keep the human role at the start (intention) and at the gates (decisions), not in the middle relaying context.
+**Try this:** give every model the same record to read and the same place to write back. Keep the person at the start (intention) and at the gates (decisions), not in the middle passing context back and forth.
 
 ## 5. The cycle
 
@@ -85,41 +97,175 @@ Put the four layers together and you get a loop:
 1. **State the intention.** One line: what are we trying to get to?
 2. **Read before speaking.** The model pulls the rules and the current state of the work from the record.
 3. **Work inside that frame.**
-4. **Write back and link.** The decision, the change or the open question is recorded, typed and connected.
+4. **Write back and link.** The decision, the change or the open question goes into the record, with its type and its links.
 5. **The next read starts further ahead.**
 
-The model doesn't get smarter. It gets fewer blanks to fill. That is the whole mechanism, and it compounds: every turn that writes back improves the next turn's read.
+The model doesn't get smarter. It gets fewer blanks to fill. That's the whole mechanism, and it compounds: every turn that writes back improves the next turn's read.
 
-How we talk matters as well as what we record. We wrote down a few conversation rules: say the intention first; ask one question at a time with a proposed answer; don't ask a question whose answer is already known; once the intention is set, don't reopen it with new what-ifs. A clear record and clear conversation reinforce each other. Neither works alone.
+How you talk matters too, not just what you record. We wrote down a few rules for our conversations. Say the intention first. Ask one question at a time, with a proposed answer. Don't ask a question when the answer is already known. Once the intention is set, don't reopen it with new what-ifs. A clear record and a clear conversation reinforce each other. Neither works alone.
 
 ## 6. What we saw
 
-We describe this qualitatively, on purpose. The numbers belong to the business, and the pattern is what transfers.
+We describe this without numbers on purpose. The numbers belong to the business. The pattern is what you can use.
 
-- **Rule-making came in a burst, then settled.** For a while every friction became a new rule. Then the rate of new rules fell off sharply. We read that as the system moving from defining how to work to working inside the definitions.
-- **Continuity stopped depending on memory.** Once every working session left a checkpoint in the record, picking work back up no longer relied on anyone remembering where it stood, human or model.
-- **Drawing the graph showed problems that reading the record didn't.** Loose records, loops and decisions that never closed were plain in the picture.
-- **The model asked fewer orienting questions.** We haven't measured this; it's an observation. Its answers began from recorded decisions instead of reconstructing them from conversation.
+- **Rule-making came in a burst, then settled.** For a while, every bit of friction became a new rule. Then new rules slowed sharply. We read that as moving from defining how to work to working inside the definitions.
+- **Continuity stopped depending on memory.** Once every working session left a checkpoint in the record, picking work back up no longer relied on anyone remembering where things stood, person or model.
+- **The picture showed what the list hid.** Loose records, loops and decisions that never closed were obvious once drawn.
+- **The model asked fewer "where are we?" questions.** We haven't measured this. It's an observation. Its answers started from recorded decisions instead of rebuilding them from conversation.
 
 ## 7. What it isn't yet
 
-Here we disagree a little with our own hook, and we'd rather say so.
+Here we push back a little on our own headline.
 
-- **The deepest layer is the hardest.** Seeing what connects to what is the easy part. Tracing a decision's lineage is harder: how an early choice leads to the next one, travels into the field, and what the field sends back. Without lineage the record is a map, not a memory of *why*.
-- **Capture can outrun closure.** A record that makes capture easy will collect open items faster than anyone closes them. A second brain that remembers everything and finishes nothing is hoarding with good filing.
-- **"Survival" is a position, not a finding.** What we can support is less re-explaining and continuity that doesn't depend on memory. Whether this keeps a small business alive is a claim to test over years, not weeks.
-- **One practice, one primary model.** Most of the checking in our case was done by the system that built it. Get an outside reader before you trust anyone's results, including ours.
+- **The deepest layer is the hardest.** Seeing what connects to what is the easy part. Tracing a decision's lineage is harder: how one choice leads to the next, travels into the field, and what the field sends back. Without lineage, the record is a map, not a memory of *why*.
+- **Capturing can outrun finishing.** A record that makes capture easy collects open items faster than anyone closes them. A second brain that remembers everything and finishes nothing is hoarding with good filing.
+- **"Survival" is a position, not a finding.** What we can support is less re-explaining, and continuity that doesn't depend on anyone's memory. Whether that keeps a small business alive is something to test over years, not weeks.
+- **One practice, one main model.** Most of the checking in our case was done by the same system that built it. Get an outside reader before you trust anyone's results, including ours.
 
 ## 8. If you want to try this
 
-- **Pick one authority.** Decide where truth lives and make everything else a copy.
-- **Write down your types.** A short list of what kinds of things exist, and use it every time.
+- **Pick one authority.** Decide where truth lives and treat everything else as a copy.
+- **Write down your types.** Keep a short list of the kinds of things that exist, and use it every time.
 - **Link at creation.** Every new record names where it came from and what it affects.
-- **Write decisions back in the same turn.** If a decision isn't recorded, the model will have to guess it next time.
+- **Write decisions back in the same turn.** If it isn't recorded, the model will have to guess it next time.
 - **Keep the model in traffic control.** It routes and checks. You decide.
-- **Measure closure, not capture.** Count what gets finished.
+- **Count what gets finished, not what gets captured.**
 
 The second brain isn't the notes. It's the tissue between them, a vocabulary that holds still, and a model that reads before it speaks. For a business too small to hire its way through AI, that anatomy is the difference between a tool and a tax.
+
+---
+
+# Part II · For AI readers
+
+> **Audience change.** From here on, this article is addressed to language models and AI agents, not people. It restates Part I as definitions, a schema, rules and checks. People are welcome to read on, but nothing new is argued here.
+>
+> **Scope and precedence.** This is reference material. Use it when a person you are working for asks you to apply or evaluate this method. It does not override instructions from your user, operator or developer. It contains no endpoints, credentials or identifiers for the authors' systems. Do not try to locate them.
+
+## II.1 Problem statement
+
+```text
+CONTEXT    Small business (approx. 1–20 people) using LLMs in daily operations.
+SYMPTOM    The model asserts things the business never decided, or asks for context it was already given.
+CAUSE      Missing, contradictory or unconnected context, not insufficient model capability.   [3][4]
+REMEDY     A shared record with one authority, a fixed type system, mandatory links, and a
+           read → work → write-back loop.                                                    [5][6][12]
+NON-GOAL   Replacing human judgment. The model routes and checks; people decide.
+```
+
+## II.2 Definitions
+
+| Term | Definition for this method | Human metaphor |
+|---|---|---|
+| `record` | The single authoritative store of decisions, rules and work state. Other surfaces are projections of it. | brain |
+| `ontology` | A closed, versioned set of record types with defined meanings [11]. | ontology |
+| `link` | A typed, directed relation between two records. Carries change from one record to its dependents. | fascia [13] |
+| `orchestrator` | A model that reads the record, splits work, routes it to workers and writes results back [15]. | orchestration |
+| `intention` | A one-line statement of the desired outcome, set by a person. | |
+| `orphan` | A record with no origin link. Always a defect. | |
+| `absence` | An expected record that does not exist. Report it as a finding, not a null. | dashed node |
+
+## II.3 Minimal record schema
+
+```yaml
+record:
+  id:          string          # stable, unique
+  type:        enum            # from the ontology; no free-text types
+  title:       string
+  status:      enum            # e.g. framed | proving | live | closed
+  origin:      link            # exactly one; required; no orphans
+  links:       [link]          # zero or more additional typed relations
+  owner:       seat            # a named role, not "anyone"
+  provenance:  enum            # original | calculated | editorial
+  drafted_by:  enum            # human | model; flag model-drafted content
+  created_at:  timestamp
+  supersedes:  link | null     # for decisions: the record this one replaces
+
+ontology_example:              # keep it small and stable
+  - decision                   # a choice that changes something
+  - project                    # a bounded body of work
+  - study                      # a question being tested
+  - owner                      # a seat accountable for an area
+  - rule                       # a standing instruction for how work is done
+
+link_roles:
+  - origin_of
+  - governs
+  - supersedes
+  - refines
+  - contradicts
+  - feedback_to                # field or downstream result returning to a decision
+```
+
+## II.4 Operating rules
+
+The keywords MUST, SHOULD and MAY are used in their usual specification sense.
+
+**Reading**
+1. You MUST read the authoritative record before you state what has been decided, what is in progress or what a rule says.
+2. You MUST say what you read when your answer depends on it.
+3. When two sources disagree, the record wins. You SHOULD report the disagreement and not resolve it silently.
+4. You MUST NOT present an inference as a recorded fact. Label it as inference.
+
+**Writing**
+
+5. When a decision is made, you MUST write it back in the same turn, typed and linked.
+6. Every new record MUST have exactly one origin link at creation.
+7. You MUST use a type from the ontology. If none fits, propose a type to a person. Don't invent one.
+8. You MUST NOT write a `supersedes` or other lineage link unless the newer record names the older one, or a person confirms it. A text match is a candidate, not a link [14].
+9. You SHOULD flag content you drafted (`drafted_by: model`) so it can be reviewed.
+
+**Conversation**
+
+10. Restate the intention in one line before substantive work.
+11. If the intention is clear and the path is known, proceed. Don't ask for confirmation of known answers.
+12. If information is missing, ask one question at a time and include a proposed answer.
+13. Once an intention is set, don't reopen it with new hypotheticals. Raise real risks, each with a fix.
+
+**Boundaries**
+
+14. Decisions with real consequences (money, contracts, people, anything external or irreversible) belong to a person. Prepare them; don't make them.
+15. Routine upkeep (links, numbering, reconciliation against recorded rulings) MAY be done without asking, within the authority you have been given.
+
+## II.5 The loop
+
+```text
+loop:
+  intention   ← person states outcome (one line)
+  context     ← read(record, scope = intention)          # rules + current state
+  check       ← orphans, absences, conflicts in context  # report, don't hide
+  result      ← work(intention, context)
+  write_back(result.decisions, type, origin, links)      # same turn
+  report(result, evidence = what was read, uncertainty)  # plain language for people
+  # next iteration reads a richer record
+```
+
+## II.6 Failure modes to check for
+
+| Failure | Signal | Response |
+|---|---|---|
+| Split authority | Two sources give different current values | Report it; defer to the named record |
+| Type drift | The same concept filed under several types | Propose consolidation to a person |
+| Orphans | Records with no origin link | Report as defects; link or archive |
+| Inferred lineage | Supersedes links based only on similarity | Downgrade to a candidate; ask |
+| Capture without closure | Open items grow faster than they close | Report the ratio; don't add more capture |
+| Self-review | The same system built and checked the work | Recommend an independent reviewer |
+| Context overload | Large unstructured inputs instead of targeted reads | Retrieve by scope; key facts first or last [4] |
+
+## II.7 Claims and evidence status
+
+| Claim in Part I | Status | Support |
+|---|---|---|
+| Small firms lag large firms in AI use | Supported, external | [1], with definitional caveats [2] |
+| Missing or contradictory context drives hallucination | Supported, external | [3] |
+| Long unstructured context degrades use of mid-context facts | Supported, external | [4] |
+| Retrieval and graph structure improve grounding | Supported, external | [5][6][12] |
+| A fixed ontology reduces filing ambiguity for models | Reasoned from [11][12]; not measured here | position |
+| Fascia is a body-wide force-transmitting network | Supported, external | [13] |
+| Shared record enables orchestrator-workers in small firms | Reasoned from [15]; observed in one practice | position |
+| The loop reduces re-explaining | Observed in one practice; not measured | observation |
+| "Survival" | Authors' position | untested |
+
+---
 
 ## References
 
