@@ -1,0 +1,6 @@
+{
+  "name": "kphd-studio",
+  "version": "0.1.0",
+  "description": "KPHD Monotone — Vermilion: studio theme, band, panel, tool cards, toasts and /palette /brief /zones",
+  "types": "./types/index.d.ts"
+}
