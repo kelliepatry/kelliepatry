@@ -43,6 +43,7 @@ The whole practice on one map: every project, every phase it passed through, and
 - [The Experience of Being Designed For](./articles/experience-of-being-designed-for.md) — how the ambition to create places that amaze and lift the spirit extends to the client's experience of design, decisions and project continuity.
 - [What your project record is not telling you](./articles/record-graph-one-person-practice.md) — working paper, November 2026. For small practices: what a live graph over your own record will show you that tables do not (unlinked decisions, scope drift, empty seats), what to build, what to measure, and what the research already settled.
 - [The anatomy of a small business that survives AI](./articles/anatomy-of-a-small-business-that-survives-ai.md): a joint article with Claude, November 2026. Brain, ontology, fascia, orchestration: why AI guesses in a small firm and the four layers that stop it. Written twice: Part I for people, Part II for AI readers.
+- [What the field sends back](./articles/what-the-field-sends-back.md): the closing article, with Claude, November 2026. The knife, the tax and the tending: why repairing your AI setup by hand keeps costing a small business, and how moving the upkeep inside the record gives the owner's time back. Written twice: Part I for people, Part II for AI readers.
 
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
 
