@@ -1,0 +1,29 @@
+{
+  "name": "KPHD Monotone — Vermilion (Light)",
+  "base": "light",
+  "overrides": {
+    "text": "#1C1C1C",
+    "inverseText": "#FFFFFF",
+    "subtle": "#5E5E5C",
+    "inactive": "#6E6E6C",
+    "suggestion": "#3F6560",
+    "remember": "#74507A",
+    "claude": "#C8361D",
+    "success": "#47652A",
+    "warning": "#875500",
+    "error": "#8E1530",
+    "merged": "#664A8C",
+    "promptBorder": "#8A8A88",
+    "bashBorder": "#4A4A48",
+    "permission": "#2D6683",
+    "planMode": "#2B6A5C",
+    "autoAccept": "#8C3D6C",
+    "ide": "#465C88",
+    "diffAdded": "#DCE8CF",
+    "diffRemoved": "#F2D6CF",
+    "diffAddedDimmed": "#EBF1E3",
+    "diffRemovedDimmed": "#F8E8E3",
+    "diffAddedWord": "#B8D29D",
+    "diffRemovedWord": "#E9B0A3"
+  }
+}
