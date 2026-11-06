@@ -167,6 +167,8 @@ Scott Williams is a screenwriter and a friend, and our early Monday coffees have
 
 Ryan Green is an archivist and a documentary filmmaker, and we have an ongoing conversation about image ontology: how images are named, described and found again. He looks at images the way an archivist does, as something to keep and to find again, and the way a filmmaker does, as something that tells a story. Those two ways of looking have shaped how I think about my own record.
 
+And one more, from a distance. I don't know the people behind [02UI](https://www.02ui.com), and I won't pretend to. But the way they think and talk about going from an idea to a real product is how I see things too. I recognise the pursuit, because it's the same one I'm in.
+
 ## With gratitude
 
 This is my story, but it stands on other people's work: the design rationale and traceability researchers, the provenance and decision-record communities, Vannevar Bush, Niklas Luhmann and Tiago Forte on the second brain, Andy Clark and David Chalmers, Daniel Wegner, Thomas Gruber, the researchers working on retrieval, graphs, hallucination and long contexts, the fascia research community, Guy Debord and the Situationists, and the scientists and educators who explain this field openly online. When I was a student from a hospital bed, they were the teachers.
