@@ -2,7 +2,7 @@
 
 ### Building the fascia of an AI system from the outcome inward
 
-**Editorial 04 · Kellie Patry, KPHD Studio, and GPT (OpenAI) · 7 November 2026 · v1.0**
+**Editorial 04 · Kellie Patry, KPHD Studio, and GPT (OpenAI) · 7 November 2026 · v1.1**
 
 **Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
 
@@ -20,11 +20,15 @@
 
 I came to this organized. Gantt charts, dependencies, workflow, the language of architecture: these were familiar tools. They belong to the discipline of my career. I had a way of working before I began building an AI system around it.
 
-The question was how to carry that way of working into the system. How could the connections hold what I meant, through all the steps between an idea and the thing I needed at the end?
+You may have your own version of that discipline: a spreadsheet, a checklist, a sequence you follow whenever a job comes in. You know what needs to happen. The question is how to make the system carry that knowledge through the work.
+
+That was my question too. How could the connections hold what I meant, through all the steps between an idea and the thing I needed at the end?
 
 It began with something practical. I needed to clean up my Figma templates and map them into my system. While working on that, I realized I could flip the paper.
 
 I could start with the result. Here is the template I need at the end of the build. What would have to exist for the system to produce it properly? What information belongs in it? Where does that information come from? What decisions need to happen before it can be complete?
+
+Your starting point might be a proposal, a weekly report or a handover. Something you produce repeatedly, whose finished shape you already know. That gives you somewhere concrete to begin.
 
 The process could be built inward from the template. I was changing where I stood to look at the work.
 
@@ -83,6 +87,8 @@ The receiving test was within the same model provider, with documented transport
 The perfect mapping, for me, is a beautiful round digital ball, like the graph we have been producing. Energy moves through it calmly. I can see a whole that holds together.
 
 That is how I want the system to feel when it works. I want to recognize the relationships and find my way through them. The image gives me a way to see what I am trying to build.
+
+You may picture that differently. Perhaps it is being able to open a piece of work and understand where it stands, why something changed and what needs your attention next. That is the everyday experience I want the sphere to make possible.
 
 ### GPT · One route through the whole
 
