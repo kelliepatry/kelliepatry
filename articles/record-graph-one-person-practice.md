@@ -4,6 +4,10 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · 4 November 2026 · working draft v0.2**
 
+**Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
+
+**Jump to:** [This article’s conclusion](#conclusion) · [The series conclusion](./flip-the-paper.md#conclusion)
+
 ![A painted face dissolving into horizontal glitch bands: the record is readable in places and torn in others](../assets/record-graph-header.jpg)
 
 > This is a working paper, not a result. The evidence is one practice over two days. The measures in section 7 have a baseline and no second reading. Section 9 lists what has not been done. Read it as a method you could try and a set of claims you should test, and say where it is wrong.
@@ -138,6 +142,8 @@ If you take this further, these are the open items, in rough priority.
 8. **Decision latency.** Report it on the first real correction cycle.
 9. **An outside reader.** A second practice, or a reviewer outside the system.
 10. **Money and people.** Sorting the graph by who funds what and who brought whom. Not started.
+
+<a name="conclusion"></a>
 
 ## 10. What you can take from this today
 

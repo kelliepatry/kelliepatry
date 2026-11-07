@@ -4,6 +4,10 @@
 
 **Editorial 04 · Kellie Patry, KPHD Studio, and GPT (OpenAI) · 7 November 2026 · Draft v0.1**
 
+**Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
+
+**Jump to:** [This article’s conclusion](#conclusion) · [The series conclusion](./flip-the-paper.md#conclusion)
+
 *A joint working article. Kellie's sections are edited from her account for her review. GPT's sections describe a computational approach, not a subjective experience. This follows the three process articles beginning with [What your project record is not telling you](./record-graph-one-person-practice.md).*
 
 ![Two imagined spherical networks in pale graphite. At left, a whole sphere with quiet bright points along fine filaments. At right, a cutaway exposes a single route and a dashed return path.](../assets/fascia/sphere-cutaway.png)
@@ -91,6 +95,8 @@ Every connection on that route would have a meaning. “Informs” would differ 
 ![A fine spherical network at left and a sparse selected path through a faint circular boundary at right. The route includes six nodes and a correction return. Neither side contains real records or encodes measured system health.](../assets/fascia/two-perspectives.png)
 
 *Figure 3 · Two perspectives on the same intended system. Left: Kellie's whole, represented by a spherical field. Right: GPT's traceable route, represented by a cutaway. Both are conceptual studies. Node positions, density and proximity are illustrative, not factual relationships or metrics.*
+
+<a name="conclusion"></a>
 
 ### Together · Calm is a requirement we can investigate
 
