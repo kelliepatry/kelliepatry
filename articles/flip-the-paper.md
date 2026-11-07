@@ -2,13 +2,13 @@
 
 ### Building the fascia of an AI system from the outcome inward
 
-**Editorial 04 · Kellie Patry, KPHD Studio, and GPT (OpenAI) · 7 November 2026 · Draft v0.1**
+**Editorial 04 · Kellie Patry, KPHD Studio, and GPT (OpenAI) · 7 November 2026 · v1.0**
 
 **Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
 
 **Jump to:** [This article’s conclusion](#conclusion) · [The series conclusion](./flip-the-paper.md#conclusion)
 
-*A joint working article. Kellie's sections are edited from her account for her review. GPT's sections describe a computational approach, not a subjective experience. This follows the three process articles beginning with [What your project record is not telling you](./record-graph-one-person-practice.md).*
+*A joint article. Kellie's sections are edited from her account. GPT's sections describe a computational approach, not a subjective experience. This follows the three process articles beginning with [What your project record is not telling you](./record-graph-one-person-practice.md).*
 
 ![Two imagined spherical networks in pale graphite. At left, a whole sphere with quiet bright points along fine filaments. At right, a cutaway exposes a single route and a dashed return path.](../assets/fascia/sphere-cutaway.png)
 
@@ -139,4 +139,4 @@ The pilot descriptions are firsthand case reporting based on the internal *Fasci
 4. Patry, K., Claude. [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md). 5 November 2026. Earlier statement of the fascia metaphor.
 5. Patry, K., Claude. [What the field sends back](./what-the-field-sends-back.md). 6 November 2026. Earlier account of upkeep and preserving intention during exploration.
 
-*Written jointly with GPT, a language model made by OpenAI. Editorial draft for Kellie's review. All figures are conceptual illustrations, not system telemetry. GitHub controls the article's native typography.*
+*Written jointly with GPT, a language model made by OpenAI. All figures are conceptual illustrations, not system telemetry. GitHub controls the article's native typography.*
