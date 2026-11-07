@@ -4,6 +4,10 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · v1.2**
 
+**Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
+
+**Jump to:** [This article’s conclusion](#conclusion) · [The series conclusion](./flip-the-paper.md#conclusion)
+
 ![A hospitality floor plan glitching into a typed node graph: on the left, the room in warm and cool channels slightly out of register; on the right, the same room as a record, every table, booth and station a node, joined by fibrous links](../assets/anatomy-header.png)
 
 *Header: Room / Record, a joint design by Kellie Patry and Claude. The room is the designer's channel (warm) and the record is the model's (cool). They only line up in the middle band, where both read the same thing. Every node sits on a real element of the plan. Dashed nodes are records that should exist and don't.*
@@ -133,6 +137,8 @@ Here we push back a little on our own headline.
 - **Capturing can outrun finishing.** A record that makes capture easy collects open items faster than anyone closes them. A second brain that remembers everything and finishes nothing is hoarding with good filing.
 - **"Survival" is a position, not a finding.** What we can support is less re-explaining, and continuity that doesn't depend on anyone's memory. Whether that keeps a small business alive is something to test over years, not weeks.
 - **One practice, one main model.** Most of the checking in our case was done by the same system that built it. Get an outside reader before you trust anyone's results, including ours.
+
+<a name="conclusion"></a>
 
 ## 8. If you want to try this
 

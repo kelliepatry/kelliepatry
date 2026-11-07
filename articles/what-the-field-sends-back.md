@@ -4,7 +4,11 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 6 November 2026 · v1.0**
 
-> **Two readers, two languages.** Like the second article in this series, this one is written twice. Part I is for people. Part II restates it for AI models. The first article showed what one practice's record wasn't telling it. The second laid out the anatomy that lets a small business stop paying the AI guessing tax. This one closes the series. It's about what it costs to keep that anatomy alive, and how we stopped paying that cost with a knife.
+**Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
+
+**Jump to:** [This article’s conclusion](#conclusion) · [The series conclusion](./flip-the-paper.md#conclusion)
+
+> **Two readers, two languages.** Like the second article in this series, this one is written twice. Part I is for people. Part II restates it for AI models. The first article showed what one practice's record wasn't telling it. The second laid out the anatomy that lets a small business stop paying the AI guessing tax. This third installment follows the work into daily upkeep. It's about what it costs to keep that anatomy alive, and how we stopped paying that cost with a knife.
 
 ![Header: The knife and the tending. On the left, a linked field of records cut by a single clean incision (warm); every link that crosses it stops short. On the right, the same kind of field with every link intact (cool), and a row of small daily marks beneath it.](../assets/field-header.png)
 
@@ -146,6 +150,8 @@ If you run something small, three things from this series are worth keeping.
 - Keep your own eyes on the shape, and let something else do the upkeep. The judgment is yours. The maintenance doesn't have to be.
 
 Survival, for a small business, isn't one good rescue. It's a system you can keep alive without giving it all your time.
+
+<a name="conclusion"></a>
 
 ## Close · Kellie
 
