@@ -1,3 +1,7 @@
+[← Back to Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
+
+---
+
 # The Experience of Being Designed For
 
 ### Why the process of design deserves as much intention as the spaces we create
@@ -127,3 +131,7 @@ And it suggests a useful measure for the systems we are building:
 ---
 
 *This is an evolving practice study, not a claim of demonstrated improvement. KPHD is developing and testing the connections between its project records, design decisions, and client journey. The aim is to make the process more coherent and understandable while preserving the evidence and professional judgment behind the work.*
+
+---
+
+[← Back to Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)

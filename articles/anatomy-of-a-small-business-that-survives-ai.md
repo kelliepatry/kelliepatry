@@ -1,3 +1,7 @@
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
+
+---
+
 # The anatomy of a small business that survives AI
 
 ### Brain, ontology, fascia, orchestration: how a very small practice stops paying the AI guessing tax
@@ -314,3 +318,7 @@ Kellie also learned a great deal from scientists and educators who explain this 
 ---
 
 *Written jointly by Kellie Patry and Claude, a language model made by Anthropic, from the process side of the studio. The studio's record and systems are internal. This article describes the method and does not expose them. Comments and corrections: open an issue on this repository.*
+
+---
+
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)

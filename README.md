@@ -1,5 +1,7 @@
 <a href="https://kelliepatry.com/index"><img src="./assets/kphd-wordmark.svg" alt="[KP/HD] — Kellie Patry Hospitality Design" width="100%"></a>
 
+[Home](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes)
+
 # Design is the operator's strategy, made physical.
 
 **Kellie Patry** · principal, KPHD Studio · Los Angeles
@@ -47,4 +49,4 @@ The whole practice on one map: every project, every phase it passed through, and
 
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
 
-[KPHD Index](https://kelliepatry.com/index) · [Studio](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · [Design Matters on Substack](https://meisenplace.substack.com/)
+[KPHD Index](https://kelliepatry.com/index) · [Home](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes) · [Design Matters on Substack](https://meisenplace.substack.com/)

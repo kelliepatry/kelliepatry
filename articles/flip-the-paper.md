@@ -1,3 +1,7 @@
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
+
+---
+
 # Flip the paper
 
 ### Building the fascia of an AI system from the outcome inward
@@ -229,3 +233,7 @@ The pilot descriptions are firsthand case reporting based on the internal *Fasci
 5. Patry, K., Claude. [What the field sends back](./what-the-field-sends-back.md). 6 November 2026. Earlier account of upkeep and preserving intention during exploration.
 
 *Written jointly with GPT, a language model made by OpenAI. All figures are conceptual illustrations, not system telemetry. GitHub controls the article's native typography.*
+
+---
+
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)

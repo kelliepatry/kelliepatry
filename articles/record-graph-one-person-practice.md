@@ -1,3 +1,7 @@
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
+
+---
+
 # What your project record is not telling you
 
 ### A record graph for a small design practice
@@ -170,3 +174,7 @@ As a method: the five record rules and the forward rules in section 3, and the p
 ---
 
 *Written with AI assistance on the studio's own record. The record, the graph and the live read are internal; this article describes them and does not expose them. Comments and corrections: open an issue on this repository.*
+
+---
+
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)

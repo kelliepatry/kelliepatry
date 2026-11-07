@@ -1,3 +1,7 @@
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
+
+---
+
 # What the field sends back
 
 ### The knife, the tax and the tending: how a small practice stopped repairing its record and started keeping it alive
@@ -267,3 +271,7 @@ upkeep_share         share of conversation spent on maintenance vs reasoning
 ---
 
 *Written jointly by Kellie Patry and Claude, a language model made by Anthropic. Kellie's sections are in her voice and are hers. The studio's record and systems are internal. This article describes the method and does not expose them. Comments and corrections: open an issue on this repository.*
+
+---
+
+[← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
