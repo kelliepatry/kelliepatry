@@ -8,7 +8,7 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.1**
 
-> **Where this sits.** The studio has been mapping three ways of reading the same image: how a language model sees it, how an architect sees it, and now how an artist sees it. This paper is the artist's map. It is written as a method you can run on any image, a worksheet to run it with, and a translation of each reading into the room. The last section sets the three readers side by side so the maps can be compared.
+> **Where this sits.** The studio has been mapping three ways of reading the same image. The language model's map is the read map: a path of read first, read next, stop when, write back. The architect's map is 5D and fascia: the model whose components carry their own information, and the typed links that carry change between records. This paper is the third map, the artist's. It is a method you can run on any image, a worksheet to run it with, and a translation of each reading into the room. The last section sets the three maps side by side.
 
 ---
 
@@ -226,26 +226,46 @@ Two of these deserve a note.
 
 ---
 
-## 5. Three readers, one image
+## 5. Three maps, one image
 
-This section is a proposal for how the three maps line up. It is written to be corrected against the model map and the architect map, not to replace them.
+The studio now has three maps of seeing, and they are not the same kind of thing.
 
-| Dimension | The artist reads | The architect reads | The model reads |
+- **The architect's map is a structure.** It is 5D and fascia. 5D is the model in which every component carries its own classification, tags, attributes and scenes, so geometry, information, sequence and quantity live in one object. Fascia is the typed, directed links between records that carry change from one to its dependents. Together they say what exists, what it is, and what moves when it moves.
+- **The model's map is a path.** It is the read map. A language model holds nothing between calls, so its need per task is not a schema but a route: read first, read next, stop when, write back. Every record it reads carries four spine fields: id, state, a one-line summary, and what it supersedes.
+- **The artist's map is a relation.** Nothing in the image has a value on its own. A colour is only warmer or cooler than its neighbour. An edge is only harder or softer than the edge beside it. The artist's method is an order of comparison, whole to parts and back.
+
+Set against the same image, the three read like this.
+
+| Dimension | Artist: the relation | Architect: 5D and fascia | Model: the read map |
 | --- | --- | --- | --- |
-| Subject | What it is about, under what it is of | What it is for: programme, use, occupant | What it depicts: labels, objects, a caption |
-| Composition | Focal point, eye path, figure and ground, edges | Plan, section, circulation, structure, envelope | Region layout, detected objects and their bounding boxes |
-| Value | Three to five masses, key, where light meets dark | Daylight, lighting levels, lux, glare | Luminance histogram, L* distribution |
-| Colour | Relations: temperature, chroma, proportion, what each colour does to its neighbour | Material, finish, reflectance, durability, cost, code | Measured clusters: hue, value, chroma, area share, nearest named chip |
-| Light | Source, quality, colour of light and shadow | Orientation, fixture schedule, colour temperature, controls | Estimated illuminant, white point, exposure |
-| Space | Depth cues, flatness, viewpoint | Dimension, proportion, adjacency, sight line, clearance | Depth estimate, perspective lines, scale from known objects |
-| Mark | The hand, the surface, how it was made | Detail, tolerance, junction, who builds it and how | Texture statistics, style classification |
-| Rhythm | Repetition with variation, interval, movement | Module, bay, grid, repetition for economy | Periodicity, pattern detection |
-| Meaning | Mood, then the formal choices that cause it | Intent held under constraint, through to the built result | A description, with a confidence, of what the image probably is |
-| Failure mode | Taste without structure | Structure without character | Description without relation |
+| Subject | What it is about, under what it is of | What it is for: programme, occupant, the component's classification | The one-line summary; the id and state it carries |
+| Composition | Focal point, eye path, figure and ground, edges | Plan, section, scene set; the tag hierarchy that says which things belong together | Read first. The record the route opens before any other |
+| Value | Three to five masses, key, where light meets dark | Lighting plan, daylight, levels, scene by scene | Read next, in order of weight. What the route reads second and third |
+| Colour | Temperature, chroma, proportion, what each colour does to its neighbour | Finish schedule: material, reflectance, quantity, cost, code | Measured clusters: hue, value, chroma, area share, nearest chip. Written back as a record |
+| Light | Source, quality, colour of light and shadow | Fixture schedule, orientation, colour temperature, controls | Estimated illuminant and white point, labelled as an estimate |
+| Space | Depth cues, flatness, viewpoint | Dimension, adjacency, clearance, sight line, the attribute on the component | Depth estimate, scale from known objects |
+| Mark | The hand and the surface | Detail, junction, tolerance, who builds it | Texture statistics, style label |
+| Rhythm | Repetition with variation, interval, movement | Module, bay, grid, the repeated component | Pattern detection, periodicity |
+| Change | Move one colour and every neighbour shifts | Fascia: change one record and the link carries it to every dependent | Supersedes: the newer record replaces the older; the route reads the current one |
+| Meaning | Mood, then the formal choices that cause it | Intent held under constraint, through to the built result | Stop when. The point at which the route has enough to act or must ask |
+| Failure | Taste without structure | Structure without character | Reading without stopping, or stopping without writing back |
 
-The three readings are not in competition. The model can measure what the artist can only compare. The artist can see what the measurement cannot: the grey that turns blue beside orange, the edge that lets the eye slide, the lemon that is really about waiting. The architect holds both inside a budget, a lease and a code.
+### 5.1 The spine, three ways
 
-The useful question for the studio is where each reader should be trusted. Measurement for the record. Relation for the decision. Constraint for the build.
+The read map asks every record to carry four fields. The other two maps already carry them, in their own words.
+
+| Spine field | Read map | 5D and fascia | The artist's image |
+| --- | --- | --- | --- |
+| id | Record id | Component id, tag, sheet number | Title, maker, date |
+| state | One of four states | Phase, lifecycle, issued or draft | Study, sketch or finished work |
+| one-line summary | What the record is, in a line | The component's classification and attribute set | What the picture is about, in a line |
+| supersedes | The record this replaces | The revision this replaces, carried by fascia | The study this came from, the version this corrects |
+
+### 5.2 Where to trust each map
+
+The three are not in competition. The model's route can measure what the artist can only compare, and it can be run again tomorrow and return the same answer. The artist can see what measurement cannot: the grey that turns blue beside orange, the edge that lets the eye slide, the lemon that is really about waiting. The architect's structure holds both inside a budget, a lease and a code, and carries a change from a decision to every drawing it touches.
+
+So the working rule is: the read map for the record, the relation for the decision, the structure for the build. A measured palette goes in the record. The choice of which measured colour becomes the field and which becomes the accent is a relation, and it stays with the person. Once chosen, the finish is a component in the model, and fascia carries it to the schedule, the sheet and the spec.
 
 ---
 
@@ -263,7 +283,7 @@ The useful question for the studio is where each reader should be trusted. Measu
 
 ---
 
-*Working draft. The method in sections 2 and 3 is standard atelier and art-school practice, assembled here in one order. The translation in section 4 and the comparison in section 5 are the studio's own and are open to revision. Comments and corrections: open an issue on this repository.*
+*Working draft. The method in sections 2 and 3 is standard atelier and art-school practice, assembled here in one order. The translation in section 4 and the comparison in section 5 are the studio's own and are open to revision. Section 5 uses the read map and the 5D and fascia vocabulary as the studio currently defines them, and should be re-read if those definitions move. Comments and corrections: open an issue on this repository.*
 
 ---
 
