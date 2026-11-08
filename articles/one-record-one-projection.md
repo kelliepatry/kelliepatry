@@ -203,7 +203,7 @@ Actions and homes were assigned to the clean registered name by ordered pattern 
 | Log | PRJ \| Plan Drop History | core.deliverables + deliverable_versions (registers DWG, PKG, RPT) |
 | Log | SYS \| Database Audit Tracker | core.database_registry |
 | Record | DOC \| Documents | core.deliverables + deliverable_versions (registers DWG, PKG, RPT) |
-| Record | OPS \| Model Tracker | core.sketchup_models + project_model_of_record (register SKP) |
+| Record | OPS \| Model Tracker | core.sketchup_models + project_model_of_record (register SKP). **Note 8 Nov:** in mirror.sync_state but 0 mirrored pages; mirror before match. |
 | Record | PRJ \| AI Workflow Stages | core.phase_definitions + legacy_phase_crosswalk |
 | Record | PRJ \| Automation Engine | core.work_definitions |
 | Record | PRJ \| Change Order Log | core.change_orders (register CO) |
@@ -215,7 +215,7 @@ Actions and homes were assigned to the clean registered name by ordered pattern 
 | Record | PRJ \| Master Workflow | core.phase_definitions + legacy_phase_crosswalk |
 | Record | PRJ \| Milestones/codes | core.phase_definitions + legacy_phase_crosswalk |
 | Record | PRJ \| Phase Templates | core.phase_definitions + legacy_phase_crosswalk |
-| Record | PRJ \| Plan Drops | core.deliverables + deliverable_versions (registers DWG, PKG, RPT) |
+| Record | PRJ \| Plan Drops | core.deliverables + deliverable_versions (registers DWG, PKG, RPT). **Note 8 Nov:** in mirror.sync_state but 0 mirrored pages; mirror before match. |
 | Record | PRJ \| Production Database | core.projects (+ project_phase_clusters) |
 | Record | PRJ \| RFI Tracker | core.deliverables (register RFI → BUILD.02.02) |
 | Record | PRJ \| Sub Phase | core.phase_definitions + legacy_phase_crosswalk |
@@ -224,7 +224,7 @@ Actions and homes were assigned to the clean registered name by ordered pattern 
 | Record | PRJ \| Submittals & Deliverables | core.deliverables (register SUB → BUILD.02.03) |
 | Record | PRJ \| Work Orders | core.project_work_items |
 | Record | PRJ \| Workflow + Process | core.phase_definitions + legacy_phase_crosswalk |
-| Record | PRJ \| Written Specifications | core.specifications + specification_classifications |
+| Record | PRJ \| Written Specifications | **Override 8 Nov: document.** 1 of 32 mirrored pages matches a specification row; the pages are discipline templates (occupancy type, scope of work, plumbing, general notes). Home: core.source_artifacts (template_catalog_capture) → projected page. |
 | Reference | DOC \| AI Agent Architecture | core.agent_skill_versions + source_artifacts (protocol projection already in force) |
 | Reference | DOC \| Accounts + Procedures | core.agent_skill_versions + source_artifacts (protocol projection already in force) |
 | Reference | DOC \| Agent Definitions | memory.actors + runtime.agents + core.agent_skill_versions |
@@ -413,6 +413,31 @@ Actions and homes were assigned to the clean registered name by ordered pattern 
 | Seeing | SYS \| Creative OS Database | runtime.work_queue + core.work_definitions already hold the flow |
 | Spine | SYS \| Master Workflow + Database Connections + Virtual Staff | core.database_registry + runtime.processor_registry supersede it |
 | Task | OPS \| Daily Briefing Log | runtime.v_processor_run_outcomes_v2 + digest receipts |
+
+---
+
+## Build log
+
+Outside the approved package hash. Dated entries, newest first. Sections 1 to 9 are not edited here.
+
+### 8 November 2026 · Step 2 reconciliation read (read-only, nothing frozen, nothing written to Supabase)
+
+**Pilot set revised.** Two of the five named pilots, Model Tracker and Plan Drops, are registered in mirror.sync_state but have zero mirrored pages, so there is nothing to reconcile yet. They are replaced by Master Workflow and Project Deliverables Registry. Written Specifications is reclassified to document (override recorded on its Appendix B row). Revised pilots: DOC | Documents, PRJ | Master Projects, PRJ | Master Workflow, PRJ | Project Deliverables Registry, and Written Specifications as the first document conversion.
+
+| Pilot | Mirrored pages | Matched to home | Gap | What the gap is |
+| --- | --- | --- | --- | --- |
+| DOC \| Documents → core.deliverables | 630 | 562, one to one by notion_page_id | 68 | System reports and data briefings filed in the project documents database (reconciliation reports, audit briefings, compliance reports). They are documents, not deliverables: move to source_artifacts as document class. |
+| PRJ \| Master Projects → core.projects | 58 | 47 by notion_page_id or origin_notion_page_id | 11 pages, 19 rows | Pages: a landing-page template, a heartbeat row, smoke-test rows and phase pages. Retire. Rows: 19 projects in Supabase with no mirrored page, 17 of them completed or closed legacy projects, plus Property Feasibility (active) and one synthetic. Legacy projects need no Notion page; projection replaces it. |
+| PRJ \| Master Workflow → phase_deliverable_expectations and phase_definitions | 123 | 46 referenced as workflow source | 77 | Workflow rows not yet bound to a deliverable expectation. Backfill design needed before freeze. |
+| PRJ \| Project Deliverables Registry → phase_deliverable_expectations | 54 | 0 | 54 | No binding exists. Backfill. |
+| PRJ \| Written Specifications | 32 | 1 | 31 | Discipline templates. Document conversion, not row match. |
+| TSK \| Meeting Database (prose, for reference) | 583 | 504 in outbound.meeting_snapshots | 79 | Meetings captured in Notion that the sweep never snapshotted. Confirms the intake dependency in step 1. |
+
+**Mirror health.** Parity for Documents last ran 2 October (619 = 619, delta 0). Parity for Master Projects last ran 19 August (44 = 44). Both parity runs are stale against current counts (630 and 58). The mirror is complete enough to reconcile from, but parity has to run again before any freeze so the freeze count is proven, not assumed.
+
+**Next build item.** The Record card projection does not exist yet as a generalised template. Four narrow projections run today (registry, deliverables, phase ids, initiatives). The first build is one function that renders a Record card for a core.projects row and writes it to the projection page, with the four spine fields and the fingerprint, reusing the deliverable-notion-sync pattern. Until it exists, no database is frozen.
+
+**Owners of the gaps.** The 68 misfiled documents and the 11 junk project pages are mine to move and retire. The 79 unsnapshotted meetings belong to Track W. The 77 unbound workflow rows need a design note before backfill; mine.
 
 ---
 
