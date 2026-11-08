@@ -8,6 +8,8 @@
 
 **KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.1 · build owner: Claude, by Kellie's direction · decision key GOV-20261108-NOTION-PROJECTION-ONLY**
 
+> **Recorded.** GOV-20261108-NOTION-PROJECTION-ONLY was recorded in core.governance_decisions through core.record_governance_decision_v1 on 8 November 2026. Receipt b3278148-43cf-4fd5-b80e-68bda6ddd111. The approved package hash is the sha256 of this file at commit 9aef9391 (e024199d2d3936255a04dc5276a15b0a07e6d2d0aa3e6c162d06dc346bd8f048). This note and anything after it are outside that hash; a change to sections 1 to 9 is a new version and a new receipt.
+
 > **The ruling.** Kellie, 8 November 2026: "I believe the databases should fully migrate into supabase with a stable schema system now - and notion remains documentation only - with stable matching schema." Then, on the recommendation below: "Branch the build as needed - approved as recommended - you now own this." This paper is the build. It replaces one clause of the master governance decision, names the Supabase home of every active registered database, and sets the order in which the write direction flips.
 
 **Read with:** [Binding the three maps](./binding-the-three-maps.md) (the eight read classes this plan is built on) · [How an artist sees](./how-an-artist-sees.md) · [The anatomy](./anatomy-of-a-small-business-that-survives-ai.md)

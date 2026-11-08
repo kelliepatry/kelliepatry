@@ -10,6 +10,8 @@
 
 > **What this is.** The studio has three maps of seeing: the model's read map (a path), the architect's 5D and fascia (a structure) and the artist's relation (a comparison). This paper binds the studio's registered databases to those three maps. Every active database gets one read class and, through that class, a role in each map. The registry stays where it is. No new database, tracker or register is created. Authority stays with Supabase and with Kellie.
 
+> **Superseded in part, 8 November 2026.** The ruling GOV-20261108-NOTION-PROJECTION-ONLY (see [One record, one projection](./one-record-one-projection.md)) turns the aliases in section 5 into projection-template names and resolves the duplicate pairs at the match. The read classes and the appendix stand.
+
 **Read the maps:** [How an artist sees](./how-an-artist-sees.md) · [Flip the paper](./flip-the-paper.md) (the read map and the two perspectives) · [The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) (fascia)
 
 ---
