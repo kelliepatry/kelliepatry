@@ -31,10 +31,10 @@ Taken 8 November 2026 under executive bias. Each is reversible by a later ruling
 
 | Class | What it holds | Count | Read by |
 | --- | --- | --- | --- |
-| Spine | Registries, routing, agents, hubs, migration and build queues. The databases that say what exists and where to look. | 29 | Read map first, for any system question. Fascia reads it for what a link may point at. |
+| Spine | Registries, routing, agents, hubs, migration and build queues. The databases that say what exists and where to look. | 30 | Read map first, for any system question. Fascia reads it for what a link may point at. |
 | Record | The project itself: master projects, workflow, documents, plan drops, RFIs, submittals, change orders, models, billing. The 5D component with its own information. | 28 | 5D as the thing. Read map second, after the checkpoint. |
 | Link | Decisions, handoffs, discussions, risks, learnings, the relation map. The databases that carry change from one record to another. | 18 | Fascia. Read map reads a link only when a record's state is in question. |
-| Reference | Codes, taxonomies, templates, playbooks, policies, wiki, training. Stable knowledge that classifies and constrains. | 60 | 5D as the classification source. Read map reads it by citation, never by browsing. |
+| Reference | Codes, taxonomies, templates, playbooks, policies, wiki, training. Stable knowledge that classifies and constrains. | 59 | 5D as the classification source. Read map reads it by citation, never by browsing. |
 | Seeing | Images, visuals, references, palettes, boards, renders, cultural and design intelligence. Where the artist's map works. | 16 | Relation first. Read map through the Image read row. 5D when a finish is chosen. |
 | Business | Clients, proposals, offers, invoices, contacts, content, campaigns. | 31 | Read map on business tasks only. Restricted rows stay restricted. |
 | Task | Meetings, checklists, work blocks, intake and triage queues, email, output tracker, action items. | 17 | Read map second on project resume and meeting recap. Write back lands here. |
@@ -241,7 +241,7 @@ Read-name  strip leading symbols and the registry suffix; if no CAT | prefix, pr
 
 Columns: class, clean registered name, read-name where it differs, usage type. P marks the registry's primary version.
 
-### Spine (29)
+### Spine (30)
 
 | Class | Registered name | Read-name | Usage |
 | --- | --- | --- | --- |
@@ -332,7 +332,7 @@ Columns: class, clean registered name, read-name where it differs, usage type. P
 | Link | SYS \| Relation Map |  | Reference |
 | Link | SYS \| Soft Flags Database |  | Active Workflow |
 
-### Reference (60)
+### Reference (59)
 
 | Class | Registered name | Read-name | Usage |
 | --- | --- | --- | --- |
