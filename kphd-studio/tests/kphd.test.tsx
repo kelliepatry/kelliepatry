@@ -3,12 +3,13 @@ import { expect, test } from 'claude-code/testing'
 const SURFACES = ['terminal', 'desktop', 'vscode', 'mobile'] as const
 const scroll = { offset: 0, bodyRows: 20 }
 
-const engine = (on: any) => {
+const engine = (on: any, isPlaced = true) => {
   on('command.register', (_: unknown, e: any) => ({ value: { command: e.name } }))
   on('tool.register', (_: unknown, e: any) => ({ value: { tool: `mcp__kphd-studio__${e.name}` } }))
   on('config.list', () => ({ value: [{ key: 'theme', value: 'custom:kphd-vermilion-light' }] }))
-  on('ui.open', () => ({ value: { isPlaced: true } }))
+  on('ui.open', () => ({ value: isPlaced ? { isPlaced: true } : { isPlaced: false, reason: 'the mobile app places no panes' } }))
   on('session.start', (_: unknown, e: any) => ({ cwd: e.cwd }))
+  on('ui.backdrop', () => ({ value: { isDrawn: true, requestId: 'backdrop' } }))
 }
 
 test('the band, the palette and the zones draw on every surface', async ($, on) => {
@@ -48,4 +49,27 @@ test('the brief tool files the six sections into the panel', async ($, on) => {
   })
   expect((await pane.find({ type: 'Text', text: /Vermilion accent/ }))?.text).toBe('Vermilion accent')
   await pane.unmount()
+})
+
+test('the backdrop draws the linen scene on the phone, tablet and desktop app', async ($, on) => {
+  engine(on)
+  await $.session.start({ cwd: '/', surface: 'mobile', isInteractive: true })
+  for (const surface of ['mobile', 'desktop'] as const) {
+    const ui = await $.ui.mount({
+      plugin: 'kphd-studio', component: 'Backdrop', requestId: 'backdrop', surface,
+      props: { id: 'kphd-linen', plugin: 'kphd-studio', glass: { blur: 12, opacity: 0.55, tint: '#EEEEEC' }, colorScheme: 'light' },
+    })
+    const svg = await ui.find({ type: 'Svg' })
+    expect(String((svg as any)?.props?.source ?? '')).toContain('#C8361D')
+    await ui.unmount()
+  }
+})
+
+test('from a phone, /palette and /zones answer in the conversation', async ($, on) => {
+  engine(on, false)
+  await $.session.start({ cwd: '/', surface: 'mobile', isInteractive: true })
+  const palette = await $.command.run({ command: 'palette', args: '' })
+  expect(palette.text).toContain('`claude` #C8361D / #FF6B4A')
+  const zones = await $.command.run({ command: 'zones', args: '' })
+  expect(zones.text).toContain('**Plan**')
 })

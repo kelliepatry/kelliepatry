@@ -7,6 +7,7 @@ import type { Brief, View } from '../types'
 const PLUGIN = 'kphd-studio'
 const PANE = 'kphd'
 const BRIEF_TOOL = 'mcp__kphd-studio__brief'
+const BACKDROP = 'kphd-linen'
 
 const isDark = atom({ plugin: 'kphd-studio', key: 'isDark' } as const, true)
 const view = atom({ plugin: 'kphd-studio', key: 'view' } as const, 'palette' as View)
@@ -106,12 +107,61 @@ async function syncTheme($: EngineInterface) {
 
 async function openPane($: EngineInterface, which: View) {
   await update($, view, () => which)
-  await $.ui.open({ id: PANE, title: `KPHD · ${TITLES[which]}` })
+  const opened = await $.ui.open({ id: PANE, title: `KPHD · ${TITLES[which]}` })
+  return opened.isPlaced
+}
+
+// Full-screen studio backdrop for the desktop app and the iPhone / iPad app.
+async function setBackdrop($: EngineInterface) {
+  const dark = await read($, isDark)
+  // Surfaces that draw no backdrop (the terminal) just decline; never block startup.
+  await $.ui.backdrop({
+    id: BACKDROP,
+    glass: { tint: dark ? '#1F1F1F' : '#EEEEEC', opacity: 0.55, blur: 12 },
+    colorScheme: dark ? 'dark' : 'light',
+  }).catch(() => undefined)
+}
+
+function backdropSvg(dark: boolean) {
+  const ground = dark ? '#1A1A1A' : '#EEEEEC'
+  const weave = dark ? '#262626' : '#E4E4E1'
+  const accent = dark ? '#FF6B4A' : '#C8361D'
+  const mark = dark ? '#2E2E2E' : '#DCDCD9'
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid slice">
+<defs><pattern id="kphd-linen-${dark ? 'd' : 'l'}" width="6" height="6" patternUnits="userSpaceOnUse">
+<rect width="6" height="6" fill="${ground}"/><path d="M0 0.5H6M0.5 0V6" stroke="${weave}" stroke-width="1"/></pattern></defs>
+<rect width="1200" height="1200" fill="url(#kphd-linen-${dark ? 'd' : 'l'})"/>
+<rect x="0" y="0" width="1200" height="6" fill="${accent}"/>
+<rect x="0" y="12" width="1200" height="2" fill="${accent}"/>
+<text x="600" y="1130" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="14" fill="${mark}">KPHD STUDIO</text>
+</svg>`
+}
+
+function paletteText(dark: boolean) {
+  const lines = ['**KPHD Monotone — Vermilion**', `Active: ${dark ? 'dark' : 'light'} · light / dark`, '']
+  for (const [group, slots] of PALETTE) {
+    lines.push(`**${group}**`)
+    for (const [slot, l, d] of slots) lines.push(`- \`${slot}\` ${l} / ${d}`)
+    lines.push('')
+  }
+  return lines.join('\n').trim()
+}
+
+function zonesText() {
+  return ['**Zones** — each mode reads as its own room', '', ...ZONES.map(([slot, name, what]) => {
+    const pair = PALETTE.flatMap(([, s]) => s).find(([k]) => k === slot)
+    return `- **${name}** (${pair ? `${pair[1]} / ${pair[2]}` : slot}): ${what}`
+  })].join('\n')
+}
+
+function briefText(b: Brief) {
+  return BRIEF_SECTIONS.map(([k, label]) => `**${label.toUpperCase()}**\n${b[k] || '—'}`).join('\n\n')
 }
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     await syncTheme($)
+    await setBackdrop($)
     $.ui.status('KPHD Studio — Los Angeles')
     await $.command.register({ name: 'palette', description: 'KPHD: all 23 slots as swatches, light and dark hex' })
     await $.command.register({ name: 'kphd-brief', description: 'KPHD: session brief — Objective, Decisions, Structure, Dependencies, Risks, Sequence' })
@@ -119,7 +169,7 @@ export const register: Register = on => {
     await $.tool.register({
       name: 'brief',
       description:
-        'Files the KPHD session brief shown in the /brief panel. Each field is a short plain-language summary (a few lines) of this session so far.',
+        'Files the KPHD session brief shown in the /kphd-brief panel. Each field is a short plain-language summary (a few lines) of this session so far.',
       inputSchema: {
         type: 'object',
         properties: Object.fromEntries(BRIEF_SECTIONS.map(([k, label]) => [k, { type: 'string', description: label }])),
@@ -135,27 +185,36 @@ export const register: Register = on => {
     const done = await next(e)
     if (!('deny' in done && done.deny)) {
       await syncTheme($)
+      await setBackdrop($)
       if (/kphd/i.test(String(e.value))) $.ui.toast(TOAST.theme)
     }
     return done
   }).catch(($, e, next) => next(e))
 
-  on('command.run', { command: 'palette' }, async $ => {
-    await openPane($, 'palette')
-    return { text: 'KPHD palette opened.' }
+  // From a phone or tablet (Remote Control) or where no panel can show,
+  // the commands answer in the conversation instead.
+  on('command.run', { command: 'palette' }, async ($, e) => {
+    const placed = await openPane($, 'palette')
+    const inline = e.origin?.kind === 'bridge' || !placed
+    return { text: inline ? paletteText(await read($, isDark)) : 'KPHD palette opened.' }
   })
 
-  on('command.run', { command: 'zones' }, async $ => {
-    await openPane($, 'zones')
-    return { text: 'KPHD zones opened.' }
+  on('command.run', { command: 'zones' }, async ($, e) => {
+    const placed = await openPane($, 'zones')
+    const inline = e.origin?.kind === 'bridge' || !placed
+    return { text: inline ? zonesText() : 'KPHD zones opened.' }
   })
 
-  on('command.run', { command: 'kphd-brief' }, async $ => {
-    await openPane($, 'brief')
+  on('command.run', { command: 'kphd-brief' }, async ($, e) => {
+    const placed = await openPane($, 'brief')
+    const inline = e.origin?.kind === 'bridge' || !placed
+    const reply = inline
+      ? 'Then reply with the brief itself: the six section names in bold capitals (OBJECTIVE, DECISIONS, STRUCTURE, DEPENDENCIES, RISKS, SEQUENCE), each followed by its lines.'
+      : 'Then reply with one line saying the brief is filed.'
     return {
-      text: 'KPHD brief opened.',
+      text: inline ? 'KPHD brief — writing it now.' : 'KPHD brief opened.',
       context: [
-        `Write the KPHD session brief now: call the ${BRIEF_TOOL} tool once with objective, decisions, structure, dependencies, risks and sequence, each a few short plain-language lines drawn from this session. Then reply with one line saying the brief is filed.`,
+        `Write the KPHD session brief now: call the ${BRIEF_TOOL} tool once with objective, decisions, structure, dependencies, risks and sequence, each a few short plain-language lines drawn from this session. ${reply}`,
       ],
     }
   }).catch(($, e, next) => next(e))
@@ -168,7 +227,7 @@ export const register: Register = on => {
     await update($, brief, () => filed)
     await openPane($, 'brief')
     $.ui.toast(TOAST.save)
-    return { result: 'Brief filed to the KPHD panel.' }
+    return { result: `Brief filed to the KPHD panel.\n\n${briefText(filed)}` }
   }).catch(($, e, next) => next(e))
 
   // Toasts on real outcomes.
@@ -182,6 +241,15 @@ export const register: Register = on => {
     else if (tool === 'ExitPlanMode') $.ui.toast(TOAST.approval)
     return done
   }).catch(($, e, next) => next(e))
+
+  // The backdrop drawing (desktop app, iPhone / iPad app).
+  on('ui.render', { component: 'Backdrop' }, async ($, e, next) => {
+    if (e.props.plugin !== 'kphd-studio' || e.props.id !== BACKDROP) return next(e)
+    if (e.surface !== 'desktop' && e.surface !== 'mobile') return next(e)
+    const { Svg } = $.ui.resolve(e)
+    const dark = e.props.colorScheme ? e.props.colorScheme === 'dark' : await read($, isDark)
+    return <Svg source={backdropSvg(dark)} alt="KPHD Studio linen backdrop with a vermilion rule" />
+  })
 
   // Band above the prompt: double vermilion rules top and bottom.
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
