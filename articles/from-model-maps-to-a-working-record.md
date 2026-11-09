@@ -6,7 +6,7 @@
 
 ### You can’t see inside the model. You already know how to document everything around it.
 
-**Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.7**
+**Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.8**
 
 **Read alongside:** [The record graph](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md) · [The Experience of Being Designed For](https://github.com/kelliepatry/kelliepatry/blob/main/articles/experience-of-being-designed-for.md) · [What the field sends back](https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md)
 
@@ -70,6 +70,10 @@ You can’t see inside the model. You *can* see and record everything that cross
 
 Engineers call this *instrumenting the boundary*. You would call it keeping a proper set: title blocks, revision logs, transmittals and sign-offs. The model is the one thing on the sheet you can’t detail. Everything around it, you can.
 
+![Figure 1. A hatched, sealed box labelled MODEL sits inside a dashed instrumented boundary. Two inputs, sources and question, cross the boundary from the left; the model's identity crosses at the top; a typed answer leaves on the right and passes to a rule, a person's sign-off in orange and a record in blue. Each crossing carries a small blue marker, numbered 1 to 7 with a key below.](../assets/record/fig-1-sealed-model.png)
+
+*Figure 1 · The model is sealed. Its edges are not. The hatch is the drafting convention for material you cut through but can't detail. Every numbered marker is something you can log. Orange is a person's authority; blue is the durable record. Schematic.*
+
 ### A translation table
 
 | Technical term | What it is | What you already call it |
@@ -100,9 +104,13 @@ The first belongs to researchers. Your practice lives in the second and third. A
 
 You know this instinctively as a visual person: **the graphic standard carries meaning.** A link backed by a source, a calculated link and a proposed link should look different, the way existing, new and demolished work do on a plan. Missing evidence should be drawn as missing, not left out. A beautiful diagram that hides its uncertainty is harder to trust than a plain list.
 
+![Figure 2. Three panels. A, the attribution graph, is drawn in faint grey inside a dashed frame: inside one model, research, not your map. B, the evidence graph, links source squares to claim circles with three line types (solid source-backed, dashed calculated, dotted proposed) and draws a missing source as an empty dashed square. C, the work record, is a grid in which signed, saved, read back and received are separate columns; one row is on hold.](../assets/record/fig-2-three-maps.png)
+
+*Figure 2 · Three maps. Only two are yours. Panel B carries its legend like a drawing sheet: the line type tells you what kind of link you're looking at. Panel C shows completion as four separate checks, not one tick. Schematic; no client records.*
+
 ![Static preview of the KPHD index: project, phase, place-type and Field Note nodes, with stage filters above the graph.](https://framerusercontent.com/screenshots/on-demand/9ef71dfb-500c-44b6-882d-3077640468f4.jpg)
 
-*Figure 1. The public KPHD index: projects, phases and articles as nodes, filterable by stage. It’s a navigation map, not a model attribution graph or an extract of private records. [Explore the interactive index](https://kelliepatry.com/index).*
+*Public example. The KPHD index: projects, phases and articles as nodes, filterable by stage. It’s a navigation map, not a model attribution graph or an extract of private records. [Explore the interactive index](https://kelliepatry.com/index).*
 
 ## 6. What I learned before this
 
@@ -143,25 +151,11 @@ This is your project file, kept somewhere a machine can read it as well as you. 
 
 ## 9. The sequence, drawn
 
-Put together, the layers form a sequence. It’s a proposed method; the arrows show order, not automation I’ve already installed.
+Put together, the layers form a sequence. It’s a proposed method, drawn as a line with stations.
 
-```mermaid
-flowchart TD
-    A[Frame one question and its scope] --> B[Retrieve permitted source evidence]
-    B --> C[Map claims and relationships]
-    C --> D{Is a model judgment needed?}
-    D -->|No| F[Apply explicit rules]
-    D -->|Yes| E[Ask bounded typed questions]
-    E --> F
-    F --> G{Evidence and authority sufficient?}
-    G -->|No| H[Hold with a reason and next owner]
-    G -->|Yes| I[Prepare the permitted output]
-    I --> J{Exact revision passes review?}
-    J -->|No| H
-    J -->|Yes| K[Save evidence and read it back]
-    K --> L[Verify receiver pickup or real outcome]
-    L --> M[Close with reasons and next action]
-```
+![Figure 3. Nine stations on one horizontal rail: frame, retrieve, map, judge, apply rules, review, save, hand off, close. Most stations are solid black squares for deterministic rules; only station 04, judge, is a hatched square for a model judgment. Review is an orange circle for a person. Save, hand off and close are blue squares for the record. A dashed hold line runs beneath, with a drop from every station. Caption: 1 of 9 stations calls a model.](../assets/record/fig-3-nine-stations.png)
+
+*Figure 3 · Nine stations, one model call. Every station can drop to the hold line. Proposed sequence; stations show order, not installed automation.*
 
 | Stage | What it must produce | In studio terms | Stop if… |
 | --- | --- | --- | --- |
@@ -199,6 +193,10 @@ If you’ve been reading for structure, you’ve probably seen it already. Every
 | The judgment | A confident answer | A decision by someone authorized to make it |
 | The map | A line on the diagram, a node in the centre | A documented relationship with a source behind it |
 | The delivery | A polished summary, a saved file | A cleared hold, a confirmed read-back, a recipient who actually has it |
+
+![Figure 4. A section drawing in four columns: model, judgment, map, delivery. In each, a thin black plate labelled with the surface (its own explanation; a confident answer; a line, a central node; a polished summary) floats above a hatched support block labelled with what must be established (the mechanism that produced the answer; a decision by someone authorized; a documented relationship with a source; read back, received, hold cleared). An orange dimension line marks the open joint between them. All four sit on one ground line. Caption: a render is not a construction set.](../assets/record/fig-4-one-pattern.png)
+
+*Figure 4 · One pattern, four scales. Drawn in section: the surface plate, the support beneath it and the joint between them, kept open. The orange dimension marks where a person checks before the surface is accepted.*
 
 You already know this pattern from your own work. A render is not a construction set. A beautiful image can sell an idea that nothing yet holds up. Your training taught you to look past the surface and ask what’s supporting it.
 
