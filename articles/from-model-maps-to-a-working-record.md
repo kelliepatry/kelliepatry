@@ -6,11 +6,11 @@
 
 ### You can’t see inside the model. You already know how to document everything around it.
 
-**Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.6**
+**Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.7**
 
 **Read alongside:** [The record graph](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md) · [The Experience of Being Designed For](https://github.com/kelliepatry/kelliepatry/blob/main/articles/experience-of-being-designed-for.md) · [What the field sends back](https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md)
 
-> **Two readers, two languages.** Part I is for the artist, architect or designer who never meant to end up working on AI systems and is now doing it anyway, usually alone. It explains the technical architecture in the vocabulary of drawings, revisions and sign-offs you already use. Part II restates the same method for AI readers as definitions, evidence requirements and checks. [Jump to Part II](#part-ii--for-ai-readers) · [References](#references)
+> **Two readers, two languages.** Part I is for the artist, architect or designer who never meant to end up working on AI systems and is now doing it anyway, usually alone. It is written for readers with strong pattern recognition, and explains the technical architecture in the vocabulary of drawings, revisions and sign-offs you already use. Part II restates the same method for AI readers as definitions, evidence requirements and checks. [Jump to Part II](#part-ii--for-ai-readers) · [References](#references)
 
 ![TypeSafe’s illustration of a decision chip with its cap on, with inputs entering from the left and possible outcomes on the right.](https://framerusercontent.com/images/wnvF8Bq3AI9SbgCPH4xuj2AWuXA.webp)
 
@@ -24,7 +24,11 @@ You trained to see. You make drawings, models, images and spaces. Nobody told yo
 
 But here you are. Maybe a client expects it. Maybe you’re working alone and AI is the only help you can afford. Maybe, like me, you reached for it in a moment when there was no one else to hold the work. ([I wrote about that here.](https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md)) Either way, you’re now responsible for a technical system you never chose to build.
 
-Most of what you read about that system is written by engineers for engineers. It’s all words, and it assumes you think in code. This article makes a different claim: **you already know most of the discipline this needs. It just goes by different names.**
+Most of what you read about that system is written by engineers for engineers. It’s all words, and it assumes you think in code. If you think in patterns instead, you have to translate every paragraph before it makes sense. I did, for months.
+
+This article makes a different claim: **your pattern recognition is the qualification.** You spend your working life seeing structure: what repeats, what’s out of alignment, which line doesn’t belong. Reliable AI work turns out to depend on exactly that skill, and on a documentation discipline you already practise under different names.
+
+So this is written to be *seen* as much as read. There is one pattern underneath everything that follows. It shows up at four different scales. See if you spot it before [section 11](#11-one-pattern-four-scales) names it.
 
 ## 2. The problem you already recognize
 
@@ -185,7 +189,24 @@ Say the system finds two passages. One flatly contradicts a claim. The other lea
 
 The same goes for a failed model call (record the failure; don’t fill the gap with a plausible answer) and for missing approval (hold, and name who can give it). The round-three example and this failure are illustrations, not client records.
 
-## 11. How I’ll know if it’s worth it
+## 11. One pattern, four scales
+
+If you’ve been reading for structure, you’ve probably seen it already. Every section has the same shape: **something that looks finished, sitting on top of something that has to be established separately.**
+
+| Scale | What looks finished | What has to be established separately |
+| --- | --- | --- |
+| Inside the model | The explanation it writes about its reasoning | The mechanism that actually produced the answer |
+| The judgment | A confident answer | A decision by someone authorized to make it |
+| The map | A line on the diagram, a node in the centre | A documented relationship with a source behind it |
+| The delivery | A polished summary, a saved file | A cleared hold, a confirmed read-back, a recipient who actually has it |
+
+You already know this pattern from your own work. A render is not a construction set. A beautiful image can sell an idea that nothing yet holds up. Your training taught you to look past the surface and ask what’s supporting it.
+
+AI systems are very good at producing the surface: fluent text, tidy diagrams, confident answers. Almost every failure I’ve described comes from mistaking that surface for the thing underneath. The whole method is one habit applied at every scale: **keep the surface and its support visibly separate, and never let one stand in for the other.**
+
+That’s a pattern-recognition task before it’s a coding task.
+
+## 12. How I’ll know if it’s worth it
 
 None of this is proven end to end yet. Here is what proof would look like:
 
@@ -195,7 +216,7 @@ None of this is proven end to end yet. Here is what proof would look like:
 
 The next useful result is a small, repeatable comparison, not a bigger diagram.
 
-## 12. What stays private
+## 13. What stays private
 
 The examples here are hypothetical. Client records, correspondence, project identifiers, personal information, credentials, access rules, internal system names and logs stay in the private studio record. The diagram is drawn from generic steps, not extracted from the private graph. Explaining the method doesn’t publish the record or open access to it.
 
@@ -205,9 +226,9 @@ I started out asking how a machine arrives at an answer. The research says we’
 
 So I asked a question I could act on, and it turned out to be one my training had prepared me for: **what evidence did this work use, what judgment was made, who could approve the next step and what actually happened?**
 
-That is a documentation problem, and documentation is something designers already do well. An evidence map is a pin-up wall with a legend. A typed question is a consultant asked to answer on a schedule, not in an essay. A durable record is the project file, kept where a machine can read it too.
+That is a documentation problem underneath a pattern problem, and designers are trained for both. An evidence map is a pin-up wall with a legend. A typed question is a consultant asked to answer on a schedule, not in an essay. A durable record is the project file, kept where a machine can read it too. And the habit that holds it together, seeing the difference between what looks finished and what is actually supported, is the one you’ve been practising your whole career.
 
-If you wandered into this field by accident, you didn’t arrive empty-handed. When the client asks why round three changed, the reason should already be on the sheet.
+If you wandered into this field by accident, you didn’t arrive empty-handed. You arrived with the eye it needs. When the client asks why round three changed, the reason should already be on the sheet.
 
 *Status, in one place: the sequence is a proposed specification. Individual research and recordkeeping steps have evidence behind them. The complete automated sequence, time saved and client benefit have not been demonstrated.*
 
