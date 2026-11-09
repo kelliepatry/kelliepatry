@@ -4,87 +4,97 @@
 
 # From model maps to a working record
 
-### How visual relationships, typed judgments and durable records meet in a small design practice
+### I couldn’t see inside the model. So I drew the system around it.
 
-**Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.3**
+**Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.4**
 
 **Read alongside:** [The record graph](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md) · [The Experience of Being Designed For](https://github.com/kelliepatry/kelliepatry/blob/main/articles/experience-of-being-designed-for.md)
 
-> A practice study and a proposed workflow specification. The diagram describes the intended sequence. Individual research and recordkeeping steps have evidence; the complete automated sequence and its benefit to clients have not been demonstrated.
+> **Two readers, two languages.** Part I is my account, for people: the question that started this, the turn it took and what I’m building because of it. Part II restates the same method for AI readers as definitions, evidence requirements and checks. [Jump to Part II](#part-ii--for-ai-readers) · [References](#references)
 
 ![TypeSafe’s illustration of a decision chip with its cap on, with inputs entering from the left and possible outcomes on the right.](https://framerusercontent.com/images/wnvF8Bq3AI9SbgCPH4xuj2AWuXA.webp)
 
-*Illustration: TypeSafe AI, Figure 1 from Allie Laabs’s [Don’t Call It a Decision Model](https://typesafe.ai/blog/dont-call-it-a-decision-model), 3 November 2026. This is the closed-chip view that the article goes on to unpack: model judgments and application logic play different roles.*
-
-## Abstract
-
-A design practice needs to preserve the reasons behind its work as well as the work itself. Our investigation connects three questions: what can research reveal about a model’s computation; how can a visual map make relationships in our own evidence inspectable; and how can a system retain a judgment without turning it into an authorized decision? This paper brings model interpretability, TypeSafe’s Jev and a Supabase-backed record into one practical account. Its central rule is that evidence, interpretation, permission and completion must remain distinguishable through every handoff.
-
-**Two reading paths:** [Part I — For people](#part-i--for-people) follows the discovery and its practical purpose. [Part II — For AI readers](#part-ii--for-ai-readers) restates the method as definitions, evidence requirements and checks. [References](#references) support both parts.
+*Illustration: TypeSafe AI, Figure 1 from Allie Laabs’s [Don’t Call It a Decision Model](https://typesafe.ai/blog/dont-call-it-a-decision-model), 3 November 2026. The chip with its cap on: inputs go in, an outcome comes out, and you can’t see what happens in between. This article is about what to do with that.*
 
 ## Part I — For people
 
-## 1. The question that opened the investigation
+## 1. Why did the banquette move?
 
-Jev started this work. Exploring TypeSafe’s model prompted a wider question: how does AI arrive at a judgment, and what would we need to see, record and check before using that judgment in our practice?
+Picture a restaurant six months after opening. The owner calls with a simple question: *why did the banquette move?*
 
-Allie Laabs’s [Don’t Call It a Decision Model](https://typesafe.ai/blog/dont-call-it-a-decision-model) gives this distinction a clear form. Jev supplies focused judgments; application code combines them with facts and rules to determine an outcome. That separation is central to the pathway described here. From Jev, our investigation widened into model interpretability, visual relationship maps and the durable records needed to carry work forward.
+The drawings show that it moved. The revision cloud shows when. The reason lived in a site meeting: the service path from the kitchen pass was too tight once the final equipment arrived. It may be in someone’s notes, in an email thread or only in the designer’s memory.
 
-A useful source for that first step is Nate’s *Beyond Black Boxes: Mapping the Multidimensional Continuums of Modern LLMs*, dated 1 April 2025 on its public page. It links to Anthropic’s interpretability research. It is the strongest match recovered for the remembered article; the original reading reference has not been conclusively identified. [1](https://natesnewsletter.substack.com/p/beyond-black-boxes-mapping-the-multidimensional)
+If you design anything for other people, you’ve probably had that call. The decision was sound, and the evidence existed. It just didn’t travel with the design.
 
-Anthropic’s *Tracing the thoughts of a large language model* describes work connecting interpretable features into computational circuits in Claude 3.5 Haiku. Its findings include planning in poetry and cases where a plausible written explanation does not faithfully describe the mechanism producing an answer. The researchers also state a substantial limit: their method captures only part of the computation and can introduce artifacts. [2](https://www.anthropic.com/research/tracing-thoughts-language-model)
+I’ve been trying to fix that in my own practice for a long time. This article is about how a question about AI turned out to be the same question.
 
-That makes the research a useful starting point for a practical question: what can we inspect in the system around the model, even when the model’s internals remain largely inaccessible?
+## 2. A question about how a machine decides
 
-## 2. Three different kinds of map
+It started with Jev, a model from TypeSafe. I was exploring what it could do, and I kept coming back to something more basic: how does AI arrive at a judgment at all? And what would I need to see, record and check before I let one of those judgments into my work?
 
-| Map | What it represents | What it can support |
+Allie Laabs’s [Don’t Call It a Decision Model](https://typesafe.ai/blog/dont-call-it-a-decision-model) gave me the first useful handle. Jev doesn’t make decisions. It gives focused judgments, and ordinary application code combines them with facts and rules to reach an outcome. The model answers a question; the rules decide what happens next.
+
+That separation stayed with me. I wanted to understand what was on the model’s side of the line.
+
+## 3. The humbling part
+
+So I went looking inside. I’m a designer and I think in drawings, so when a newsletter piece pointed me toward research that *maps* how a language model computes, I followed it. [1](https://natesnewsletter.substack.com/p/beyond-black-boxes-mapping-the-multidimensional)
+
+Anthropic’s *Tracing the thoughts of a large language model* traces internal features into circuits inside one of their models. Some of what they found is beautiful. The model plans ahead when it writes a rhyming line. Other findings are unsettling: sometimes the model’s own written explanation of how it reached an answer doesn’t match what actually happened inside. The researchers are clear about their limits too. Their method captures only part of the computation, and it can introduce artifacts of its own. [2](https://www.anthropic.com/research/tracing-thoughts-language-model)
+
+Read that from a client’s side of the table. If even the model’s own explanation can’t be fully trusted, and the best researchers can see only part of the mechanism, then “the AI said so” is never going to be a reason I can hand a client.
+
+## 4. The turn: draw what you can see
+
+This is where the question changed for me.
+
+I can’t see inside the model. But I can see everything around it: what went in, what question was asked, what came back, which rule acted on it, who signed off and what happened next. That part is mine to draw.
+
+Designers do this all the time. We can’t see inside a guest’s head either. We design the route around them, and we make it legible.
+
+Once I looked at it that way, I realized I’d been conflating three very different kinds of map:
+
+| Map | What it shows | What it can honestly support |
 | --- | --- | --- |
-| Model attribution graph | Selected internal features and computational relationships recovered by a research method | Bounded hypotheses about a particular model’s mechanisms |
-| Evidence relationship map | Sources, claims, alternatives, contradictions and dependencies in a defined body of work | Inspection of what supports an interpretation and what is missing |
-| Work record | Current decisions, owners, revisions, permissions and completion evidence | Retrieval of the current state and the next permitted action |
+| Model attribution graph | Features and pathways inside a model, recovered by research | Careful hypotheses about how that one model works |
+| Evidence map | Sources, claims, alternatives, contradictions and what depends on what | Seeing what supports a conclusion, and what’s missing |
+| Work record | Decisions, owners, revisions, permissions and proof of completion | Knowing where the work stands and what may happen next |
 
-Our studio work concerns the second and third rows. A line between a meeting note and a design revision is a documented relationship. It is not a recovered neural circuit. A visually central node is not automatically important, true or authorized.
+The first row belongs to researchers. My studio works in the second and third. A line between a meeting note and a design revision is a documented relationship, not a neural circuit. And a node that sits in the middle of a drawing isn’t automatically important, true or approved.
 
-This distinction changes how we draw. A source-backed relationship, a calculated connection and a proposed interpretation need different labels. Missing evidence must remain visible. A graph that hides uncertainty makes the record harder to trust.
-
-### Explore a public example
+That changes how I draw. A link backed by a source, a link that was calculated and a link that’s only a proposal need to look different. Missing evidence has to stay visible. A beautiful graph that hides its uncertainty is harder to trust, not easier.
 
 ![Static preview of the KPHD index: project, phase, place-type and Field Note nodes, with stage filters above the graph.](https://framerusercontent.com/screenshots/on-demand/9ef71dfb-500c-44b6-882d-3077640468f4.jpg)
 
-*Figure 1. The existing public index, shown in the Framer preview. This screenshot is a navigation example, not a model attribution graph or an extract of private operational records. [Open the interactive index](https://kelliepatry.com/index) to filter by stage and explore its connections. The image itself is static.*
+*Figure 1. The public KPHD index, a navigation map of projects, phases, place types and Field Notes. It isn’t a model attribution graph or an extract of private records. [Explore the interactive index](https://kelliepatry.com/index) and filter by stage.*
 
-## 3. What the studio work established
+## 5. What I had already learned the hard way
 
-The Information Geometry study produced a source-linked relationship map and connected research artifacts. Its records distinguish a successful research handoff from acceptance for drawing or production use. The later record-graph working paper examines how a graph over an existing practice record can expose disconnected material and missing decision relationships. These are related investigations, not one continuous benchmark. [3](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md)
+This wasn’t my first map. My Information Geometry study produced a source-linked relationship map, and one thing it taught me was that a research handoff that *worked* is not the same as a result that’s *accepted* for drawings or production. Then the [record-graph paper](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md) laid a graph over my existing project record and showed me the material that was sitting disconnected and the decisions that had no recorded reasons. [3](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md)
 
-The earlier bounded comparison also matters: adding an evaluation layer did not demonstrate an advantage over its baseline on the study’s accepted labels. That result does not establish equivalence, prove the approach useless or justify expanding it. It leaves a narrower question: which judgment, with which evidence, would change a useful next action?
+One result humbled me further. In a bounded comparison, adding an AI evaluation layer didn’t beat the simpler baseline on the labels we’d agreed in advance. That doesn’t make the approach useless, and it doesn’t prove it works. It made the question smaller and better: *which judgment, with which evidence, would actually change what I do next?*
 
-The account here omits private project examples, internal identifiers and raw evaluations. It does not claim measured savings, better client outcomes, universal model agreement or a fully automated studio.
+## 6. Small questions, not big answers
 
-## 4. Where Jev fits
+That’s where Jev fits. TypeSafe describes it as a System One model. You give it the facts and ask it a typed question, and it answers in a fixed shape: a Choice between options, a Score, and a few other forms. [4](https://docs.typesafe.ai/llms.txt) It isn’t asked to run a process, only to answer one bounded question about the evidence in front of it.
 
-TypeSafe calls Jev a System One model. Its [article on judgments and decisions](https://typesafe.ai/blog/dont-call-it-a-decision-model) explains why: a model’s assessment is one input to a decision, while the rules governing action remain explicit in code. Our workflow carries that distinction into the practice record, where permission and completion also require their own evidence.
+Back to the banquette. A system could ask: *Does this meeting note support the claim that the service path was too narrow?* Separately, it could ask: *Does this note name who made the decision?* Each answer is a judgment. Neither one decides anything. Ordinary rules take the answers from there, and a person still holds the authority to move the banquette, to send the explanation to the client and to call the work done.
 
-TypeSafe’s Jev accepts supplied state and typed questions. Its documented primitives include Choice, Noul, Score and Box. This makes it a candidate for specific judgments about a bounded piece of evidence rather than an invitation to generate an entire process. [4](https://docs.typesafe.ai/llms.txt)
+Confidence needs the same care. TypeSafe’s documentation separates the probabilities behind an answer from a summary of how settled the answer is. [5](https://docs.typesafe.ai/confidence) What counts as confident enough depends on the question and on what it costs to be wrong. An unsettled answer gets routed to a person, not rounded up.
 
-For example, a system could ask separately whether a supplied passage supports a claim and whether it names a decision-maker. The answers would feed ordinary application rules. The model would not decide whether a person has authority, whether a document may be published or whether the work is complete.
+One distinction for honesty’s sake: inside the studio I also have a service I call JEV. It’s broader than TypeSafe’s model, and the name alone doesn’t mean a particular operation called Jev. When I evaluate a judgment, I name the actual model, the question, the input and the response.
 
-Probability and confidence also require care. TypeSafe’s confidence documentation distinguishes the answer’s probability distribution from a summary of how concentrated or settled it is. Thresholds should serve the particular question and the cost of being wrong; uncertainty needs an explicit review route. [5](https://docs.typesafe.ai/confidence)
+## 7. A memory that outlasts the conversation
 
-The studio’s internally named JEV service is broader than the TypeSafe model. Its existence does not mean every operation uses Jev, and an internal label is not proof of a specific provider call. A defensible evaluation names the actual model, question, input revision and response.
+A judgment is only useful if the reason survives. That’s where Supabase comes in: a Postgres database where decisions, relationships and rules live as durable records rather than inside a chat that ends. [6](https://supabase.com/docs/guides/database/overview)
 
-## 5. Where Supabase fits
+My rule is simple. Structured state goes in the database, and prose stays where people work. When someone picks the work up again, whether that’s me next month, a collaborator or a different AI model, they should be able to recover what the work is, which decisions were accepted and why, the current deliverable, what’s still open and what may happen next.
 
-Supabase supplies a Postgres database. Relationships and application rules can be represented around durable records rather than held only in a conversation. [6](https://supabase.com/docs/guides/database/overview)
+That means the studio’s memory doesn’t leave when a model changes. It doesn’t make every record correct, though. Who wrote it, which revision it is and who was allowed to change it still have to be checked.
 
-In the studio’s adopted approach, structured operational state belongs in the database; prose remains a human working surface. A continuation should recover the work, its accepted decisions and their reasons, the current deliverable, open questions and the next permitted action.
+## 8. The route from question to delivery
 
-This separation lets a model change without requiring the business to reconstruct its memory from the departing conversation. It does not make every record correct. Source identity, revision, access and the authority for a change still need validation.
-
-## 6. The discovery and delivery workflow
-
-The following is the proposed end-to-end method. Arrows show sequence, not proof of installed automation.
+Put together, the pieces make a route. It’s a proposed method, drawn as a sequence. The arrows show order, not automation I’ve already installed.
 
 ```mermaid
 flowchart TD
@@ -104,53 +114,59 @@ flowchart TD
     L --> M[Close with reasons and next action]
 ```
 
-| Step | Required result | Stop or return condition |
+Walked through with the banquette:
+
+| Step | In the banquette case | Stop here if… |
 | --- | --- | --- |
-| Frame | One question, intended reader, exact scope and definition of done | Ambiguous identity or incompatible objectives |
-| Retrieve | Permitted sources with revisions, passages and origin links | Missing access, stale evidence or unresolved source conflict |
-| Map | Claims linked to evidence, alternatives and explicitly labelled relationships | An inferred association presented as fact |
-| Judge | Only necessary questions, with supplied state and recorded answers | Invalid input, provider failure or unsettled answer |
-| Apply rules | An explicit disposition: prepare, review, hold or an authorized action | No rule for the combination; authority absent |
-| Review | The exact output checked against its sources and audience | Unsupported claim, wrong revision or disclosure issue |
-| Persist | Saved output, reasons and evidence that can be read back | Unknown write outcome; inspect before retrying |
-| Hand off | A recipient can retrieve and use the intended revision | Assignment or delivery attempted without pickup evidence |
-| Close | Current state, accepted reasons, unresolved questions and next owner | A continuation cannot recover the same work |
+| Frame | “Explain why the banquette moved, for the owner, by Friday” | It’s unclear which project, revision or reader |
+| Retrieve | The site-meeting note, the equipment schedule, the revision set | A source is missing, out of date or contradicts another |
+| Map | The note *supports* the constraint; the revision *responds to* it | A guess is drawn as if it were fact |
+| Judge | Only the questions that need interpretation, with the answers recorded | The answer is unsettled or the call failed |
+| Apply rules | Prepare the explanation, send it for review or hold it | No rule covers the case, or no one with authority has signed off |
+| Review | The exact explanation checked against its sources and its reader | A claim is unsupported, the revision is wrong or something private would be disclosed |
+| Save | The explanation and its reasons saved, then read back | It isn’t clear the save worked: look before trying again |
+| Hand off | The owner actually receives the right version | It was sent, but nobody has confirmed it arrived |
+| Close | Current state, reasons, open questions and the next owner recorded | Someone picking it up tomorrow couldn’t find their way back in |
 
-This is a completion sequence rather than a requirement to call a model at every stage. Exact identifiers, revision checks and permissions belong in deterministic rules. A model is useful where interpretation is genuinely required.
+Most steps don’t need a model at all. Identities, revisions and permissions belong to plain rules. The model earns its place only where real interpretation is needed.
 
-A hold ends that attempt. Work resumes at the affected step only after its named owner resolves the blocker and the current evidence and permission are checked again. Failed review returns the exact finding for revision or holds the affected output; it cannot advance as a reviewed deliverable.
+And a hold is a hold. It ends that attempt. The work picks up again only after the named owner clears the blocker and the evidence and permission are checked fresh.
 
-## 7. One ordinary case and one failure
+## 9. Where it has to stop
 
-**Illustrative ordinary case.** A hospitality layout changes after an operational constraint is identified. The record connects the original intention, the evidence for the constraint, the alternatives and the designer’s decision. The client-facing explanation says what changed, why and what input or acceptance is needed. The reviewed revision is saved, and the recipient’s use is checked separately from the save.
+The most important thing this route does is stop.
 
-**Illustrative failure.** A model finds two conflicting passages. One explicitly disproves a particular claim; the other leaves a different question unresolved. Combining them into “there is a conflict” loses the distinction. The workflow holds the affected judgment, identifies the passages and routes the unresolved question to the appropriate reviewer. A polished summary cannot clear that hold.
+Imagine the system finds two passages. One flatly contradicts a claim, and the other leaves a *different* question open. A tidy summary would say “there’s a conflict” and move on, and the difference between them would be gone. The route holds instead. It names both passages and sends the open question to the person who can answer it. No amount of polished wording clears that hold.
 
-Both cases are hypothetical. They show where the process should stop and what needs to return to a person.
+The banquette story and this failure are both hypothetical. They show where a person has to come back into the loop.
 
-## 8. What would make this worth using?
+## 10. How I’ll know if it’s worth it
 
-Compare the same frozen source packet in a text view and a graph view. Decide the task and success criteria before observing the answers. Record whether the reader finds the correct evidence, selects the correct action or hold, preserves authority distinctions and spends less effort reconstructing context.
+I haven’t proved any of this yet. Here is what proof would look like.
 
-For typed judgments, retain a separate set of cases that did not shape the wording. Include missing evidence, no matching option, contradictory sources, stale revisions and failed calls. Measure the outcome that matters to the task; do not substitute a model’s certainty for correctness.
+- **Does the map help?** Give the same frozen set of sources to readers as text and as a graph. Agree the task and what success looks like before anyone answers. Then check whether they find the right evidence, choose the right action or hold, keep straight who has authority and spend less effort rebuilding context.
+- **Do the small questions hold up?** Test them on cases that didn’t shape their wording: missing evidence, no matching option, contradictory sources, stale revisions and failed calls. Measure whether the outcome was right, not how sure the model sounded.
+- **Does the memory work?** Have someone fresh pick up the work through the real access route. Saving it, finding it, understanding it and acting on it are four separate things to observe.
 
-For continuation, test a fresh reader through the actual access route. Saved context, successful retrieval, correct interpretation and useful recipient action are four different observations.
+The next useful result is a small, repeatable comparison, not a bigger diagram.
 
-The next useful result is a bounded, reproducible comparison. It is not a larger diagram.
+## 11. What stays private
 
-## 9. What stays private
-
-The public account explains the method with hypothetical examples. Client records, private correspondence, project identifiers, personal information, source-system addresses, credentials, access rules, internal endpoint names and operational logs stay outside it. The public diagram is newly composed from generic steps and contains no extract of the private graph.
-
-The supporting evidence remains available inside the authorized studio record. Publishing an explanation does not publish that record or grant access to it.
+Everything here is told with hypothetical examples. Client records, correspondence, project identifiers, personal information, credentials, access rules, internal system names and logs stay in the studio record. The diagram above is newly drawn from generic steps, not extracted from the private graph. Explaining the method doesn’t publish the record or open access to it.
 
 ## Conclusion
 
-The journey from model interpretability to a working project record changes the question we ask of AI. Alongside “How did it produce this answer?” sits a question we can act on today: “What evidence did this work use, what judgment was made, who could authorize the next step, and what actually happened?”
+I started out asking how a machine arrives at an answer. I still want to know. But the research taught me that I may never fully see it, and that even the model’s own account can’t be taken at its word.
 
-Visual maps can make those relationships inspectable. Typed questions can make individual judgments easier to evaluate. A durable record can carry the result between tools and people. Their value still depends on whether the next person can use the result correctly.
+So I asked a question I *can* act on today: *What evidence did this work use, what judgment was made, who could authorize the next step and what actually happened?*
 
-For a client, that should eventually mean a simple thing: the reason stays with the design.
+A visual map makes those relationships something you can look at. Small typed questions make each judgment something you can test. A durable record carries the answer between tools and people. None of it matters unless the next person can use it.
+
+Six months from now, when the owner calls and asks why the banquette moved, I want the answer to be one click away, with the meeting, the reason and the person who decided all there.
+
+The reason should stay with the design.
+
+*Status, in one place: the workflow above is a proposed specification. Individual research and recordkeeping steps have evidence behind them. The full automated sequence, time saved and benefit to clients have not been demonstrated.*
 
 ## Part II — For AI readers
 
@@ -203,7 +219,7 @@ The interpretability findings belong to Anthropic's bounded research method. The
 
 The [client-facing interactive index](https://kelliepatry.com/index) provides a public way to explore projects, place types, stages and Field Notes. It is a navigation example, not access to the private work record or evidence of a particular Jev call. Its published content and its maintenance process are separate claims.
 
-[Return to Part I](#part-i--for-people) · [Discovery workflow](#6-the-discovery-and-delivery-workflow) · [References](#references)
+[Return to Part I](#part-i--for-people) · [The route](#8-the-route-from-question-to-delivery) · [References](#references)
 
 ## References
 
