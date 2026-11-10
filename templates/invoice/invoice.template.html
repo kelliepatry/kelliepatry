@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{invoice_number}}</title>
+<style>
+  @page { size: Letter portrait; margin: 0.75in; }
+  :root { --ink:#1a1a1a; --mid:#6b6b6b; --rule:#cfcfcf; --soft:#f3f3f1; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color:var(--ink); font-size:10pt; line-height:1.45; }
+  .mast { display:flex; justify-content:space-between; align-items:baseline; border-bottom:1.5px solid var(--ink); padding-bottom:10px; }
+  .mark { font-size:20pt; font-weight:600; letter-spacing:0.02em; }
+  .mark b { font-weight:800; }
+  .studio { text-align:right; font-size:8pt; color:var(--mid); letter-spacing:0.08em; text-transform:uppercase; }
+  .draft { margin-top:10px; font-size:8pt; letter-spacing:0.14em; text-transform:uppercase; color:#8a3b2e; }
+  h1 { font-size:26pt; font-weight:300; text-transform:lowercase; margin:26px 0 4px; letter-spacing:-0.01em; }
+  .num { font-size:11pt; color:var(--mid); margin-bottom:24px; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:28px; margin-bottom:26px; }
+  .lbl { font-size:7.5pt; letter-spacing:0.14em; text-transform:uppercase; color:var(--mid); margin-bottom:4px; }
+  .facts { display:grid; grid-template-columns: auto 1fr; gap:4px 16px; }
+  .facts div:nth-child(odd) { color:var(--mid); }
+  table { width:100%; border-collapse:collapse; margin-top:6px; }
+  th { text-align:left; font-size:7.5pt; letter-spacing:0.14em; text-transform:uppercase; color:var(--mid); font-weight:500; border-bottom:1px solid var(--ink); padding:8px 0; }
+  th.r, td.r { text-align:right; }
+  td { padding:12px 0; border-bottom:1px solid var(--rule); vertical-align:top; }
+  td .sub { color:var(--mid); font-size:9pt; margin-top:3px; }
+  .totals { margin-left:auto; width:52%; margin-top:14px; }
+  .totals .row { display:flex; justify-content:space-between; padding:6px 0; }
+  .totals .row.muted { color:var(--mid); }
+  .totals .due { border-top:1.5px solid var(--ink); margin-top:6px; padding-top:10px; font-size:13pt; font-weight:600; }
+  .box { background:var(--soft); padding:14px 16px; margin-top:28px; }
+  .box p { margin:4px 0; }
+  .foot { position:fixed; bottom:0; left:0; right:0; display:flex; justify-content:space-between; font-size:7.5pt; color:var(--mid); border-top:1px solid var(--rule); padding-top:6px; }
+</style>
+</head>
+<body>
+  <div class="mast">
+    <div class="mark">[<b>KP</b>/HD]</div>
+    <div class="studio">Kellie Patry Hospitality Design<br>Los Angeles — CA 90012</div>
+  </div>
+  {{draft_banner}}
+
+  <h1>invoice</h1>
+  <div class="num">{{invoice_number}} · {{subtitle}}</div>
+
+  <div class="grid">
+    <div>
+      <div class="lbl">Bill to</div>
+      {{bill_to}}
+    </div>
+    <div>
+      <div class="lbl">Details</div>
+      <div class="facts">
+        <div>Project</div><div>{{project_name}}</div>
+        <div>Project no.</div><div>{{project_number}}</div>
+        <div>Invoice date</div><div>{{invoice_date}}</div>
+        <div>Terms</div><div>{{terms}}</div>
+        <div>Due date</div><div>{{due_date}}</div>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Description</th><th class="r">Amount</th></tr></thead>
+    <tbody>{{lines}}
+    </tbody>
+  </table>
+
+  <div class="totals">{{totals}}
+    <div class="row due"><span>Amount due</span><span>{{amount_due}}</span></div>
+  </div>
+
+  <div class="box">
+    <div class="lbl">Payment</div>
+    <p>{{payment_text}}</p>
+    <p>Questions about this invoice: contact@kelliepatry.com · 213.537.5060</p>
+  </div>
+
+  <div class="foot">
+    <span>contact@kelliepatry.com · 213.537.5060 · kelliepatry.com</span>
+    <span>{{invoice_number}} · page 1 / 1</span>
+  </div>
+</body>
+</html>
