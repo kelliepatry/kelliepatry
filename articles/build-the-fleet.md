@@ -93,6 +93,12 @@ I had already decided that plain research goes to workers, not to the model. The
 
 That's the whole shift. Not a better prompt. A model that's no longer allowed to do the clerk's job, and a standing order to build the clerk.
 
+Here's what the clerks cost. At the end of the same day, this line came back in my work log. Jev is what we call our worker fleet:
+
+> "Total Jev cost for everything today was about 114,000 tokens, roughly half a cent."
+
+Every finding, counting, listing and checking job the workers did that day cost about half a cent. A reasoning model would have to read those same 114,000 tokens before it could reason about any of it, and that reading alone costs more. That's the tax of not knowing what you're paying for. You pay it every time a model goes looking for something a worker could have handed it.
+
 The fix for the power-through trap is a fleet: many small workers, each doing one plain job, reliably and cheaply. I started calling them "the fleet" or just "the workers," and the names stuck.
 
 [![Powering through versus working from a packet](https://github.com/kelliepatry/kelliepatry/raw/main/assets/fleet-fig-2.png)](https://github.com/kelliepatry/kelliepatry/blob/main/assets/fleet-fig-2.png)
@@ -231,7 +237,7 @@ Fred Brooks, writing about software in 1986, separated the hard part of building
 
 ## 8. What it isn't yet
 
-- **The fleet-first rule is new.** We adopted it this morning and tightened it within the hour. We have no measured results yet on cost or accuracy.
+- **The fleet-first rule is new.** We adopted it this morning and tightened it within the hour. We have one day's cost figure for the workers, about half a cent. We don't yet have a side-by-side comparison with a reasoning model doing the same work, or any measure of accuracy.
 - **The wiring is partial.** We are connecting code, record, notes and skills right now. Some links are manual, and some changes still land in one place only.
 - **The workers are young.** Some plain jobs don't have a worker yet. The rule says build them, and the backlog is real.
 - **This is one studio.** A small design practice isn't a restaurant group or a hotel. The pattern should travel, but we haven't proven it does.
@@ -374,7 +380,8 @@ loop:
 | Standard connectors reduce custom integration work | External, design intent | [05] |
 | Prefer the simplest agent pattern that works | External, practitioner guidance | [06] |
 | The trade-term mapping is a useful teaching aid | Author's analogy, unmeasured | Fig. 4, II.2a |
-| Routing plain work to workers lowers cost and variance | Studio hypothesis, unmeasured | None yet |
+| The worker fleet ran a full day's plain research for about half a cent | Studio observation, one day | Author's work log, 10 November 2026 |
+| Routing plain work to workers lowers cost and variance | Studio hypothesis, cost partly observed, no side-by-side comparison | Above row; no comparison yet |
 | Fleet-owned maintenance reduces drift | Studio hypothesis, unmeasured | None yet |
 
 ---
