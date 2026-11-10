@@ -11,4 +11,8 @@ Still binding:
 - Safety gate (GOV-20261106-SAFETY-GATE-READS-CODE): routine changes use the controlled change path. Code touching money, access or owner rights, deletion, outside sends, the approval machinery or a stored read of a person needs Kellie's exact authorization.
 - Widening access (agent-role grants, RLS loosening, restricted-schema locks) needs its own named ruling.
 
+## This repository is public
+
+Never commit client documents here: no invoices, payloads, contracts, fee schedules, client names with amounts, or bank details. `templates/invoice` holds the studio invoice template only (GOV-20261110-INVOICE-TEMPLATE-STANDARD-A1). Rendered invoices stay local or in Studio Home; the `No client documents` workflow blocks them under `templates/`.
+
 Full operating rules: the `kphd-supabase` skill. The governing record is in Supabase `core.governance_decisions`.

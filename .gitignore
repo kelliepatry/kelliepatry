@@ -1,0 +1,6 @@
+# This repository is public. Client documents never live here.
+# Rendered invoices, payloads and any output folders stay local or in Studio Home.
+templates/invoice/out/
+templates/invoice/**/*.pdf
+templates/invoice/**/*.json
+templates/invoice/**/[0-9][0-9][0-9].[0-9][0-9][0-9][0-9].*-INV-*
