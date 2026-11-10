@@ -32,6 +32,12 @@ export function renderHtml(p) {
   for (const k of ['invoice_number', 'subtitle', 'bill_to_lines', 'project_name', 'project_number', 'invoice_date', 'due_date', 'terms', 'lines', 'amount_due']) {
     if (p[k] === undefined || p[k] === null) throw new Error(`payload is missing ${k}`);
   }
+  // Every issued invoice carries a payment link (Kellie, 2026-11-10). Drafts may render without one;
+  // payment_link_required:false is only for invoices settled before this rule (201.2026.BH-INV-002).
+  if (!p.draft && !p.payment_link && p.payment_link_required !== false) {
+    throw new Error(`${p.invoice_number}: a payment link is required on every invoice; add payment_link before rendering the final PDF`);
+  }
+  if (p.payment_link && !/^https:\/\//i.test(p.payment_link)) throw new Error('payment_link must be an https:// link');
   const paymentText = p.payment_link
     ? `Pay securely at ${esc(p.payment_link)} by ${longDate(p.due_date)}, referencing ${esc(p.invoice_number)}.`
     : `A secure payment link will be sent separately. Please pay by ${longDate(p.due_date)} and reference ${esc(p.invoice_number)}.`;
