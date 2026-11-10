@@ -5,7 +5,7 @@ The standard KPHD invoice for every project. Kellie approved it on 10 November 2
 public repository: the approved original stays in Studio Home (`finance.invoices.metadata.sent_artifact`,
 with its SHA-256) and in the studio's sent mail.
 
-Governing rules in Studio Home: `GOV-20261109-MONEY-GATE-V2` and `GOV-20261110-INVOICE-TEMPLATE-STANDARD`.
+Governing rules in Studio Home: `GOV-20261109-MONEY-GATE-V2` and `GOV-20261110-INVOICE-TEMPLATE-STANDARD-A1`.
 
 ## Files
 

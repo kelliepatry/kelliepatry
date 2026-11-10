@@ -1,0 +1,34 @@
+name: No client documents
+
+# This repository is public (GOV-20261110-INVOICE-TEMPLATE-STANDARD-A1).
+# Fail any push or pull request that adds a rendered invoice, an invoice payload,
+# or bank/routing details under templates/.
+
+on:
+  push:
+    paths: ["templates/**"]
+  pull_request:
+    paths: ["templates/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Block client documents and bank details
+        run: |
+          set -e
+          bad=$(git ls-files templates | grep -Ei '\.(pdf|json)$|[0-9]{3}\.[0-9]{4}\.[A-Z]{2}-INV-[0-9]{3}' || true)
+          if [ -n "$bad" ]; then
+            echo "Client documents or invoice payloads are not allowed in this public repository:"
+            echo "$bad"
+            exit 1
+          fi
+          if git grep -nEi '\b(routing|aba|iban|swift)\b[^a-z]{0,20}[0-9]{6,}|account (no|number|#)[^a-z]{0,6}[0-9]{4,}' -- templates; then
+            echo "Bank or routing details found under templates/."
+            exit 1
+          fi
+          echo "Clean: template only."
