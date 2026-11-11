@@ -1,18 +1,13 @@
 # Claude Code notes for this repo
 
-## Supabase (Studio Home, `qdgfcwdbzxxmhduhxcmj`)
+## This repository is public and holds the writing only
 
-Standing authorization `GOV-20261109-A9-STANDING-SQL-AUTHORIZATION` (ruled 2026-11-09): run SQL on Studio Home (`execute_sql`, `apply_migration`, read-only Supabase tools) without asking Kellie to approve or "proceed" first.
+It carries the profile page, the articles, their figures and figure scripts, and the Index card refresh.
 
-Still binding:
-- Never delete (D7): no DELETE, TRUNCATE, or DROP of populated tables, and no DELETE grants.
-- `vault` schema is reserved.
-- DDL only through `apply_migration`, idempotent, snake_case wave-prefixed names. Data changes are idempotent upserts.
-- Safety gate (GOV-20261106-SAFETY-GATE-READS-CODE): routine changes use the controlled change path. Code touching money, access or owner rights, deletion, outside sends, the approval machinery or a stored read of a person needs Kellie's exact authorization.
-- Widening access (agent-role grants, RLS loosening, restricted-schema locks) needs its own named ruling.
+Never commit client documents here: no invoices, payloads, contracts, fee schedules, client names with amounts, or bank details. The `No client documents` workflow blocks them under `templates/`.
 
-## This repository is public
+## The backend lives in `kelliepatry/studio-home` (private)
 
-Never commit client documents here: no invoices, payloads, contracts, fee schedules, client names with amounts, or bank details. `templates/invoice` holds the studio invoice template only (GOV-20261110-INVOICE-TEMPLATE-STANDARD-A1). Rendered invoices stay local or in Studio Home; the `No client documents` workflow blocks them under `templates/`.
+Kellie ruled on 2026-11-11 that the technical backend is kept apart from the public writing. The invoice template, the Supabase operating notes and standing SQL authorization, the `kphd-supabase` skill update, the kphd-studio plugin and the build archives are in `studio-home`. Do backend work there, not here.
 
-Full operating rules: the `kphd-supabase` skill. The governing record is in Supabase `core.governance_decisions`.
+Sessions in this repository carry no standing authorization to run Supabase SQL. The governing record is in Supabase `core.governance_decisions`.
