@@ -10,7 +10,7 @@
 // "Draft for review · not yet issued" for dry runs.
 //
 // Money gate (GOV-20261109-MONEY-GATE-V2): payment instructions never carry bank or routing
-// numbers. The payment box only ever says a secure link follows, or shows a link URL.
+// numbers. The payment box names the client's options (Zelle, ACH, card) and nothing more.
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, join } from 'node:path';
@@ -32,9 +32,13 @@ export function renderHtml(p) {
   for (const k of ['invoice_number', 'subtitle', 'bill_to_lines', 'project_name', 'project_number', 'invoice_date', 'due_date', 'terms', 'lines', 'amount_due']) {
     if (p[k] === undefined || p[k] === null) throw new Error(`payload is missing ${k}`);
   }
-  const paymentText = p.payment_link
-    ? `Pay securely at ${esc(p.payment_link)} by ${longDate(p.due_date)}, referencing ${esc(p.invoice_number)}.`
-    : `A secure payment link will be sent separately. Please pay by ${longDate(p.due_date)} and reference ${esc(p.invoice_number)}.`;
+  // Payment is the client's choice: Zelle, ACH, or card through Stripe if needed (Kellie, 2026-11-10).
+  // A payment link is optional. Bank and routing numbers never appear on the invoice (money gate).
+  if (p.payment_link && !/^https:\/\//i.test(p.payment_link)) throw new Error('payment_link must be an https:// link');
+  const zelle = p.zelle_to ? `Zelle to ${esc(p.zelle_to)}` : 'Zelle';
+  const card = p.payment_link ? `card at ${esc(p.payment_link)}` : 'card (a secure Stripe link on request)';
+  const paymentText = `Pay by the method you prefer: ${zelle}, ACH transfer, or ${card}. `
+    + `Please pay by ${longDate(p.due_date)} and reference ${esc(p.invoice_number)}.`;
   if (BANK_DETAIL.test(JSON.stringify(p))) throw new Error('payload contains bank or routing detail; refused by the money gate');
   const lineSum = p.lines.reduce((s, l) => s + Math.round(Number(l.amount) * 100), 0);
   if (lineSum !== Math.round(Number(p.amount_due) * 100)) {
