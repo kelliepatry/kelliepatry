@@ -36,6 +36,23 @@ OBJ, FRAME_W, RAY, PEN = 2.4, 1.6, 0.9, 0.8   # stroke weights, px at 1080 wide
 # never reaches the paper's white and its darkest garment sits near black.
 PH_LIGHT, PH_MID, PH_DARK, PH_BLACK = '#BDBDBB', '#8F8F8D', '#5E5E5C', '#222221'
 
+# The body is the scale bar. Every plate states its scale in px per mm, and the
+# cut-out body is sized from these figures at that scale, so the eye reads the
+# fixture's size from the hand, the forearm, the shin. Rounded adult figures
+# for drawing, not for specification: check against an anthropometric
+# reference before a plate states a dimension.
+BODY = {                       # mm
+    'hand_length': 190, 'hand_breadth': 85,
+    'forearm': 260,            # elbow to wrist
+    'upper_arm': 330,          # shoulder to elbow
+    'elbow_w': 75, 'wrist_w': 55, 'upper_arm_w': 100,
+    'thigh': 600,              # hip to knee front, seated
+    'shin': 480,               # knee to ankle
+    'thigh_w': 150, 'knee_w': 105, 'ankle_w': 70, 'foot': 260,
+    'shoulder_breadth': 440,
+    'elbow_height_standing': 1050, 'shoulder_above_seat': 600,
+}
+
 
 def head(extra=''):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">
@@ -111,6 +128,7 @@ def limb(x1, y1, w1, x2, y2, w2, fill='url(#skin)', cap=True):
 
 
 def hands(hx, hy, rot=12, s=1.0):
+    # at s=1 the clasped pair is about 160 units long: s = hand_length * k / 160
     """Two hands clasped, seen from the side: a palm mass with four finger
     lobes at its leading edge. Stand-in for a cut-out photograph."""
     g = [f'<g transform="translate({hx:.1f},{hy:.1f}) rotate({rot}) scale({s})" filter="url(#grain)">']
@@ -131,13 +149,17 @@ def back_y(x):
     return ay + (x - ax) * (by - ay) / (bx - ax)
 
 
-def hand_sink(hx=600, hy=440, rot=12, jitter=0, seed=0, n=1, caption='HAND SINK · SECTION · WATER MEETS THE BACK AT A GLANCE'):
+K1 = 1.2   # plate 01, px per mm. Rim at y 594; the floor is 865 mm below, out of frame.
+
+
+def hand_sink(hx=580, hy=440, rot=12, jitter=0, seed=0, n=1, caption='HAND SINK · SECTION · WATER MEETS THE BACK AT A GLANCE'):
     rnd = random.Random(seed)
     j = lambda: rnd.uniform(-jitter, jitter)
     s = [head(), f'<g transform="translate({FX},{FY})">']
     # ground lines carry past the frame: wall and floor
     s.append(L(760, -60, 760, FH + 34, INK, FRAME_W))
-    s.append(L(-60, 900, FW + 60, 900, INK, FRAME_W))
+    # no floor: at this scale it falls 1 m below the frame. A pencil break says so.
+    s.append(P('M712,900 H752 L758,886 L768,914 L774,900 H812', PENCIL, PEN))
     # basin, one continuous double line: back, bottom, front, rolled bead, and back out to the wall
     s.append(P('M760,380 L560,700 C530,748 470,760 420,744 C360,724 320,680 300,630 L300,614 '
                'A12,12 0 1 0 286,616 L286,636 C300,690 350,742 415,759 C470,775 540,760 572.7,708 L760,408'))
@@ -167,11 +189,15 @@ def hand_sink(hx=600, hy=440, rot=12, jitter=0, seed=0, n=1, caption='HAND SINK 
     s.append(P(f'M{ix},{iy-56} A56,56 0 0 1 {ix + 56*math.cos(base + math.pi):.1f},{iy + 56*math.sin(base + math.pi):.1f}', PENCIL, PEN))
     # photo layer: square-cut where it meets the frame, contour-cut where it enters the drawing
     s.append('<g clip-path="url(#frame)">')
-    s.append(f'<rect x="0" y="150" width="128" height="330" fill="url(#cloth)" filter="url(#grain)"/>')
-    s.append(f'<rect x="0" y="410" width="128" height="70" fill="{PH_BLACK}" filter="url(#grain)"/>')
-    s.append(limb(110, 300, 70, hx - 58, hy - 14, 48))
-    s.append(limb(110, 372, 64, hx - 40, hy + 18, 44, fill=f'{PH_MID}'))
-    s.append(hands(hx, hy, rot))
+    k, b = K1, BODY
+    hs = b['hand_length'] * k / 160
+    s.append(f'<rect x="0" y="60" width="190" height="372" fill="url(#cloth)" filter="url(#grain)"/>')
+    s.append(f'<rect x="0" y="432" width="190" height="190" fill="{PH_BLACK}" filter="url(#grain)"/>')
+    wx = hx - 70 * hs                      # wrist, at the heel of the clasped hands
+    ex = wx - b['forearm'] * k * .96       # elbow, forearm slightly foreshortened
+    s.append(limb(ex, 362, b['elbow_w'] * k, wx + 10, hy - 16, b['wrist_w'] * k))
+    s.append(limb(ex + 10, 396, b['elbow_w'] * k, wx + 24, hy + 18, b['wrist_w'] * k, fill=f'{PH_MID}'))
+    s.append(hands(hx, hy, rot, hs))
     s.append('</g></g>')
     s.append(frame_and_margin(n, caption))
     s.append('</svg>')
@@ -179,6 +205,9 @@ def hand_sink(hx=600, hy=440, rot=12, jitter=0, seed=0, n=1, caption='HAND SINK 
 
 
 # ---- plate 02: bar rail, section ------------------------------------------
+K2 = 2 / 3  # plate 02, px per mm. Floor y 900, bar top 1067 mm, stool seat 760 mm.
+
+
 def bar_rail(n=2):
     s = [head(), f'<g transform="translate({FX},{FY})">']
     s.append(L(-60, 900, FW + 60, 900, INK, FRAME_W))
@@ -192,20 +221,27 @@ def bar_rail(n=2):
     s.append(f'<circle cx="508" cy="747" r="12" fill="none" stroke="{INK}" stroke-width="{RAY}"/>')
     s.append(P('M525,747 H560 M525,760 L545,760 L560,740', INK, FRAME_W))
     # a coupe on the top: line drawing the photographed hand reaches to
-    s.append(P('M640,189 H676 M658,189 V140 M624,120 Q630,140 658,140 Q686,140 692,120 Z', INK, FRAME_W))
+    s.append(P('M622,189 H658 M640,189 V140 M606,120 Q612,140 640,140 Q668,140 674,120 Z', INK, FRAME_W))
+    # bar stool: seat at 760 mm, post, foot ring, base
+    s.append(f'<rect x="20" y="393" width="260" height="20" fill="none" stroke="{INK}" stroke-width="{FRAME_W}"/>')
+    s.append(L(150, 413, 150, 900, INK, FRAME_W)); s.append(L(90, 700, 210, 700, INK, FRAME_W))
+    s.append(P('M60,900 Q150,876 240,900', INK, FRAME_W))
     # pencil: knee clearance under the overhang, reach arc from the shoulder
     s.append(L(393, 216, 393, 900, PENCIL, PEN, 'stroke-dasharray="4 6"'))
-    s.append(P('M629,-64 A510,510 0 0 1 612,325', PENCIL, PEN))
+    s.append(P('M647,-156 A486,486 0 0 1 630,215', PENCIL, PEN, extra='clip-path="url(#frame)"'))
     # photo layer
     s.append('<g clip-path="url(#frame)">')
-    s.append(f'<rect x="0" y="0" width="190" height="540" fill="url(#cloth)" filter="url(#grain)"/>')
-    s.append(f'<rect x="0" y="430" width="190" height="110" fill="{PH_BLACK}" filter="url(#grain)"/>')
-    s.append(limb(170, 120, 74, 430, 172, 58, fill='url(#cloth)'))       # upper arm, sleeved
-    s.append(limb(420, 168, 52, 618, 172, 40))                            # forearm along the top
-    s.append(f'<g filter="url(#grain)"><ellipse cx="630" cy="166" rx="30" ry="20" fill="url(#skin)"/>'
-             f'<ellipse cx="652" cy="152" rx="14" ry="7" fill="{PH_LIGHT}"/></g>')
-    s.append(limb(120, 540, 92, 470, 712, 64, fill=f'{PH_BLACK}'))          # trouser leg
-    s.append(f'<path d="M440,690 Q470,684 520,724 Q540,736 536,744 L470,746 Q440,744 436,722 Z" fill="{PH_BLACK}" filter="url(#grain)"/>')
+    k, b = K2, BODY
+    # seated guest: shoulder 600 mm above the seat, square-cut into the top-left corner
+    s.append(f'<rect x="0" y="0" width="230" height="330" fill="url(#cloth)" filter="url(#grain)"/>')
+    s.append(f'<rect x="0" y="320" width="230" height="80" fill="{PH_BLACK}" filter="url(#grain)"/>')
+    s.append(limb(120, 360, b['thigh_w'] * k, 120 + b['thigh'] * k, 375, b['knee_w'] * k, fill=PH_BLACK))   # knee under the overhang
+    s.append(limb(512, 380, b['knee_w'] * k * .9, 492, 380 + b['shin'] * k * .99, b['ankle_w'] * k, fill=PH_BLACK))
+    s.append(f'<path d="M455,700 Q500,698 540,722 Q560,734 556,742 L470,744 Q448,742 446,722 Z" fill="{PH_BLACK}" filter="url(#grain)"/>')
+    s.append(limb(190, 10, b['upper_arm_w'] * k, 330, 172, b['elbow_w'] * k * 1.05, fill='url(#cloth)'))   # sleeve
+    s.append(limb(330, 172, b['elbow_w'] * k, 330 + b['forearm'] * k, 172, b['wrist_w'] * k))           # forearm on the top
+    s.append(f'<g filter="url(#grain)"><ellipse cx="{503 + b["hand_length"] * k / 2:.0f}" cy="170" rx="{b["hand_length"] * k / 2:.0f}" ry="15" fill="url(#skin)"/>'
+             f'<ellipse cx="585" cy="160" rx="22" ry="7" fill="{PH_LIGHT}"/></g>')
     s.append('</g></g>')
     s.append(frame_and_margin(n, 'BAR RAIL · SECTION · FOREARM AND FOOT AT REST'))
     s.append('</svg>')
@@ -213,6 +249,9 @@ def bar_rail(n=2):
 
 
 # ---- plate 03: two-top, plan ----------------------------------------------
+K3 = 1.0    # plate 03, px per mm: table 600 x 600, plates 240, shoulders 440.
+
+
 def two_top(n=3):
     s = [head(), f'<g transform="translate({FX},{FY})">']
     # wall, cut: double line carried past the frame
@@ -235,11 +274,17 @@ def two_top(n=3):
     s.append(L(150, 530, 750, 530, PENCIL, PEN, 'stroke-dasharray="4 6"'))
     # photo layer: shoulders square-cut at the frame's foot, forearms contour-cut onto the table
     s.append('<g clip-path="url(#frame)">')
-    s.append(f'<rect x="250" y="900" width="400" height="60" fill="{PH_BLACK}" filter="url(#grain)"/>')
-    s.append(limb(310, 920, 76, 380, 720, 50))
-    s.append(limb(590, 920, 76, 560, 760, 50, fill=f'{PH_MID}'))
-    s.append(f'<g filter="url(#grain)"><ellipse cx="384" cy="700" rx="28" ry="36" fill="url(#skin)"/>'
-             f'<ellipse cx="560" cy="742" rx="28" ry="34" fill="{PH_MID}"/></g>')
+    k, b = K3, BODY
+    sx = 450 - b['shoulder_breadth'] * k / 2
+    s.append(f'<rect x="{sx:.0f}" y="870" width="{b["shoulder_breadth"] * k:.0f}" height="90" fill="{PH_BLACK}" filter="url(#grain)"/>')
+    # left arm reaches to the shared plate; right arm rests by its own plate
+    s.append(limb(280, 890, b['upper_arm_w'] * k * .95, 300, 770, b['elbow_w'] * k * 1.04, fill='url(#cloth)'))
+    s.append(limb(300, 770, b['elbow_w'] * k, 300, 575, b['wrist_w'] * k))
+    s.append(limb(620, 890, b['upper_arm_w'] * k * .95, 600, 790, b['elbow_w'] * k * 1.04, fill='url(#cloth)'))
+    s.append(limb(600, 790, b['elbow_w'] * k, 562, 640, b['wrist_w'] * k, fill=PH_MID))
+    hr, hw = b['hand_length'] * k / 2, b['hand_breadth'] * k / 2
+    s.append(f'<g filter="url(#grain)"><ellipse cx="296" cy="{575 - hr + 12:.0f}" rx="{hw:.0f}" ry="{hr:.0f}" fill="url(#skin)"/>'
+             f'<ellipse cx="548" cy="{640 - hr + 14:.0f}" rx="{hw:.0f}" ry="{hr:.0f}" transform="rotate(-14 548 {640 - hr + 14:.0f})" fill="{PH_MID}"/></g>')
     s.append('</g></g>')
     s.append(frame_and_margin(n, 'TWO-TOP · PLAN · THE REACH THAT MAKES A TABLE SHARED'))
     s.append('</svg>')
@@ -251,8 +296,8 @@ def flipbook(count=24):
     FRAMES.mkdir(parents=True, exist_ok=True)
     for old in FRAMES.glob('*.svg'):
         old.unlink()
-    keys = [(330, 470, 4), (520, 445, 10), (600, 440, 12), (606, 446, 15), (594, 436, 9),
-            (606, 446, 15), (600, 440, 12), (520, 445, 10)]
+    keys = [(330, 470, 4), (500, 445, 10), (580, 440, 12), (586, 446, 15), (574, 436, 9),
+            (586, 446, 15), (580, 440, 12), (500, 445, 10)]
     for f in range(count):
         t = f / count * len(keys)
         i, u = int(t), t - int(t)

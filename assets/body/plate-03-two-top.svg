@@ -36,10 +36,12 @@
 <path d="M-39,308 A520,520 0 0 0 939,308" stroke="#8E8E8A" stroke-width="0.8" fill="none" stroke-linejoin="round" stroke-linecap="round" />
 <line x1="150.0" y1="530.0" x2="750.0" y2="530.0" stroke="#8E8E8A" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="4 6"/>
 <g clip-path="url(#frame)">
-<rect x="250" y="900" width="400" height="60" fill="#222221" filter="url(#grain)"/>
-<path d="M345.9,932.6 Q378.5,831.7 403.6,728.3 A25.0,25.0 0 0 0 356.4,711.7 Q312.4,808.6 274.1,907.4 Z" fill="url(#skin)" filter="url(#grain)"/>
-<path d="M627.3,913.0 Q609.9,833.5 584.6,755.4 A25.0,25.0 0 0 0 535.4,764.6 Q541.1,846.4 552.7,927.0 Z" fill="#8F8F8D" filter="url(#grain)"/>
-<g filter="url(#grain)"><ellipse cx="384" cy="700" rx="28" ry="36" fill="url(#skin)"/><ellipse cx="560" cy="742" rx="28" ry="34" fill="#8F8F8D"/></g>
+<rect x="230" y="870" width="440" height="90" fill="#222221" filter="url(#grain)"/>
+<path d="M326.9,897.8 Q336.6,837.8 338.5,776.4 A39.0,39.0 0 0 0 261.5,763.6 Q244.4,822.4 233.1,882.2 Z" fill="url(#cloth)" filter="url(#grain)"/>
+<path d="M337.5,770.0 Q336.5,672.5 327.5,575.0 A27.5,27.5 0 0 0 272.5,575.0 Q264.5,672.5 262.5,770.0 Z" fill="url(#skin)" filter="url(#grain)"/>
+<path d="M666.6,880.7 Q656.3,830.7 638.2,782.4 A39.0,39.0 0 0 0 561.8,797.6 Q564.6,849.1 573.4,899.3 Z" fill="url(#cloth)" filter="url(#grain)"/>
+<path d="M636.4,780.8 Q616.4,706.0 588.7,633.2 A27.5,27.5 0 0 0 535.3,646.8 Q546.6,723.7 563.6,799.2 Z" fill="#8F8F8D" filter="url(#grain)"/>
+<g filter="url(#grain)"><ellipse cx="296" cy="492" rx="42" ry="95" fill="url(#skin)"/><ellipse cx="548" cy="559" rx="42" ry="95" transform="rotate(-14 548 559)" fill="#8F8F8D"/></g>
 </g></g>
 <rect x="90" y="140" width="900" height="960" fill="none" stroke="#161615" stroke-width="1.6"/>
 <line x1="90.0" y1="100.0" x2="90.0" y2="134.0" stroke="#8E8E8A" stroke-width="0.8" stroke-linecap="round" />

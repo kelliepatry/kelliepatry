@@ -44,11 +44,13 @@ At the photograph's resolution the firm ink is about 2 px wide and the hairlines
 
 **The argument is in the angle.** The water falls almost straight down and meets the basin's back at a glancing angle. The construction lines fanning from that point are the drawing's reason for existing: a diagram of quiet. The tap is drawn freehand and almost playful. Everything structural is drawn exactly. Everything that is not the argument is drawn loosely.
 
+**The body is the scale bar.** The cut-out does more than say *a person uses this*. It sets the size of the whole section. Nobody needs a dimension to know a hand is about 19 cm long and a forearm about 26 cm. Set two clasped hands in the bowl and the basin's depth reads at once, and so does the reach from the spout and the height of the back. Aalto put no figures on the sheet. The photograph does that job, and it does it before the eye has time to look for a dimension. That only works because the photograph and the line are at one scale. Shrink or enlarge the hands and the basin becomes a different object.
+
 **The frame is a stage, not a border.** The wall and floor lines run past the frame. The pencil extension lines carry on past its corners. The title is lettered underneath in widely spaced capitals, and the sheet number sits in a circle in the lower corner.
 
 ### What it means for our rooms
 
-The studio's work is a body meeting a fixture again and again: a forearm on a bar top, a foot on a rail, two guests reaching across a two-top, hands at a back-of-house hand sink. Aalto's sheet gives a way to show that meeting with no rendering and no stock photography. The line shows the decision. The photograph shows the person it was made for.
+The studio's work is a body meeting a fixture again and again: a forearm on a bar top, a foot on a rail, two guests reaching across a two-top, hands at a back-of-house hand sink. Aalto's sheet gives a way to show that meeting with no rendering and no stock photography. The line shows the decision. The photograph shows the person it was made for, and at what size. A bar at 1067 mm means little as a figure. A seated guest at true scale, with the knee just clearing the overhang and the foot finding the rail, shows it without a number.
 
 ### First proofs
 
@@ -56,22 +58,22 @@ All three are 1080 × 1350 px (Instagram portrait, 4:5), on studio stone, built 
 
 ![Plate 01. A wall-hung hand sink in section. A grey stand-in forearm and clasped hands enter from the left edge of the frame and sit in four hairlines of water falling from a wall spout onto the steep, inclined back of the basin. Fine rays fan from the point of impact down into the bowl.](../assets/body/plate-01-hand-sink.png)
 
-**Plate 01 · Hand sink · section.** The source's argument moved to a back-of-house hand sink: the stream meets a steep back at about 32°, so it slides into the bowl. The pencil arc marks that angle.
+**Plate 01 · Hand sink · section, 1.2 px per mm.** The source's argument moved to a back-of-house hand sink: the stream meets a steep back at about 32°, so it slides into the bowl. The pencil arc marks that angle. The hands are drawn at 190 mm, which sizes the bowl. The floor is 865 mm below the rim, out of frame, and a pencil break on the wall says so.
 
-![Plate 02. A bar in section. A stand-in torso is cut square into the frame's top-left corner. One forearm lies along the bar top toward a coupe drawn in ink. A trouser leg runs down to a shoe resting on the foot rail. A pencil dashed line drops from the bar's front edge to show knee clearance, and a pencil arc shows the reach from the shoulder.](../assets/body/plate-02-bar-rail.png)
+![Plate 02. A bar in section with a guest seated on a bar stool. The stand-in torso is cut square into the frame's top-left corner. The upper arm drops to an elbow at the bar's front edge and the forearm lies along the bar top to a hand at a coupe drawn in ink. The thigh runs level from the stool seat to a knee just inside the bar die, under the overhang, and the shin drops to a shoe resting on the foot rail. A pencil dashed line drops from the bar's front edge, and a pencil arc shows the reach from the shoulder.](../assets/body/plate-02-bar-rail.png)
 
-**Plate 02 · Bar rail · section.** The guest's weight carried in two places, the forearm and the foot. The pencil drop line shows the overhang the knees need.
+**Plate 02 · Bar rail · section, 1.5 mm per px.** A guest on a 760 mm stool at a 1067 mm bar. Their weight is carried in two places, the forearm and the foot. Drawn at true size, the body shows the overhang works: the knee clears the die, the elbow lands at the edge and the foot finds the rail.
 
 ![Plate 03. A two-top table in plan. Shoulders are cut square into the bottom of the frame, and two forearms reach onto the table toward a plate. Two pencil arcs, one from each side, overlap across the middle of the table, where a shared plate sits.](../assets/body/plate-03-two-top.png)
 
-**Plate 03 · Two-top · plan.** Two reach arcs, one from each seat. Where they overlap is the part of the table the guests share.
+**Plate 03 · Two-top · plan, 1 px per mm.** Two reach arcs, one from each seat. Where they overlap is the part of the table the guests share. The hands are 190 × 85 mm. Next to them, a 600 mm table looks as small as it is.
 
 **Flipbook.** [`flipbook-hand-sink.mp4`](../assets/body/flipbook-hand-sink.mp4) (Instagram, 3 s loop) and [`.gif`](../assets/body/flipbook-hand-sink.gif). There are 24 frames at 8 fps: the hands come into the stream, rub, and leave. The water lines are redrawn a little differently each frame, which gives the hand-drawn shimmer of a paper flipbook.
 
 ### What is not done yet
 
 - **The photographs.** The grey shapes are placeholders. Each plate needs a black-and-white photograph shot for its pose, at the same angle as the drawing (a true side view for a section, straight down for a plan) and cut out along its outline.
-- **Scale.** The proofs are drawn to proportion, not to a stated scale. A plate that carries a dimension must be drawn to scale first.
+- **Body figures.** Each plate states its scale, and the body is sized from a table of rounded adult figures in the script (`BODY`). They are drawing figures, not specification. Check them against an anthropometric reference before a plate leans on one. A real photograph has to be scaled to the plate the same way: measure the hand in the photograph, then scale it to 190 mm at the plate's px per mm.
 - **The ground.** The studio's graphic protocol is tonal monochrome, so the proofs sit on studio stone. Aalto's warm paper can be rendered with `--paper aalto`. Using it is Kellie's call for this series.
 
 ---
@@ -87,25 +89,27 @@ You are drawing one plate of *The body at the fixture*. Each plate shows one dec
 - *Photo layer*: the body only. Neutral grey, never coloured and never filled with flat colour. Darker than the ground: its lightest tone stays visibly below the ground's.
 - The photograph is drawn above the lines and covers them where the body sits in front.
 
-**3. Two cuts for the photograph.** Cut it square, flush to the frame edge where the body enters. Cut it along the outline wherever it lies inside the drawing. Never let a square-cut edge float inside the frame.
+**3. The body is the scale.** State the plate's scale in px per mm before you draw. Size every part of the body from `BODY` at that scale, and scale a real photograph by a measured body part, usually the hand. Never resize the body to fill the frame or to improve the composition. Move the frame instead. If the true-size body does not fit the argument, the fixture is wrong, and that is the finding. Leave out a ground line that would fall outside the frame at true scale, and mark the break in pencil. Do not move it closer.
 
-**4. Three weights, three jobs.** At 1080 px wide: object 2.4 px ink; frame and ground lines 1.6 px ink; behaviour hairlines 0.9 px ink; working lines 0.8 px pencil grey. Firm ink is about 2½ times the hairline. Do not add a fourth weight.
+**4. Two cuts for the photograph.** Cut it square, flush to the frame edge where the body enters. Cut it along the outline wherever it lies inside the drawing. Never let a square-cut edge float inside the frame.
 
-**5. Section without fill.** Show a cut by an even double line. Do not use poché, hatching or grey fills in the line layer. In plan, a cut wall is a double line carried past the frame.
+**5. Three weights, three jobs.** At 1080 px wide: object 2.4 px ink; frame and ground lines 1.6 px ink; behaviour hairlines 0.9 px ink; working lines 0.8 px pencil grey. Firm ink is about 2½ times the hairline. Do not add a fourth weight.
 
-**6. Draw the behaviour as geometry.** Water is parallel hairlines that fan slightly. Its run-off is rays that leave the point of impact into the bowl and never cross the fixture's shell. A reach is a pencil arc from the shoulder. A clearance is a pencil dashed drop line. Mark the deciding angle or distance once, with a pencil arc or arrow.
+**6. Section without fill.** Show a cut by an even double line. Do not use poché, hatching or grey fills in the line layer. In plan, a cut wall is a double line carried past the frame.
 
-**7. Precise where it argues, loose where it doesn't.** The surface the plate is about is drawn exactly. Accessories (valve, glass, chair) can be simpler and drawn freehand.
+**7. Draw the behaviour as geometry.** Water is parallel hairlines that fan slightly. Its run-off is rays that leave the point of impact into the bowl and never cross the fixture's shell. A reach is a pencil arc from the shoulder. A clearance is a pencil dashed drop line. Mark the deciding angle or distance once, with a pencil arc or arrow.
 
-**8. The frame is a stage.** Ground lines (wall, floor) carry past the frame by about 30 px and stop short of the caption. Draw pencil extension lines past every corner, and pencil arrows down the left side and along the foot. Do not put a figure on an arrow unless the plate is drawn to a stated scale and the figure has been checked.
+**8. Precise where it argues, loose where it doesn't.** The surface the plate is about is drawn exactly. Accessories (valve, glass, chair) can be simpler and drawn freehand.
 
-**9. Colour and type.** Tonal monochrome on studio stone `#F4F4F2`, ink `#161615`, pencil `#8E8E8A`, caption `#585856` in Space Mono. Put the plate number in a pencil circle at the lower right. Add no logo and no other text. The only colour exception is the `--paper aalto` ground, and only when Kellie asks for it.
+**9. The frame is a stage.** Ground lines (wall, floor) carry past the frame by about 30 px and stop short of the caption. Draw pencil extension lines past every corner, and pencil arrows down the left side and along the foot. Do not put a figure on an arrow unless the plate is drawn to a stated scale and the figure has been checked.
 
-**10. Motion is a flipbook, not an animation.** Keep the drawing still and move only the body, between a few key poses, eased. Redraw the behaviour lines slightly differently each frame (jitter about 1.4 px) so they shimmer like hand-drawn frames. Use 8 fps, 24 frames, a 3 s loop, MP4 for Instagram and GIF for preview.
+**10. Colour and type.** Tonal monochrome on studio stone `#F4F4F2`, ink `#161615`, pencil `#8E8E8A`, caption `#585856` in Space Mono. Put the plate number in a pencil circle at the lower right. Add no logo and no other text. The only colour exception is the `--paper aalto` ground, and only when Kellie asks for it.
 
-**11. Never trace the source.** Aalto's sheet is a reference for grammar only. Do not reproduce its basin, its composition or its photograph, and do not put the reproduction in this public repository.
+**11. Motion is a flipbook, not an animation.** Keep the drawing still and move only the body, between a few key poses, eased. Redraw the behaviour lines slightly differently each frame (jitter about 1.4 px) so they shimmer like hand-drawn frames. Use 8 fps, 24 frames, a 3 s loop, MP4 for Instagram and GIF for preview.
 
-**12. Check before handing over.** Render the plate and look at it at full size and at phone size. Check that the caption fits inside the frame width, that no ground line runs into the caption, that no behaviour ray crosses the shell, and that the photo layer is clipped to the frame. Say plainly which shapes are still stand-ins.
+**12. Never trace the source.** Aalto's sheet is a reference for grammar only. Do not reproduce its basin, its composition or its photograph, and do not put the reproduction in this public repository.
+
+**13. Check before handing over.** Render the plate and look at it at full size and at phone size. Check that the body parts measure true at the plate's scale, that the caption fits inside the frame width, that no ground line runs into the caption, that no behaviour ray crosses the shell, and that the photo layer is clipped to the frame. Say plainly which shapes are still stand-ins.
 
 ### Tools, and what each is for
 
