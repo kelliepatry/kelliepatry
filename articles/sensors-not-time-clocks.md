@@ -6,7 +6,7 @@
 
 ### After the fleet: the builder stops grading its own work, the staff stop punching a clock, and the owner gets a different job
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.1**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.2**
 
 **Follows:** [Build the fleet](./build-the-fleet.md) · **Then try it:** [Your first worker, step by step](./your-first-worker.md)
 
@@ -70,7 +70,7 @@ In a building, a time clock turns a circuit on at seven and off at six. It doesn
 
 My staff were on time clocks. They woke up at their hour, read everything to find out whether anything had changed, and usually found nothing. When something did change, at ten in the morning, it sat until the next scheduled run. The schedule was paying for empty rooms and missing the busy ones.
 
-My conclusion, as I put it then: staff schedule pulls *"are not the way to go."*
+So I stopped. Staff that wake on a schedule to go looking for work are the wrong model for a small practice.
 
 [![Time clock and sensor: pull on a schedule, or push on a change](../assets/sensors-fig-2.png)](../assets/sensors-fig-2.png)
 
@@ -83,11 +83,15 @@ What we're moving to:
 - **Staff decide.** The role that receives the signal decides what to do about it. That's judgment, so that's where the model belongs.
 - **One heartbeat.** One early-morning check confirms the watchers are alive. Everything else waits for a sensor.
 
-Two details mattered more than I expected.
+Four details mattered more than I expected.
 
 **How often to look.** A watcher that checks every five minutes during the workday sounded responsive. It was noise. We set it at every thirty minutes. Nothing in a design practice is lost in half an hour, and a lot of churn is saved. (If you build this on GitHub, its own scheduler won't run more often than every five minutes, works in UTC unless you set a timezone, and can run late when the service is busy.[05] Plan around that.)
 
 **Every intersection has someone watching.** The failures I've had weren't inside a pipeline. They were where one pipeline handed to another, especially where outside information came in. A client email nobody routed. Meeting notes nobody read. The rule now is that every intersection has a named watcher, and incoming data most of all.
+
+**Coverage beats speed.** A faster watcher catches nothing at a door that has no watcher. When we looked, the biggest gaps weren't slow sensors. They were doors with no sensor at all: client email, payments, photos from site. Wire the doors before you tune the timing.
+
+**Silence has to mean something.** Once the staff stop punching a clock, "nothing came in" could mean a quiet day or a dead sensor. So every door gets an expected rhythm, and a door that goes quiet for longer than usual is treated as a problem, not as calm. The alarm for that goes to me by a different route than the one that might have failed.
 
 The electrical trades already use both devices, and they use both on purpose. Some loads should run on a time clock: the sign out front, the exhaust fan at close. Most rooms should run on sensors. Ours is the same. Billing cycles and the morning heartbeat stay on a clock. Everything that starts with someone sending us something runs on a sensor.
 
@@ -230,19 +234,21 @@ Rules:
 10. Roles SHOULD NOT run on a time base to discover work. Time-based runs are reserved for heartbeats and inherently periodic jobs (for example, billing cycles).
 11. Watcher cadence SHOULD match the domain's tolerance for delay. In this organization: every 30 minutes during the workday. Faster cadences add churn without benefit here.
 12. A role that cannot decide MUST ask the owner rather than stall on an outdated rule or guess.
+13. Prioritize coverage over cadence: an unwatched intake point is a larger gap than a slow watcher.
+14. Each intake point MUST have an expected rhythm. Silence beyond it is a fault, not calm. The fault alarm MUST travel by a route independent of the one being monitored.
 
 ## II.5 Permission
 
-13. Routine actions within a role's lane SHOULD run under standing permission, granted once per class.
-14. Gated actions (financial, external, irreversible, security, release) MUST still reach the owner.
-15. Any role MAY request help from any other role without owner approval.
-16. Standing permission depends on the fleet and the checker. If either is degraded, roles SHOULD fall back to per-action approval until it is restored.
+15. Routine actions within a role's lane SHOULD run under standing permission, granted once per class.
+16. Gated actions (financial, external, irreversible, security, release) MUST still reach the owner.
+17. Any role MAY request help from any other role without owner approval.
+18. Standing permission depends on the fleet and the checker. If either is degraded, roles SHOULD fall back to per-action approval until it is restored.
 
 ## II.6 Owner attention
 
-17. Report to the owner only what affects the owner. System-health findings stay in the record.
-18. Batch open decisions for one end-of-day session rather than interrupting.
-19. Write reports for a human reader: plain language, no internal keys or identifiers.
+19. Report to the owner only what affects the owner. System-health findings stay in the record.
+20. Batch open decisions for one end-of-day session rather than interrupting.
+21. Write reports for a human reader: plain language, no internal keys or identifiers.
 
 ## II.7 Claims and evidence
 

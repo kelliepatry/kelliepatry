@@ -6,7 +6,7 @@
 
 ### An explainer you can follow in about an hour: one plain job, one sensor, one packet, and a second key
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.1**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.2**
 
 **The ideas behind it:** [Build the fleet](./build-the-fleet.md) · [Sensors, not time clocks](./sensors-not-time-clocks.md)
 
@@ -83,6 +83,8 @@ The **Never does** line is the one people skip. Fill it in. A worker that only c
 6. Click the README file, then the pencil icon to edit it. Paste your worker card in. Click **Commit changes**, then **Commit changes** again.
 
 > **You should see:** your new repository with one file, README.md, showing your worker card.
+
+If any of these clicks look different on your screen, GitHub's own *Hello World* guide walks through the same moves with pictures.[05]
 
 ## Step 4 · Add the input (5 minutes)
 
@@ -213,7 +215,7 @@ jobs:
 What each part does, in trade terms:
 
 - **`push` on `punch-list.csv`** is the sensor. Nothing runs until the list changes. Edit the list and the worker wakes.
-- **`schedule`** is the heartbeat: one run on weekday mornings, so you'd notice if the worker stopped. GitHub's clock is in UTC, so 14:17 UTC is 6:17 in the morning in Los Angeles in winter. Odd minutes like :17 are deliberate: runs on the hour are the busiest and the most likely to be delayed.[01]
+- **`schedule`** is the heartbeat: one run on weekday mornings, so you'd notice if the worker stopped. GitHub's clock is in UTC unless you say otherwise, so 14:17 UTC is 6:17 in the morning in Los Angeles in winter. If you'd rather think in local time, add a line under the cron line: `timezone: "America/Los_Angeles"` (lined up with the word `cron`), and change the hour to 6. Odd minutes like :17 are deliberate: runs on the hour are the busiest and the most likely to be delayed.[01]
 - **`workflow_dispatch`** adds a **Run workflow** button so you can test by hand.
 - **`permissions: contents: write`** lets the worker save its packet. Without it, the last step fails.
 
@@ -277,6 +279,8 @@ The person or model that changes the worker shouldn't be the one who approves th
 A model asked to check its own work tends to approve it. Research has found that models rate their own writing higher than others' even when people judge them equal.[03] A second reviewer doesn't have that bias toward your change.
 
 **Want GitHub to enforce it?** GitHub can block changes to main until a pull request has an approving review. On the free plan this is available for public repositories only. Private repositories need a paid plan such as GitHub Pro.[04] On the free plan, keep it as a habit: no change to a worker goes straight to main.
+
+One catch if you work alone: GitHub won't let you approve your own pull request. A required review needs a second person with their own account. If the second key is an AI model, the rule stays a habit, and the habit is the part that matters.
 
 ## Step 10 · Keep the skip log (ongoing)
 
