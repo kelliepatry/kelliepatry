@@ -1,0 +1,30 @@
+name: Punch-list worker
+
+on:
+  push:
+    paths:
+      - "punch-list.csv"      # the sensor: runs when the list changes
+  schedule:
+    - cron: "17 14 * * 1-5"   # the heartbeat: weekday mornings, 14:17 UTC
+  workflow_dispatch:          # the test button: run it by hand
+
+permissions:
+  contents: write             # lets the worker save packet.md back to the repo
+
+jobs:
+  run-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run the worker
+        run: python worker.py punch-list.csv packet.md
+      - name: Save the packet
+        run: |
+          git config user.name "punch-list-worker"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add packet.md
+          git diff --cached --quiet || git commit -m "Packet: punch list as of $(date -u +%F)"
+          git push
