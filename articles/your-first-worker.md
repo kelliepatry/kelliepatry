@@ -6,7 +6,7 @@
 
 ### An explainer you can follow in about an hour: one plain job, one sensor, one packet, and a second key
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.2**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.3**
 
 **The ideas behind it:** [Build the fleet](./build-the-fleet.md) · [Sensors, not time clocks](./sensors-not-time-clocks.md)
 
