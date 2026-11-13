@@ -6,7 +6,7 @@
 
 ### After the fleet: the builder stops grading its own work, the staff stop punching a clock, and the owner gets a different job
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.3**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.4**
 
 **Follows:** [Build the fleet](./build-the-fleet.md) · **Then try it:** [Your first worker, step by step](./your-first-worker.md)
 
@@ -16,7 +16,7 @@
 
 *Header: "Time clock / Sensor," Kellie Patry and Claude. Left, every circuit comes on at its hour whether or not there is work. Right, nothing runs until a sensor sees a change, and then only the room that changed lights up.*
 
-> **Two readers, two languages.** Part I is for people: the owner who built a fleet of small workers, wired it together, and is now asking what comes next. Part II restates the same method for language models, as definitions and rules. It describes a method. It does not describe the studio's own systems, and nothing in it points into them.
+> **Two readers, two languages.** Part I is for people: the owner who built a fleet of small workers, wired it together, and is now asking what comes next. Part II restates the same method for language models, as definitions and rules. It describes a method, with real examples from one studio, and nothing in it identifies or points into the studio's systems.
 
 ---
 
@@ -34,7 +34,7 @@ Once the workers existed, three new questions showed up in the same week, and no
 2. **Who watches?** My AI staff ran on schedules. They showed up whether or not there was anything to do.
 3. **What is my job now?** The team could answer most of what I gave them without me. I hadn't thought about what to do with that.
 
-This piece is about those three questions and what we changed. The short version: the builder never grades its own work, the staff respond to sensors instead of a time clock, and my job became deciding and releasing.
+This piece is about those three questions and what we changed. The short version: the builder never grades its own work, the staff respond to sensors instead of a time clock, routine permission is given once instead of every time, and my job became deciding and releasing.
 
 ## 2. The builder never grades
 
@@ -42,13 +42,13 @@ Here is the pattern I kept running into. I'd ask a model to build something. It 
 
 The model wasn't lying. It was grading its own homework, and that doesn't work for people either.
 
-There's research on this now. When language models are asked to score text, they tend to rate their own writing higher than other people's or other models' writing, even when human reviewers judge the two as equal. The same study found models can often tell which text is theirs.[01] A separate study from Google DeepMind found that when a model is asked to correct its own reasoning with no outside feedback, it usually doesn't get better, and sometimes it gets worse.[02]
+There's research on this now. When language models are asked to score text, they tend to rate their own writing higher than other people's or other models' writing, even when human reviewers judge the two as equal. The same study found models can sometimes tell which text is theirs.[01] A separate study by researchers at Google found that when a model is asked to correct its own reasoning with no outside feedback, it often doesn't get better, and sometimes it gets worse.[02]
 
-None of this is new to anyone in construction. The installer doesn't sign the inspection card. The contractor doesn't approve their own change order. In 1975 two computer scientists, Saltzer and Schroeder, wrote it down as a design principle for computer systems: where you can, require two keys.[03]
+None of this is new to anyone in construction. The installer doesn't sign the inspection card. The contractor doesn't approve their own change order. In 1975 two computer scientists, Saltzer and Schroeder, wrote it down as a design principle for computer systems, separation of privilege: where you can, require two keys.[03]
 
 So we wrote it down too, as one rule: **the builder never grades.** Every build that comes back is checked by a different model, automatically, before it gets to me. If the check fails, the work goes to a fresh builder rather than back to the one who missed it. Work moves through four states, and only the last one is mine:
 
-**Built → Checked → Ready for Kellie → Released**
+**Built → Checked → Ready for me → Released**
 
 [![Built, checked, ready, released: two keys before anything goes live](../assets/sensors-fig-1.png)](../assets/sensors-fig-1.png)
 
@@ -66,7 +66,7 @@ Once the workers existed, I gave my AI staff schedules. One role ran early on we
 
 It felt organized. It was a time clock.
 
-I found out how much of one when I audited a week in September. One assistant had run on its schedule sixteen times that week and logged every run. It had sent nothing. Underneath it, almost every scheduled check had woken up, found nothing to do, and gone back to sleep. The system looked busy. It wasn't working.
+I found out how much of one when I audited a week in September. One assistant had run on its schedule sixteen times that week and logged every run. It had sent nothing. Underneath it, most of the scheduled checks had woken up, found nothing to do, and gone back to sleep. Everything looked busy. Very little was getting done.
 
 In a building, a time clock turns a circuit on at seven and off at six. It doesn't know if anyone came in. The lights in an empty conference room burn all afternoon. A sensor works the other way. Nothing happens until it sees something: motion, daylight, a door. Then it switches the one circuit that needs it.
 
@@ -87,11 +87,11 @@ What we're moving to:
 
 Four details mattered more than I expected.
 
-**How often to look.** A watcher that checks every five minutes during the workday sounded responsive. It was noise. We set it at every thirty minutes. Nothing in a design practice is lost in half an hour, and a lot of churn is saved. (If you build this on GitHub, its own scheduler won't run more often than every five minutes, works in UTC unless you set a timezone, and can run late when the service is busy.[05] Plan around that.)
+**How often to look.** A watcher that checks every five minutes during the workday sounded responsive. It was noise. We set it at every thirty minutes. Nothing in a design practice is lost in half an hour, and a lot of churn is saved. And note what is checking: a small worker that costs almost nothing to run looks at the door every half hour. The model, the expensive part, only wakes when the worker sees a change. (If you build this on GitHub, its own scheduler won't run more often than every five minutes, works in UTC unless you set a timezone, and can run late when the service is busy.[05] Plan around that.)
 
 **Every intersection has someone watching.** The failures I've had weren't inside a pipeline. They were where one pipeline handed to another, especially where outside information came in. A client email nobody routed. Meeting notes nobody read. The rule now is that every intersection has a named watcher, and incoming data most of all.
 
-**Coverage beats speed.** A faster watcher catches nothing at a door that has no watcher. When we looked, the biggest gaps weren't slow sensors. They were doors with no sensor at all: client email, payments, photos from site. Wire the doors before you tune the timing.
+**Coverage beats speed.** A faster watcher catches nothing at a door that has no watcher. When we looked, the biggest gaps weren't slow sensors. They were doors with no sensor at all, mostly where information arrives from outside. Wire the doors before you tune the timing.
 
 **Silence has to mean something.** Once the staff stop punching a clock, "nothing came in" could mean a quiet day or a dead sensor. This week, meeting notes stopped flowing on a Tuesday evening, and nothing complained until we went looking on Thursday. So every door gets an expected rhythm, and a door that goes quiet for longer than usual is treated as a problem, not as calm. The alarm for that goes to me by a different route than the one that might have failed.
 
@@ -101,15 +101,15 @@ The electrical trades already use both devices, and they use both on purpose. So
 
 ## 4. Authorize once
 
-The third change is smaller, and it's the one I feel most.
+The fourth change is smaller, and it's the one I feel most.
 
 For months, I approved things one at a time. Can this role publish that page? Can that role hand this to another role? Yes. Yes. Yes. Every approval was a small interruption, and every interruption pulled me out of design.
 
-So we changed how permission works. Some permissions are now standing: set once for every role, not case by case. A role that publishes the website can publish at any time. Any role can ask any other role for help, for any reason, without asking me first. The decisions that actually carry risk still come to me: money, anything sent outside, anything that can't be undone. Routine permission doesn't.
+So we changed how permission works. Some permissions are now standing: set once for every role, not case by case. A role can handle routine work in its own lane without checking in, and roles can ask each other for help without going through me. The decisions that actually carry risk still come to me: money, anything sent outside, anything that can't be undone. Routine permission doesn't.
 
 Underneath this is something I said about a different question, when I was deciding what one of my AI roles should be: *"if I'm gonna have an assistant they need to have judgment and capacity to help me. I don't need a parent on my back."* The same goes the other way. They don't need me hovering over every routine step either.
 
-The fleet made that safe. A role can act on its own because the plain facts it acts on come from workers that do the job the same way every time, and because whatever it builds gets a second key before it reaches me.
+The fleet is what's meant to make that safe. A role can act on its own because the plain facts it acts on come from workers that do the job the same way every time, and because whatever it builds gets a second key before it reaches me.
 
 **Try this:** count the approvals you gave your tools last week. Sort them into two piles: ones that could have gone wrong in a way that matters, and ones that couldn't. Make the second pile a standing rule.
 
@@ -121,7 +121,7 @@ In the last article I wrote that GitHub was a circle of hell, and then I explain
 
 I started calling the whole thing a *"tree of information."* Branches grow out from one trunk, and everything that's real eventually comes back to it.
 
-That's also when I split our writing from our engine. This repository holds the articles and nothing else. The code that runs the studio lives in a separate, private place. Public writing and private machinery have different readers and different risks. Keeping them in one place was convenient, and it would have been a mistake.
+That's also when I split our writing from our engine. This repository holds the public writing, with its figures and examples, and nothing else. The code that runs the studio lives in a separate, private place. Public writing and private machinery have different readers and different risks. Keeping them in one place was convenient, and it would have been a mistake.
 
 ## 6. What my job is now
 
@@ -142,7 +142,7 @@ That's not less work. It's different work. It's the work I trained for: seeing t
 - **The sensor model is being proven, not finished.** We've set the cadence and the heartbeat. Moving every role off its schedule is in progress, and each pipeline is being checked before it switches.
 - **The two-key rule is days old.** We don't yet have numbers on how often the checker catches something the builder missed, or how often it raises a false alarm.
 - **One studio, one week.** A small design practice isn't a hotel group. The pattern should travel. We haven't shown that it does.
-- **Standing permission is a bet on the fleet.** If a worker hands a role bad facts, a standing permission lets the role act on them faster. The watchers and the second key are what keep that bet safe, so they come first.
+- **Standing permission is a bet on the fleet.** If a worker hands a role bad facts, a standing permission lets the role act on them faster. The watchers and the second key are what keep that bet safe, so they come first. If either one is down, we go back to approving things one at a time until it's fixed.
 
 <a id="conclusion"></a>
 
@@ -207,9 +207,9 @@ BUILT ──check(pass)──▶ CHECKED ──▶ READY_FOR_OWNER ──owner�
 Rules:
 
 1. A builder MUST NOT mark its own work `CHECKED`.
-2. The checker MUST be a different agent from the builder, and SHOULD be a different model.
+2. The checker MUST be a different agent from the builder, and MUST be a different model where one is available.
 3. The checker MUST evaluate against the original request, not against the builder's summary of it.
-4. On fail, the work SHOULD go to a new builder, with the checker's findings attached.
+4. On fail, the work MUST go to a new builder, with the checker's findings attached.
 5. Only the owner MAY move work from `READY_FOR_OWNER` to `RELEASED`.
 6. A builder report of "tested" or "verified" is a claim, not a state change.
 
@@ -230,7 +230,7 @@ heartbeat (once, early, on a time base):
 
 Rules:
 
-7. Every intake point MUST have exactly one named watcher.
+7. Every intake point MUST have a named watcher.
 8. Every handoff between pipelines MUST have a watcher; external intake points take priority.
 9. Watchers MUST NOT make judgments. They detect and signal.
 10. Roles SHOULD NOT run on a time base to discover work. Time-based runs are reserved for heartbeats and inherently periodic jobs (for example, billing cycles).
@@ -241,9 +241,9 @@ Rules:
 
 ## II.5 Permission
 
-15. Routine actions within a role's lane SHOULD run under standing permission, granted once per class.
+15. If your principal has granted standing permission: routine actions within a role's lane SHOULD run under standing permission, granted once per class.
 16. Gated actions (financial, external, irreversible, security, release) MUST still reach the owner.
-17. Any role MAY request help from any other role without owner approval.
+17. Where your principal has allowed it, any role MAY request help from any other role without owner approval.
 18. Standing permission depends on the fleet and the checker. If either is degraded, roles SHOULD fall back to per-action approval until it is restored.
 
 ## II.6 Owner attention
@@ -272,7 +272,7 @@ If your principal has adopted this method: do not grade your own build; hand it 
 
 01. Panickssery, A., Bowman, S.R., Feng, S. *LLM Evaluators Recognize and Favor Their Own Generations.* NeurIPS 2024. https://arxiv.org/abs/2404.13076
 02. Huang, J., Chen, X., Mishra, S., Zheng, H.S., Yu, A.W., Song, X., Zhou, D. *Large Language Models Cannot Self-Correct Reasoning Yet.* ICLR 2024. https://arxiv.org/abs/2310.01798
-03. Saltzer, J.H., Schroeder, M.D. *The Protection of Information in Computer Systems.* Proceedings of the IEEE, 1975. https://www.cs.virginia.edu/~evans/cs551/saltzer/
+03. Saltzer, J.H., Schroeder, M.D. *The Protection of Information in Computer Systems.* Proceedings of the IEEE 63(9), September 1975. https://doi.org/10.1109/PROC.1975.9939
 04. Schluntz, E., Zhang, B. *Building effective agents.* Anthropic, December 2024. https://www.anthropic.com/engineering/building-effective-agents
 05. GitHub. *Events that trigger workflows: schedule.* GitHub Docs. https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
 

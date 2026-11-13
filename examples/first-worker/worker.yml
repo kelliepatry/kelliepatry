@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "punch-list.csv"      # the sensor: runs when the list changes
+      - "worker.py"           # and when the worker itself changes
   schedule:
     - cron: "17 14 * * 1-5"   # the heartbeat: weekday mornings, 14:17 UTC
   workflow_dispatch:          # the test button: run it by hand

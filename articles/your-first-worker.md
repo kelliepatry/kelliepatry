@@ -6,7 +6,7 @@
 
 ### An explainer you can follow in about an hour: one plain job, one sensor, one packet, and a second key
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.3**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.4**
 
 **The ideas behind it:** [Build the fleet](./build-the-fleet.md) · [Sensors, not time clocks](./sensors-not-time-clocks.md)
 
@@ -24,7 +24,7 @@ You need:
 - **About an hour.**
 - **One plain job you do over and over.** If you don't know which one yet, Step 1 finds it.
 
-The example in this explainer is a construction punch list: the list of small open items before a project closes out. Swap in your own list later. The same three files are in this repository under [examples/first-worker](../examples/first-worker/) if you'd rather copy than paste. Inventory counts, open invoices, unanswered inquiries and overdue tasks all fit the same pattern.
+The example in this explainer is a construction punch list: the list of small open items before a project closes out. Swap in your own list later. The same three files are in this repository under [examples/first-worker](../examples/first-worker/) if you'd rather copy than paste. If you copy, put `worker.yml` at `.github/workflows/worker.yml`; it only works there. Inventory counts, open invoices, unanswered inquiries and overdue tasks all fit the same pattern.
 
 Words you'll meet, in plain terms:
 
@@ -184,6 +184,7 @@ on:
   push:
     paths:
       - "punch-list.csv"      # the sensor: runs when the list changes
+      - "worker.py"           # and when the worker itself changes
   schedule:
     - cron: "17 14 * * 1-5"   # the heartbeat: weekday mornings, 14:17 UTC
   workflow_dispatch:          # the test button: run it by hand
@@ -214,8 +215,8 @@ jobs:
 
 What each part does, in trade terms:
 
-- **`push` on `punch-list.csv`** is the sensor. Nothing runs until the list changes. Edit the list and the worker wakes.
-- **`schedule`** is the heartbeat: one run on weekday mornings, so you'd notice if the worker stopped. GitHub's clock is in UTC unless you say otherwise, so 14:17 UTC is 6:17 in the morning in Los Angeles in winter. If you'd rather think in local time, add a line under the cron line: `timezone: "America/Los_Angeles"` (lined up with the word `cron`), and change the hour to 6. Odd minutes like :17 are deliberate: runs on the hour are the busiest and the most likely to be delayed.[01]
+- **`push` on `punch-list.csv`** is the sensor. Nothing runs until the list changes. Edit the list and the worker wakes. It also wakes when `worker.py` changes, so a change you merge in Step 9 is tested straight away. This is the simplest kind of sensor. Watching an inbox or meeting notes is the same idea with more plumbing.
+- **`schedule`** is the heartbeat: one run on weekday mornings that leaves a dated packet behind. If the dates in the history stop, something is wrong. You have to look; nothing alerts you yet. GitHub's clock is in UTC unless you say otherwise, so 14:17 UTC is 6:17 in the morning in Los Angeles in winter. If you'd rather think in local time, add a line under the cron line: `timezone: "America/Los_Angeles"` (lined up with the word `cron`), and change the hour to 6 (update the comment too). Odd minutes like :17 are deliberate: runs on the hour are the busiest and the most likely to be delayed.[01]
 - **`workflow_dispatch`** adds a **Run workflow** button so you can test by hand.
 - **`permissions: contents: write`** lets the worker save its packet. Without it, the last step fails.
 
@@ -229,11 +230,11 @@ You might worry that the worker's own save will wake the sensor and loop forever
 4. Wait a minute. A yellow dot turns into a green check.
 5. Go back to the **Code** tab. A new file, `packet.md`, is there. Open it.
 
-> **You should see:** a short page with the count of items, open items and overdue items, a list of overdue items and their owners, and the "does not know" section. The exact overdue count depends on today's date.
+> **You should see:** your numbers will differ from ours as the dates pass. A short page with the count of items, open items and overdue items, a list of overdue items and their owners, and the "does not know" section. The exact overdue count depends on today's date.
 
 Now test the sensor. Open `punch-list.csv`, click the pencil, change item 5's status from `open` to `done`, and commit. Watch the **Actions** tab: the worker starts on its own. Open `packet.md` again. The counts have changed.
 
-Then click the clock icon labelled **History** (or **commits**) on the repository's main page. Every change you made and every packet the worker wrote is there, with a date and a note. That's your as-built record.
+Then click the **Commits** link (with a clock icon) above the file list on the repository's main page. Every change you made and every packet the worker wrote is there, with a date and a note. That's your as-built record.
 
 **If it didn't work:**
 
@@ -243,7 +244,7 @@ Then click the clock icon labelled **History** (or **commits**) on the repositor
 | Red X on "Run the worker", `ValueError` about a date | A due date isn't written as YYYY-MM-DD |
 | No **Run workflow** button | The workflow file isn't at exactly `.github/workflows/worker.yml` on the main branch |
 | The heartbeat didn't run on time | Normal. Scheduled runs can be delayed when GitHub is busy.[01] Use the button or the sensor |
-| The heartbeat stopped after two months | In public repositories, scheduled runs are switched off after 60 days with no activity. Re-enable them on the Actions tab.[01] |
+| The heartbeat stopped after two months | In public repositories, scheduled runs are switched off after 60 days with no activity. Yours is private, so this won't happen; if you make it public, re-enable them on the Actions tab.[01] |
 
 ## Step 8 · Hand the packet to your model (5 minutes)
 
@@ -257,7 +258,7 @@ Do not search for or recount anything yourself. If you need a fact that
 isn't in the packet, don't guess: tell me which worker I would need to
 build to get it.
 
-Now: which overdue items should I raise with the contractor this week,
+Now: which overdue items should I raise this week, with whom,
 and how should I word it?
 ```
 
@@ -271,16 +272,16 @@ The person or model that changes the worker shouldn't be the one who approves th
 
 1. Open `worker.py` and click the pencil.
 2. Make a small change. For example, change `"Facts only. No recommendations."` to `"Facts only. No recommendations. Built from the punch list."`
-3. Click **Commit changes**. This time, choose **Create a new branch for this commit and start a pull request**. Click **Propose changes**, then **Create pull request**.
+3. Click **Commit changes**. A box opens. Choose **Create a new branch for this commit and start a pull request**, then click **Propose changes**. On the next page, click **Create pull request**.
 4. Click the **Files changed** tab. Red lines are removed, green lines are added.
 5. Now the second key. Copy the change and your worker card into a **different** AI model from the one that wrote the change, or send it to a colleague, and ask: *"Here is a worker's job card and a proposed change. Does the change keep the worker inside its job? What could go wrong?"*
 6. If the reviewer is satisfied, click **Merge pull request** → **Confirm merge**.
 
-A model asked to check its own work tends to approve it. Research has found that models rate their own writing higher than others' even when people judge them equal.[03] A second reviewer doesn't have that bias toward your change.
+A model asked to check its own work tends to approve it. Research has found that models rate their own writing higher than others' even when people judge them equal.[03] A second reviewer has no stake in having written the change. That makes it a better check, not a perfect one.
 
 **Want GitHub to enforce it?** GitHub can block changes to main until a pull request has an approving review. On the free plan this is available for public repositories only. Private repositories need a paid plan such as GitHub Pro.[04] On the free plan, keep it as a habit: no change to a worker goes straight to main.
 
-One catch if you work alone: GitHub won't let you approve your own pull request. A required review needs a second person with their own account. If the second key is an AI model, the rule stays a habit, and the habit is the part that matters.
+One catch if you work alone: GitHub won't let you approve your own pull request.[06] A required review needs a second person with their own account. If the second key is an AI model, the rule stays a habit, and the habit is the part that matters.
 
 ## Step 10 · Keep the skip log (ongoing)
 
@@ -331,6 +332,7 @@ Once a week, read it. The line that shows up most often is your next worker. Go 
 03. Panickssery, A., Bowman, S.R., Feng, S. *LLM Evaluators Recognize and Favor Their Own Generations.* NeurIPS 2024. https://arxiv.org/abs/2404.13076
 04. GitHub. *About protected branches.* GitHub Docs. https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
 05. GitHub. *Hello World.* GitHub Docs. https://docs.github.com/en/get-started/using-github/hello-world
+06. GitHub. *Approving a pull request with required reviews.* GitHub Docs. https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews
 
 ---
 
