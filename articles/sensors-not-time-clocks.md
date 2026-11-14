@@ -6,7 +6,7 @@
 
 ### After the fleet: the builder stops grading its own work, the staff stop punching a clock, and the owner gets a different job
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.6**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · v1.0**
 
 **Follows:** [Build the fleet](./build-the-fleet.md) · **Then try it:** [Your first worker, step by step](./your-first-worker.md)
 
