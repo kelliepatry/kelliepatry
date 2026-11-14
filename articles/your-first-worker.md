@@ -6,7 +6,7 @@
 
 ### An explainer you can follow in about an hour: one plain job, one sensor, one packet, and a second key
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.5**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.6**
 
 **The ideas behind it:** [Build the fleet](./build-the-fleet.md) · [Sensors, not time clocks](./sensors-not-time-clocks.md)
 
@@ -18,11 +18,11 @@
 
 ## Why this, and why first · Kellie
 
-When I started, every GitHub tutorial assumed I already knew why I was there. This one starts with why.
+Until recently, every GitHub tutorial I tried assumed I already knew why I was there. This one starts with why.
 
 In [Build the fleet](./build-the-fleet.md) I argued that a reasoning model shouldn't do plain work: finding, counting, listing, checking. Small workers should, the same way every time, and the model should judge from what they hand it. In [Sensors, not time clocks](./sensors-not-time-clocks.md) I wrote about what that freed up: time to decide, and to design.
 
-None of it starts with a fleet. It starts with one worker doing one job you're tired of explaining. I chose a punch list because anyone who has closed out a project knows one, and because counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you realize you never have to explain it again. That's your first worker. A fleet is just more of them.
+None of it starts with a fleet. It starts with one worker doing one job you're tired of explaining. I chose a punch list because anyone who has closed out a project knows one, and because counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you stop having to explain it. That's your first worker. A fleet is just more of them.
 
 ## Before you start
 
@@ -333,7 +333,7 @@ Once a week, read it. The line that shows up most often is your next worker. Go 
 
 ## With gratitude
 
-The writers of GitHub's beginner documentation, who explain the platform to people who don't know it yet. And everyone who teaches in public for beginners, which is where I learned all of this.
+The writers of GitHub's beginner documentation, who explain the platform to people who don't know it yet, and everyone who teaches in public for beginners. Arjun Panickssery, Samuel Bowman and Shi Feng measured why a model shouldn't check its own work, which is the reason Step 9 exists.
 
 ---
 

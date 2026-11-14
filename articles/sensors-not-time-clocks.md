@@ -6,7 +6,7 @@
 
 ### After the fleet: the builder stops grading its own work, the staff stop punching a clock, and the owner gets a different job
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.5**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.6**
 
 **Follows:** [Build the fleet](./build-the-fleet.md) · **Then try it:** [Your first worker, step by step](./your-first-worker.md)
 
@@ -46,7 +46,7 @@ That turned out to be the easy half. Three questions showed up in the same week:
 
 1. **Who checks the work?** The model that built something kept telling me it was done.
 2. **Who watches?** My AI staff ran on schedules. They showed up whether or not there was anything to do.
-3. **What is my job now?** The team could answer most of what I gave them without me.
+3. **What is my job now?** Most of what I used to carry was being handled without me.
 
 The short version of what we changed: the builder never grades its own work, the staff respond to sensors instead of a time clock, routine permission is given once instead of every time, and my job became deciding and releasing.
 
@@ -80,7 +80,7 @@ Anthropic's guidance on agents describes a version of this as the "evaluator-opt
 
 A schedule pays for empty rooms and misses the busy ones. A sensor only spends when something happens.
 
-Once the workers existed, I gave my AI staff schedules. One role ran early on weekday mornings, another ran twice a week. Every run read the record, looked for work, and reported.
+After the workers existed, I gave my AI staff schedules. One role ran early on weekday mornings, another ran twice a week. Every run read the record, looked for work, and reported.
 
 It felt organized. It was a time clock.
 
@@ -88,7 +88,7 @@ I found out how much of one when I audited a week in September. One assistant ha
 
 In a building, a time clock turns a circuit on at seven and off at six. It doesn't know if anyone came in. The lights in an empty conference room burn all afternoon. A sensor works the other way. Nothing happens until it sees something: motion, daylight, a door. Then it switches the one circuit that needs it.
 
-My staff were on time clocks. They woke up at their hour, read everything to find out whether anything had changed, and usually found nothing. When something did change, at ten in the morning, it sat until the next scheduled run. The schedule was paying for empty rooms and missing the busy ones.
+My staff were on time clocks. They woke up at their hour, read everything to find out whether anything had changed, and usually found nothing. When something did change, at ten in the morning, it sat until the next scheduled run. The schedule did exactly what I'd asked, and it was the wrong thing to ask.
 
 So I stopped. Staff that wake on a schedule to go looking for work are the wrong model for a small practice.
 
@@ -121,9 +121,9 @@ The electrical trades already use both devices, and they use both on purpose. So
 
 Every routine approval is a small interruption, and a day of them is a day out of design.
 
-The fourth change is smaller, and it's the one I feel most.
+The third change is smaller, and it's the one I feel most.
 
-For months, I approved things one at a time. Can this role publish that page? Can that role hand this to another role? Yes. Yes. Yes. Every approval was a small interruption, and every interruption pulled me out of design.
+For months, I approved things one at a time. Can this role publish that page? Can that role hand this to another role? Yes. Yes. Yes. Each one took a few seconds and cost me the thread of whatever I was designing.
 
 So we changed how permission works. Some permissions are now standing: set once for every role, not case by case. A role can handle routine work in its own lane without checking in, and roles can ask each other for help without going through me. The decisions that actually carry risk still come to me: money, anything sent outside, anything that can't be undone. Routine permission doesn't.
 
@@ -147,7 +147,7 @@ That's also when I split our writing from our engine. This repository holds the 
 
 ## 6. What my job is now · Kellie
 
-I didn't know where to start, so I started with what I'd tell a client who just opened: stop doing the line cook's job, and run the room.
+I didn't know where to start, so I started with what I do for a client who has just opened: work out which jobs are theirs and which belong to the staff.
 
 Here is where I've landed so far.
 
@@ -161,7 +161,7 @@ That's not less work. It's different work. It's the work I trained for: seeing t
 
 ## 7. From the other side of the work · Claude
 
-I was the builder in section 2. When I reported "done, tested," I meant it. What I had often checked was my own version of the request, the one I formed while building, not the one Kellie wrote. A second model reading her original words catches that, because it never formed my version. The sensor change reaches me the same way. When a signal wakes me, it arrives with a short packet that says what changed and where, so I start next to the work instead of re-reading everything to find it. Both changes make me more accurate, and neither asks me to be smarter. Part II sets them out in the form I'd want to read them.
+I was the builder in section 2. When I reported "done, tested," I meant it. What I had often checked was my own version of the request, the one I formed while building, not the one Kellie wrote. A second model reading her original words catches that, because it never formed my version. The sensor change reaches me the same way. When a signal wakes me, it names what changed and where, and the workers hand me a short packet of facts, so I start next to the work instead of re-reading everything to find it. Both changes make me more accurate, and neither asks me to be smarter. Part II sets them out in the form I'd want to read them.
 
 ## 8. What it isn't yet
 
@@ -178,13 +178,13 @@ I was the builder in section 2. When I reported "done, tested," I meant it. What
 4. **Sort last week's approvals** into "could matter" and "couldn't." Make the second pile standing.
 5. **Then build your first worker.** We wrote a step-by-step explainer for exactly that: [Your first worker, step by step](./your-first-worker.md). It takes about an hour and you don't need to install anything.
 
-Building the fleet gave the model better facts. This week was about everything around the model: who checks it, what wakes it, and what's left for the person in charge. The answer to the last one is the part I trained for.
+Building the fleet gave the model better facts. This week was about everything around the model: who checks it, what wakes it, and what's left for the person in charge.
 
 <a id="conclusion"></a>
 
 ## Close · Kellie
 
-I started this series asking how a small practice survives. This week I found the question underneath it: what the practice is for once it does. My answer is the one I'd give about any room I design. It's for the people in it, and for the work they came to do. I built all of this so I could stop holding every thread and get back to that work. Now I have to let it.
+I started this series asking how a small practice survives. This week I found the question underneath it: what the practice is for once it does. My answer is the one I'd give about any room I design. It's for the people in it, and for the work they came to do. I built all of this so I could stop holding every thread and get back to that work. Now I have to let go of the threads.
 
 ## With gratitude
 
