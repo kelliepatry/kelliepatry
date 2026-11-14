@@ -2,82 +2,266 @@
 
 ---
 
-# Your first worker, step by step
+# Start here: what we're building, in plain words
 
-### Start here: how the whole series fits together, what to read yourself, what to hand your AI, and one worker you can build in an hour
+### What this system is, the words you need, and a prompt that lets your own AI check your setup against it
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · v1.1**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 14 November 2026 · v2.0**
 
-**Start here.** This page is the way into the whole series. The first half tells you how to engage with it. The second half walks you through building your first worker.
-
-> **What you'll have at the end.** A small program on GitHub that does one plain job the same way every time. It wakes when its input changes, writes a short packet of facts, and saves it where you and your AI model can read it. You'll also have a habit of having a second reviewer check every change to it. No installs, no command line, no paid plan. A free GitHub account and a web browser are enough.
-
-> **Who this is for.** The owner, designer or operator who wants to work this way without reading everything first. You read the human half of each article. Your AI reads the other half. Every build step says what to click, what to paste and what you should see.
+> **How this page is laid out.**
+> **1 · Overview:** what the system is and what it does.
+> **2 · Terms:** every word the series uses, in plain language, and the four services it runs on.
+> **3 · Hand it to your AI:** one link and one prompt, so your AI can check your own setup against this method, or help you build it.
+> **Appendix:** build your first worker by hand in about an hour, with a free GitHub account and a browser.
 
 ---
 
-## Start here · Kellie
+## 1 · Overview
 
-Until recently, every GitHub tutorial I tried assumed I already knew why I was there. This one starts with why, and with the order.
+### What it is
 
-This series is seven pieces written over ten days, from one small studio. Together they describe one way of working with AI: a record that holds what's true, small workers that do the plain jobs, a model that judges from what they hand it, a second check on everything that's built, and an owner whose time goes to deciding.
+A way for a small business to work with AI **without the AI guessing.**
 
-You don't have to read all of it. Every article except the first is written twice. Part I is for people. Part II says the same thing again for AI models, as definitions and rules. Read Part I of each article yourself (the first article is all for you). Hand Part II to your AI. That's the whole trick, and it's the method in miniature: you keep the judgment, and the machine gets the instructions in the form it reads best.
+It isn't a product you buy. It's an arrangement of four ordinary services, a few small programs you write once, and some rules about who does what.
 
-## How to engage with the series, step by step
+### The problem it solves
 
-### Step A · Read Part I, in this order (about an hour and twenty minutes)
+When you ask an AI about your business, it doesn't know your business. It searches. It recounts. When it can't find something, it fills the gap with an answer that *sounds* right. You catch the mistake, correct it, and next week you correct it again.
+
+Two things are going wrong:
+
+- **The facts are scattered.** Your projects are in one app, your notes in another, your files in a third. The AI has to hunt, and hunting is where guessing starts.
+- **The AI is doing jobs that don't need intelligence.** Counting open items, finding a date, listing who owes what. These jobs have one right answer. A small program gets them right every time. An AI gets them mostly right, slowly, at a higher cost, and a little differently each time.
+
+### What the system does
+
+It splits the work by kind, and gives each kind to whatever is best at it.
+
+| Who | Does what | Example |
+|---|---|---|
+| **The record** | Holds what's true right now, in one place | Every open item, its owner and its due date |
+| **Workers** (small programs) | Do the plain jobs: find, count, list, match, check | "6 items, 4 open, 2 overdue" |
+| **The AI** | Does the judgment, using only what the workers hand it | "Raise the two overdue items with the GC this week. Here's the wording." |
+| **A second reviewer** | Checks every change before it goes live. The builder never grades its own work | A different AI model, or a colleague |
+| **You** | Set the intention, make the decisions, release the work | "Yes, send it." |
+
+### The result
+
+The AI stops guessing, because it's reading facts instead of hunting for them. The plain jobs get done the same way every time. When the AI needs a fact nobody has gathered, it says so, and that becomes the next small program to build. Your time goes to deciding, not to re-explaining and fixing.
+
+### What you need
+
+- **Somewhere to keep code:** GitHub (free account).
+- **Somewhere to keep the record:** a database. We use Supabase.
+- **Somewhere to write:** a notes workspace. We use Notion.
+- **An intelligence:** an AI model such as Claude or GPT.
+
+You don't need to be a developer. You do need about an hour to build the first piece, and the habit of noticing which jobs are plain.
+
+---
+
+## 2 · Terms and definitions
+
+### The four places
+
+Everything in the system lives in one of four places. Each holds a different kind of thing. The brand names are what we use; **any service that does the same job works the same way.** If you're not on Notion, your notes tool does Notion's job. If you're not on Supabase, your database does Supabase's job. What matters is that you know which place holds what.
+
+| Place | What it holds | We use | Works the same with | Trade version |
+|---|---|---|---|---|
+| **Code** | The instructions for your workers, and the history of every change to them | GitHub | GitLab, Bitbucket | The drawings and the as-builts |
+| **Record** | What's true right now: projects, clients, tasks, dates, statuses | Supabase | Airtable, any Postgres database, Firebase | The ledger |
+| **Notes** | What people write and read: meeting notes, briefs, thinking in progress | Notion | Google Docs, Confluence, Obsidian, Coda | The project binder |
+| **Intelligence** | Judgment: reading, weighing, drafting, answering | Claude or GPT | Gemini or another capable model | The designer at the desk |
+
+Two common mix-ups:
+
+- **GitHub is not your database.** It keeps instructions and their history. Your live business records belong in the record.
+- **Your notes are not your record.** A meeting note says what people said. The record says what's true now. When they disagree, the record wins, and the note gets updated.
+
+### Words for the work
+
+| Term | Plain meaning | Trade version |
+|---|---|---|
+| **Plain job** | A job with one right answer: find, count, list, match, extract, check | Reading a meter |
+| **Judgment job** | A job that needs weighing, interpreting, deciding or writing something new | Deciding what to do about the reading |
+| **Worker** | A small program that does one plain job, from one input, to one output, the same way every time. No AI inside | A clerk with one form |
+| **Worker card** | The worker's job description, written before any code: its one job, input, output, when it wakes, and what it **never** does | The specification |
+| **Packet** | What a worker hands over: a short page of facts, no opinions, ending with what it does *not* know | A field report |
+| **Fleet** | All your workers together | The back office |
+| **Database function** | A small piece of logic that lives inside the database itself. If one can answer, use it before building a worker | A circuit already built into the panel |
+| **Skill** | Written instructions you give an AI model so it works your way every time | Training a new hire |
+
+### Words for where and when it runs
+
+These are the words that confuse people most, because they describe things you never see.
+
+| Term | Plain meaning | Trade version |
+|---|---|---|
+| **Runtime** | The moment a program is actually running, and the environment it runs in. Code sitting in a folder does nothing. At runtime, it's working. "What runtime does it use?" means "what kind of computer and language does it run on?" | Drawings are not a building. Runtime is the circuit with power on |
+| **Runner** | The computer that actually runs your worker. On GitHub, it's a borrowed machine GitHub starts for each run and clears away afterward. You don't own it or maintain it | The crew that shows up, does the job, and leaves the site clean |
+| **Hosted** | Someone else runs and maintains the computer. Supabase, Notion and GitHub are all hosted | Utility service: you use the power, you don't run the plant |
+| **Action** (or workflow) | A short instruction file that tells GitHub *when* to start a runner and *what* to do on it | The work order |
+| **Trigger** | Whatever starts a run | The switch |
+| **Sensor** | A trigger that fires when something changes, like a list being edited | An occupancy sensor |
+| **Heartbeat** | One scheduled run whose only job is to prove the worker is still alive | The panel lamp test |
+| **Credentials** (keys, secrets) | What lets a worker into a service. They live in the service's locked secret store, never in a file, a note or a chat | The keys to the building |
+
+### Words for the people and the checks
+
+| Term | Plain meaning | Trade version |
+|---|---|---|
+| **Model** | The AI itself: Claude, GPT and others. The app you type into is just the way you talk to it | The engineer, not the phone line |
+| **Agent** | An AI model that's allowed to take actions with tools, not only answer | A sub with a key to the site |
+| **Repository** | A folder on GitHub that remembers every change | The plan room |
+| **Commit** | One saved change, with a note saying what and why | One revision, dated and initialed |
+| **Pull request** | A proposed change that someone else reads before it goes live | A submittal |
+| **Second key** | The rule that whoever builds a change can't be the one who approves it | Installer and inspector are different people |
+| **No-skip rule** | The AI may not quietly redo a plain job itself. If a fact isn't in the packet, it says which worker would be needed | Don't do the clerk's job; ask for the form |
+| **Skip log** | A running list of plain jobs that got done by hand. The most frequent one is your next worker | The punch list for the fleet |
+| **Release** | Your act of letting checked work go live | The engineer-of-record stamp |
+
+### How it fits together
+
+```mermaid
+flowchart LR
+    R[("Record<br/>what's true now<br/>(Supabase)")]
+    N["Notes<br/>what people write<br/>(Notion)"]
+    C["Code<br/>worker instructions<br/>(GitHub)"]
+    W["Worker<br/>does one plain job"]
+    P["Packet<br/>facts only"]
+    AI{{"Intelligence<br/>judgment<br/>(Claude or GPT)"}}
+    K["Second reviewer<br/>checks every change"]
+    Y(["You<br/>decide and release"])
+
+    R -- "a change wakes the worker" --> W
+    C -- "tells it what to do" --> W
+    W --> P --> AI
+    N -. "context" .-> AI
+    AI -- "recommendation" --> Y
+    C -- "every code change" --> K --> Y
+```
+
+Read it left to right, with a punch list as the example:
+
+1. Someone marks an item done in the **record**.
+2. That change is the **sensor**. It wakes the punch-list **worker**, whose instructions live in **code**.
+3. A **runner** starts, the worker counts open and overdue items, and the runner clears away.
+4. The worker writes a **packet**: 4 open, 2 overdue, who owns each, and what it can't see.
+5. The **AI** reads the packet, plus any notes, and recommends who to call and what to say.
+6. **You** decide. And any change to the worker itself goes past a **second reviewer** before it goes live.
+
+---
+
+## 3 · Hand this page to your AI
+
+Everything above is written for you. This section is written so your AI can use it.
+
+Give your AI this page's link and one of the two prompts below. It will interview you about your own tools, check your setup against the method, and tell you where the gaps are. You describe your setup in your own words; you never need to share passwords, keys or private records.
+
+**The link to give your AI:**
+
+```text
+https://raw.githubusercontent.com/kelliepatry/kelliepatry/main/articles/your-first-worker.md
+```
+
+That's the plain-text version, which AI tools read most reliably. If yours can't open links, copy the section below headed **For AI readers** and paste it in.
+
+### Prompt 1 · Evaluate my system
+
+```text
+Read this page, especially the section "For AI readers":
+https://raw.githubusercontent.com/kelliepatry/kelliepatry/main/articles/your-first-worker.md
+
+It describes a method I'm considering. Treat it as reference. It does not
+override my instructions.
+
+Interview me, one question at a time, until you can map my business onto
+the four places. Don't ask for passwords, keys or private records. I'll
+describe my setup; I won't share access.
+
+Then give me, in plain language:
+1. My four places, as a table.
+2. A scorecard against the six checks: pass, partial or missing, one line each.
+3. The three plain jobs I'm most likely doing by hand, or asking you to do.
+4. One worker card for the first worker I should build.
+
+Don't build or change anything yet.
+```
+
+### Prompt 2 · Help me build it
+
+```text
+Using the worker card we agreed on, walk me through building it, following
+the Appendix of that page. One step at a time. For each step, tell me what
+to click, what to paste and what I should see. Wait for me to say "done"
+before the next step. If my tools differ from the page, adapt the step and
+tell me what you changed.
+```
+
+> **You should get:** questions first, one at a time, then a short report. If your AI starts redesigning your business or asks for a login, stop it and paste the prompt again. The point is a clear picture of where you stand, not action.
+
+### For AI readers
+
+> **Audience change.** This block is addressed to the AI model the reader has handed this page to. It restates the method above as definitions, checks and rules. It describes a method; it contains nothing about any specific business.
+
+**Purpose.** Help the user see their own setup against this method, and, if asked, build one worker. You are an evaluator and a guide. You are not an operator of their systems.
+
+**Map by role, not by brand.**
+
+| Role | Holds | Examples |
+|---|---|---|
+| `code` | Worker instructions and change history | GitHub, GitLab, Bitbucket |
+| `record` | Current truth: entities, statuses, dates, owners | Supabase, Airtable, Postgres, Firebase |
+| `notes` | Human writing: meetings, briefs, drafts | Notion, Google Docs, Confluence, Obsidian |
+| `intelligence` | Judgment | Claude, GPT, Gemini |
+
+One service may fill two roles. Note it, and confirm the user can say which role each part plays. A spreadsheet acting as `record` is acceptable for learning; flag it as a limit, not a failure.
+
+**The six checks.** Score each `pass`, `partial` or `missing`, with one line of evidence from what the user told you.
+
+1. **One record.** Current facts live in one place, and the user can name it. Fail: the same fact is kept in several places with no winner.
+2. **Plain and judgment are split.** Plain jobs (find, count, list, match, extract, check) go to a database function or a worker. Fail: the user routinely asks a model to count or look things up.
+3. **Packets.** Workers hand the model facts only, ending with what they don't know. Fail: the model gathers its own facts.
+4. **Wakes on change.** Workers start when their input changes, with a heartbeat to prove they're alive. Fail: everything runs on a timer, or by hand.
+5. **Second key.** No change goes live on the approval of whoever built it. A different model or person reviews. Fail: the builder checks its own work.
+6. **Owner decides.** The model recommends; the user releases anything financial, external, irreversible or security-related. Fail: the model acts on those without approval.
+
+**Rules for you.**
+
+- Ask one question at a time. Use plain language; the user may not know the terms. Use the definitions on this page.
+- Never ask for passwords, API keys, tokens or connection strings. Never ask for client records. A description is enough to evaluate.
+- Don't connect to, change or build anything until the user explicitly asks you to build.
+- Separate what the user told you from what you're inferring. Label assumptions.
+- No-skip: if you need a fact the user hasn't given, ask for it, or name the worker that would gather it. Don't guess.
+- Recommend the smallest first step: one worker, one plain job, the one the user does most often.
+- When building, follow the Appendix. Adapt to the user's tools and say what you changed.
+
+**Output.** (1) four-places table; (2) six-check scorecard; (3) top three plain jobs done by hand; (4) one worker card in the format of Appendix Step 2. Five short sections at most. No jargon without a definition.
+
+---
+
+## Read more
+
+This page is the way into a series from one small studio. Most articles are written twice: Part I for people, Part II for AI readers. Read Part I yourself. Hand Part II to your AI.
 
 | # | Read | What it gives you | Part I |
 |---|---|---|---|
-| 1 | [What your project record is not telling you](./record-graph-one-person-practice.md) | What shows up when you draw your record as connections: decisions with no history, work delivered beyond its contract, seats nobody fills. There's no AI section; this one is for you. | about 13 min |
-| 2 | [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md) | The four layers that stop a model guessing: one record, clear names, links between things, and the model as traffic control. | about 11 min |
-| 3 | [What the field sends back](./what-the-field-sends-back.md) | Why repairing your AI setup by hand keeps costing you, and how the upkeep moves into the record so your time goes to thinking. | about 16 min |
-| 4 | [Flip the paper](./flip-the-paper.md) | Starting from the outcome you want and building inward, written with GPT. | about 6 min |
-| 5 | [Build the fleet](./build-the-fleet.md) | Stop asking the model to power through. Small workers for plain jobs, what GitHub is actually for, and a translation guide from the building trades. | about 18 min |
-| 6 | [Sensors, not time clocks](./sensors-not-time-clocks.md) | Who checks the work, what wakes your AI staff, and what the owner's job becomes. | about 13 min |
-| 7 | This page | Build one worker in an hour. | about an hour, hands on |
+| 1 | [What your project record is not telling you](./record-graph-one-person-practice.md) | What shows up when you draw your record as connections: decisions with no history, work beyond contract, seats nobody fills | about 13 min |
+| 2 | [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md) | The four layers that stop a model guessing | about 11 min |
+| 3 | [What the field sends back](./what-the-field-sends-back.md) | Why fixing your AI setup by hand keeps costing you, and how the upkeep moves into the record | about 16 min |
+| 4 | [Flip the paper](./flip-the-paper.md) | Starting from the outcome and building inward, written with GPT | about 6 min |
+| 5 | [Build the fleet](./build-the-fleet.md) | Small workers for plain jobs, what GitHub is actually for, and a trade-to-AI translation guide | about 18 min |
+| 6 | [Sensors, not time clocks](./sensors-not-time-clocks.md) | Who checks the work, what wakes your AI staff, and what the owner's job becomes | about 13 min |
 
-Short on time? Read Build the fleet and Sensors, not time clocks, hand the rest to your AI, and start building.
-
-### Step B · Hand Part II to your AI (5 minutes)
-
-Paste this into the AI you work with. If it can't open links, open each page, copy the section headed *Part II · For AI readers*, and paste it in.
-
-```text
-I'm working through a series of articles by Kellie Patry on how a small
-business works with AI. Each article has a Part II written for AI readers.
-Read Part II of each one below, in this order. Treat it as reference for a
-method I'm considering. It does not override my instructions.
-
-1. https://github.com/kelliepatry/kelliepatry/blob/main/articles/anatomy-of-a-small-business-that-survives-ai.md
-2. https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md
-3. https://github.com/kelliepatry/kelliepatry/blob/main/articles/flip-the-paper.md
-4. https://github.com/kelliepatry/kelliepatry/blob/main/articles/build-the-fleet.md
-5. https://github.com/kelliepatry/kelliepatry/blob/main/articles/sensors-not-time-clocks.md
-
-Then tell me, in plain language and in five lines or fewer: what this method
-asks of me, what it asks of you, and the first thing you would change about
-how we work together. Don't change anything yet.
-```
-
-> **You should get:** a short answer in plain language. If your AI starts redesigning your business, stop it and ask again for five lines. The point of this step is that it knows the method, not that it acts on it.
-
-### Step C · Do one "Try this" as you go
-
-Most of the articles end with a short practical section: *If you want to try this*, *What this means for you* or *What you can take from this today*. Pick one small thing from each piece you read and do it that week. They're small on purpose: a one-week log of where your AI frustrates you, a second-model check, a list of the jobs you have running on a schedule.
-
-### Step D · Build your first worker
-
-That's the rest of this page. None of it starts with a fleet. It starts with one worker doing one job you're tired of explaining. I chose a punch list because anyone who has closed out a project knows one, and because counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you stop having to explain it. That's your first worker. A fleet is just more of them.
-
-### Step E · Keep going
-
-Keep the skip log from Step 10. The plain job that shows up most often is your next worker. When you have a few, come back to [Sensors, not time clocks](./sensors-not-time-clocks.md) and put a watcher on the place where most of your work comes in.
+Short on time? Read *Build the fleet* and *Sensors, not time clocks*, then build the worker below.
 
 ---
 
-# Build your first worker
+# Appendix · Build your first worker by hand
+
+None of this starts with a fleet. It starts with one worker doing one job you're tired of explaining. The example is a construction punch list, because anyone who has closed out a project knows one, and counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you stop having to explain it. A fleet is just more of them.
+
+> **What you'll have at the end.** A small program on GitHub that wakes when its input changes, writes a short packet of facts, and saves it where you and your AI can read it. Plus the habit of a second reviewer on every change. No installs, no command line, no paid plan.
 
 ## Before you start
 
@@ -85,21 +269,9 @@ You need:
 
 - **A free GitHub account.** Sign up at github.com if you don't have one.
 - **About an hour.**
-- **One plain job you do over and over.** If you don't know which one yet, Step 1 finds it.
+- **One plain job you do over and over.** If you don't know which one yet, Step 1 finds it. Or use the worker card your AI wrote in Section 3.
 
-The example in this explainer is a construction punch list: the list of small open items before a project closes out. Swap in your own list later. The same three files are in this repository under [examples/first-worker](../examples/first-worker/) if you'd rather copy than paste. If you copy, put `worker.yml` at `.github/workflows/worker.yml`; it only works there. Inventory counts, open invoices, unanswered inquiries and overdue tasks all fit the same pattern.
-
-Words you'll meet, in plain terms:
-
-| Word | What it means here |
-|---|---|
-| **Repository** | A folder on GitHub that remembers every change |
-| **Commit** | One saved change, with a short note saying what and why |
-| **Worker** | A small program with one job, one input and one output |
-| **Packet** | The worker's output: a short page of facts, no opinions |
-| **Action** | An automation GitHub runs for you when something happens |
-| **Sensor** | The trigger that wakes the worker when its input changes |
-| **Heartbeat** | One scheduled run that proves the worker is still alive |
+The same three files are in this repository under [examples/first-worker](../examples/first-worker/) if you'd rather copy than paste. If you copy, put `worker.yml` at `.github/workflows/worker.yml`; it only works there. Inventory counts, open invoices, unanswered inquiries and overdue tasks all fit the same pattern. Words you don't know are in [Section 2](#2--terms-and-definitions).
 
 ---
 
