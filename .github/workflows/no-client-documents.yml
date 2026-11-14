@@ -1,6 +1,6 @@
 name: No client documents
 
-# This repository is public (GOV-20261110-INVOICE-TEMPLATE-STANDARD-A1).
+# This repository is public.
 # Fail any push or pull request that adds a rendered invoice, an invoice payload,
 # or bank/routing details under templates/.
 
