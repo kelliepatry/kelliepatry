@@ -20,9 +20,9 @@
 
 Until recently, every GitHub tutorial I tried assumed I already knew why I was there. This one starts with why, and with the order.
 
-This series is seven pieces written over two weeks, from one small studio. Together they describe one way of working with AI: a record that holds what's true, small workers that do the plain jobs, a model that judges from what they hand it, a second check on everything that's built, and an owner whose time goes to deciding.
+This series is seven pieces written over ten days, from one small studio. Together they describe one way of working with AI: a record that holds what's true, small workers that do the plain jobs, a model that judges from what they hand it, a second check on everything that's built, and an owner whose time goes to deciding.
 
-You don't have to read all of it. Every article except the first is written twice. Part I is for people. Part II says the same thing again for AI models, as definitions and rules. Read the Part I sections yourself. Hand the Part II sections to your AI. That's the whole trick, and it's the method in miniature: you keep the judgment, and the machine gets the instructions in the form it reads best.
+You don't have to read all of it. Every article except the first is written twice. Part I is for people. Part II says the same thing again for AI models, as definitions and rules. Read Part I of each article yourself (the first article is all for you). Hand Part II to your AI. That's the whole trick, and it's the method in miniature: you keep the judgment, and the machine gets the instructions in the form it reads best.
 
 ## How to engage with the series, step by step
 
@@ -30,7 +30,7 @@ You don't have to read all of it. Every article except the first is written twic
 
 | # | Read | What it gives you | Part I |
 |---|---|---|---|
-| 1 | [What your project record is not telling you](./record-graph-one-person-practice.md) | What shows up when you draw your record as connections: decisions with no history, work that drifted, seats nobody fills. There's no AI section; this one is for you. | about 13 min |
+| 1 | [What your project record is not telling you](./record-graph-one-person-practice.md) | What shows up when you draw your record as connections: decisions with no history, work delivered beyond its contract, seats nobody fills. There's no AI section; this one is for you. | about 13 min |
 | 2 | [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md) | The four layers that stop a model guessing: one record, clear names, links between things, and the model as traffic control. | about 11 min |
 | 3 | [What the field sends back](./what-the-field-sends-back.md) | Why repairing your AI setup by hand keeps costing you, and how the upkeep moves into the record so your time goes to thinking. | about 16 min |
 | 4 | [Flip the paper](./flip-the-paper.md) | Starting from the outcome you want and building inward, written with GPT. | about 6 min |
@@ -38,7 +38,7 @@ You don't have to read all of it. Every article except the first is written twic
 | 6 | [Sensors, not time clocks](./sensors-not-time-clocks.md) | Who checks the work, what wakes your AI staff, and what the owner's job becomes. | about 13 min |
 | 7 | This page | Build one worker in an hour. | about an hour, hands on |
 
-Short on time? Read 5 and 6, hand the rest to your AI, and start building.
+Short on time? Read Build the fleet and Sensors, not time clocks, hand the rest to your AI, and start building.
 
 ### Step B · Hand Part II to your AI (5 minutes)
 
@@ -65,7 +65,7 @@ how we work together. Don't change anything yet.
 
 ### Step C · Do one "Try this" as you go
 
-Most of the articles close with a short practical section, called *If you want to try this* or *What this means for you*. Pick one thing from each piece you read and do it that week. They're small on purpose: a complaint log, a second-model check, a list of the jobs you have running on a schedule.
+Most of the articles end with a short practical section: *If you want to try this*, *What this means for you* or *What you can take from this today*. Pick one small thing from each piece you read and do it that week. They're small on purpose: a one-week log of where your AI frustrates you, a second-model check, a list of the jobs you have running on a schedule.
 
 ### Step D · Build your first worker
 
