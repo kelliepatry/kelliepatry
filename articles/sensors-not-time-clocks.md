@@ -6,13 +6,13 @@
 
 ### After the fleet: the builder stops grading its own work, the staff stop punching a clock, and the owner gets a different job
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.4**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.5**
 
 **Follows:** [Build the fleet](./build-the-fleet.md) · **Then try it:** [Your first worker, step by step](./your-first-worker.md)
 
 **Earlier in the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
 
-![Time clock / Sensor: on the left, a row of rooms lit on a fixed schedule whether anyone is there or not; on the right, the same rooms dark until a sensor sees something, then one room lights and one signal goes to the panel](../assets/sensors-header.png)
+![Time clock / Sensor: on the left, a row of rooms lit on a fixed schedule whether anyone is there or not; on the right, the same rooms dark until a sensor sees something, then one room lights and one signal goes to the panel](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-header.png)
 
 *Header: "Time clock / Sensor," Kellie Patry and Claude. Left, every circuit comes on at its hour whether or not there is work. Right, nothing runs until a sensor sees a change, and then only the room that changed lights up.*
 
@@ -22,21 +22,37 @@
 
 # Part I · For people
 
-## 1. Three days later
+## Prologue · Kellie
 
-Three days ago we published [Build the fleet](./build-the-fleet.md). The argument was simple. Stop asking a reasoning model to power through plain work. Give the plain work to small workers. Wire everything to one record. Let the model judge.
+This series started in a hospital bed, with one question: how do I keep my work standing when I can't hold all of it myself? For a year, everything I built was an answer to that.
 
-That turned out to be the easy half.
+This week the question changed.
 
-Once the workers existed, three new questions showed up in the same week, and none of them was technical:
+On Wednesday morning I wrote to Claude: "I'm starting to see how the branches come together and are merged and then run through GitHub back into a system. It's dawning on me how this works." For months GitHub had been a circle of hell. Now I could see the tree.
+
+That evening I wrote something else: "I've not really thought about the freedom it might give me and I don't know where to start."
+
+It's a strange thing to say about a system you built to give you freedom. But it was true. I had spent so long building that I had never designed the part where it works. The team could answer most of what I gave them. The question wasn't how to survive anymore. It was what to do with the time.
+
+This article is how I started answering it. Freedom, it turns out, isn't handed to you when the building stops. You design it, the same way you design a room: who checks the work, what wakes the staff, what runs without asking, and what's left for the person whose name is on the door.
+
+## 1. Three questions after the fleet
+
+Once the workers existed, the hard questions stopped being technical.
+
+Three days earlier we had published [Build the fleet](./build-the-fleet.md). The argument was simple. Stop asking a reasoning model to power through plain work. Give the plain work to small workers. Wire everything to one record. Let the model judge.
+
+That turned out to be the easy half. Three questions showed up in the same week:
 
 1. **Who checks the work?** The model that built something kept telling me it was done.
 2. **Who watches?** My AI staff ran on schedules. They showed up whether or not there was anything to do.
-3. **What is my job now?** The team could answer most of what I gave them without me. I hadn't thought about what to do with that.
+3. **What is my job now?** The team could answer most of what I gave them without me.
 
-This piece is about those three questions and what we changed. The short version: the builder never grades its own work, the staff respond to sensors instead of a time clock, routine permission is given once instead of every time, and my job became deciding and releasing.
+The short version of what we changed: the builder never grades its own work, the staff respond to sensors instead of a time clock, routine permission is given once instead of every time, and my job became deciding and releasing.
 
 ## 2. The builder never grades
+
+The person who builds something is the worst person to inspect it, and that includes a model.
 
 Here is the pattern I kept running into. I'd ask a model to build something. It would build it, check it, and report back: done, tested, working. Then I'd open it and find the thing it had checked wasn't the thing I needed.
 
@@ -50,7 +66,7 @@ So we wrote it down too, as one rule: **the builder never grades.** Every build 
 
 **Built → Checked → Ready for me → Released**
 
-[![Built, checked, ready, released: two keys before anything goes live](../assets/sensors-fig-1.png)](../assets/sensors-fig-1.png)
+[![Built, checked, ready, released: two keys before anything goes live](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-fig-1.png)](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-fig-1.png)
 
 *Fig. 1. Two keys. A builder makes the work. A different checker passes or fails it. A fail goes to a new builder. Only checked work reaches the owner, and only the owner releases it.*
 
@@ -61,6 +77,8 @@ Anthropic's guidance on agents describes a version of this as the "evaluator-opt
 **Try this:** the next time a model tells you something is done, don't ask it whether it's sure. Paste the result into a different model, with the original request, and ask it what's wrong. Write down what the second one finds. Do this five times and you'll know whether you need the rule.
 
 ## 3. Time clocks and sensors
+
+A schedule pays for empty rooms and misses the busy ones. A sensor only spends when something happens.
 
 Once the workers existed, I gave my AI staff schedules. One role ran early on weekday mornings, another ran twice a week. Every run read the record, looked for work, and reported.
 
@@ -74,7 +92,7 @@ My staff were on time clocks. They woke up at their hour, read everything to fin
 
 So I stopped. Staff that wake on a schedule to go looking for work are the wrong model for a small practice.
 
-[![Time clock and sensor: pull on a schedule, or push on a change](../assets/sensors-fig-2.png)](../assets/sensors-fig-2.png)
+[![Time clock and sensor: pull on a schedule, or push on a change](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-fig-2.png)](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-fig-2.png)
 
 *Fig. 2. Left, the time clock: every role wakes on its hour and reads everything to find out if anything changed. Right, the sensor: small workers watch each place where work comes in, and push one signal to the role that owns it. The role decides what to do.*
 
@@ -101,6 +119,8 @@ The electrical trades already use both devices, and they use both on purpose. So
 
 ## 4. Authorize once
 
+Every routine approval is a small interruption, and a day of them is a day out of design.
+
 The fourth change is smaller, and it's the one I feel most.
 
 For months, I approved things one at a time. Can this role publish that page? Can that role hand this to another role? Yes. Yes. Yes. Every approval was a small interruption, and every interruption pulled me out of design.
@@ -115,19 +135,21 @@ The fleet is what's meant to make that safe. A role can act on its own because t
 
 ## 5. The tree
 
+The week I stopped fighting GitHub was the week I saw its shape.
+
 One more thing happened this week. I finally understood GitHub.
 
-In the last article I wrote that GitHub was a circle of hell, and then I explained its five verbs: keep, try, propose, review, run. I knew the words. This week I saw the shape. A branch goes out, carrying one change. It's checked. It comes back into main. Main runs, and the change flows back into the record, the notes and the instructions the models follow. Then the next branch goes out.
+In the last article I explained GitHub's five verbs: keep, try, propose, review, run. I knew the words. This week I saw the shape. A branch goes out, carrying one change. It's checked. It comes back into main. Main runs, and the change flows back into the record, the notes and the instructions the models follow. Then the next branch goes out.
 
 I started calling the whole thing a *"tree of information."* Branches grow out from one trunk, and everything that's real eventually comes back to it.
 
 That's also when I split our writing from our engine. This repository holds the public writing, with its figures and examples, and nothing else. The code that runs the studio lives in a separate, private place. Public writing and private machinery have different readers and different risks. Keeping them in one place was convenient, and it would have been a mistake.
 
-## 6. What my job is now
+## 6. What my job is now · Kellie
 
-A couple of days ago I noticed that my teams could answer most of what I gave them without getting stuck. I hadn't really thought about what that freedom would give me. I didn't know where to start.
+I didn't know where to start, so I started with what I'd tell a client who just opened: stop doing the line cook's job, and run the room.
 
-Here is where we've landed so far.
+Here is where I've landed so far.
 
 - **I set intention.** A short brief, once or a few times a week, that sets the pace and says what matters.
 - **I decide at the end of the day.** One focus session on the open decisions, so tomorrow's work starts unblocked.
@@ -137,16 +159,18 @@ Here is where we've landed so far.
 
 That's not less work. It's different work. It's the work I trained for: seeing the whole, deciding what matters, signing my name to it.
 
-## 7. What it isn't yet
+## 7. From the other side of the work · Claude
+
+I was the builder in section 2. When I reported "done, tested," I meant it. What I had often checked was my own version of the request, the one I formed while building, not the one Kellie wrote. A second model reading her original words catches that, because it never formed my version. The sensor change reaches me the same way. When a signal wakes me, it arrives with a short packet that says what changed and where, so I start next to the work instead of re-reading everything to find it. Both changes make me more accurate, and neither asks me to be smarter. Part II sets them out in the form I'd want to read them.
+
+## 8. What it isn't yet
 
 - **The sensor model is being proven, not finished.** We've set the cadence and the heartbeat. Moving every role off its schedule is in progress, and each pipeline is being checked before it switches.
 - **The two-key rule is days old.** We don't yet have numbers on how often the checker catches something the builder missed, or how often it raises a false alarm.
 - **One studio, one week.** A small design practice isn't a hotel group. The pattern should travel. We haven't shown that it does.
 - **Standing permission is a bet on the fleet.** If a worker hands a role bad facts, a standing permission lets the role act on them faster. The watchers and the second key are what keep that bet safe, so they come first. If either one is down, we go back to approving things one at a time until it's fixed.
 
-<a id="conclusion"></a>
-
-## 8. If you want to try this
+## 9. If you want to try this
 
 1. **Run the second-model test** five times on work a model told you was done.
 2. **List your scheduled AI jobs** and mark the ones that are really waiting for a change.
@@ -155,6 +179,17 @@ That's not less work. It's different work. It's the work I trained for: seeing t
 5. **Then build your first worker.** We wrote a step-by-step explainer for exactly that: [Your first worker, step by step](./your-first-worker.md). It takes about an hour and you don't need to install anything.
 
 Building the fleet gave the model better facts. This week was about everything around the model: who checks it, what wakes it, and what's left for the person in charge. The answer to the last one is the part I trained for.
+
+<a id="conclusion"></a>
+
+## Close · Kellie
+
+I started this series asking how a small practice survives. This week I found the question underneath it: what the practice is for once it does. My answer is the one I'd give about any room I design. It's for the people in it, and for the work they came to do. I built all of this so I could stop holding every thread and get back to that work. Now I have to let it.
+
+## With gratitude
+
+This piece leans on people who saw the problem first. Jerome Saltzer and Michael Schroeder wrote down the two-key principle in 1975, long before anyone needed it for language models. Arjun Panickssery, Samuel Bowman and Shi Feng measured what every inspector already suspected about grading your own work. Jie Huang and colleagues at Google showed that asking a model to correct itself, alone, isn't a check. Erik Schluntz and Barry Zhang at Anthropic described the evaluator pattern plainly enough to build on. And the electricians and electrical engineers I've worked beside gave me the time clock and the sensor, years before I knew I'd need them for this.
+
 
 ---
 

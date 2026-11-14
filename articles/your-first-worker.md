@@ -6,7 +6,7 @@
 
 ### An explainer you can follow in about an hour: one plain job, one sensor, one packet, and a second key
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.4**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · working draft v0.5**
 
 **The ideas behind it:** [Build the fleet](./build-the-fleet.md) · [Sensors, not time clocks](./sensors-not-time-clocks.md)
 
@@ -15,6 +15,14 @@
 > **Who this is for.** The owner, designer or operator who read about fleets and workers and wants to try one before reading anything else. Every step says what to click, what to paste and what you should see.
 
 ---
+
+## Why this, and why first · Kellie
+
+When I started, every GitHub tutorial assumed I already knew why I was there. This one starts with why.
+
+In [Build the fleet](./build-the-fleet.md) I argued that a reasoning model shouldn't do plain work: finding, counting, listing, checking. Small workers should, the same way every time, and the model should judge from what they hand it. In [Sensors, not time clocks](./sensors-not-time-clocks.md) I wrote about what that freed up: time to decide, and to design.
+
+None of it starts with a fleet. It starts with one worker doing one job you're tired of explaining. I chose a punch list because anyone who has closed out a project knows one, and because counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you realize you never have to explain it again. That's your first worker. A fleet is just more of them.
 
 ## Before you start
 
@@ -322,6 +330,10 @@ Once a week, read it. The line that shows up most often is your next worker. Go 
 - It's not a production system. It's a first worker, built to teach the pattern.
 - It doesn't connect to your email, calendar or database. Those connections need credentials, and credentials deserve their own careful guide.
 - It doesn't use AI inside the worker. That's on purpose. Plain jobs don't need it.
+
+## With gratitude
+
+The writers of GitHub's beginner documentation, who explain the platform to people who don't know it yet. And everyone who teaches in public for beginners, which is where I learned all of this.
 
 ---
 
