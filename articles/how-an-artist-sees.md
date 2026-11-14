@@ -8,7 +8,7 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.1**
 
-> **Where this sits.** The studio has been mapping three ways of reading the same image. The language model's map is the read map: a path of read first, read next, stop when, write back. The architect's map is 5D and fascia: the model whose components carry their own information, and the typed links that carry change between records. This paper is the third map, the artist's. It is a method you can run on any image, a worksheet to run it with, and a translation of each reading into the room. The last section sets the three maps side by side. [Binding the three maps](./binding-the-three-maps.md) carries the three maps into the studio's registered databases.
+> **Where this sits.** The studio has been mapping three ways of reading the same image. The language model's map is the read map: a path of read first, read next, stop when, write back. The architect's map is 5D and fascia: the model whose components carry their own information, and the typed links that carry change between records. This paper is the third map, the artist's. It is a method you can run on any image, a worksheet to run it with, and a translation of each reading into the room. The last section sets the three maps side by side.
 
 ---
 

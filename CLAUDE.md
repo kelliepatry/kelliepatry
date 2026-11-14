@@ -6,8 +6,6 @@ It carries the profile page, the articles, their figures and figure scripts, and
 
 Never commit client documents here: no invoices, payloads, contracts, fee schedules, client names with amounts, or bank details. The `No client documents` workflow blocks them under `templates/`.
 
-## The backend lives in `kelliepatry/studio-home` (private)
+Never commit anything that identifies or points into the studio's own systems: no project or database identifiers, table or schema names, rule or decision codes, receipts, hashes, internal role names, private repository names, or keys. Articles describe the method, not the machinery.
 
-Kellie ruled on 2026-11-11 that the technical backend is kept apart from the public writing. The invoice template, the Supabase operating notes and standing SQL authorization, the `kphd-supabase` skill update, the kphd-studio plugin and the build archives are in `studio-home`. Do backend work there, not here.
-
-Sessions in this repository carry no standing authorization to run Supabase SQL. The governing record is in Supabase `core.governance_decisions`.
+Backend and system work does not happen in this repository, and sessions here carry no standing authorization to run database commands.
