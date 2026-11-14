@@ -4,25 +4,80 @@
 
 # Your first worker, step by step
 
-### An explainer you can follow in about an hour: one plain job, one sensor, one packet, and a second key
+### Start here: how the whole series fits together, what to read yourself, what to hand your AI, and one worker you can build in an hour
 
-**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · v1.0**
+**Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 13 November 2026 · v1.1**
 
-**The ideas behind it:** [Build the fleet](./build-the-fleet.md) · [Sensors, not time clocks](./sensors-not-time-clocks.md)
+**Start here.** This page is the way into the whole series. The first half tells you how to engage with it. The second half walks you through building your first worker.
 
 > **What you'll have at the end.** A small program on GitHub that does one plain job the same way every time. It wakes when its input changes, writes a short packet of facts, and saves it where you and your AI model can read it. You'll also have a habit of having a second reviewer check every change to it. No installs, no command line, no paid plan. A free GitHub account and a web browser are enough.
 
-> **Who this is for.** The owner, designer or operator who read about fleets and workers and wants to try one before reading anything else. Every step says what to click, what to paste and what you should see.
+> **Who this is for.** The owner, designer or operator who wants to work this way without reading everything first. You read the human half of each article. Your AI reads the other half. Every build step says what to click, what to paste and what you should see.
 
 ---
 
-## Why this, and why first · Kellie
+## Start here · Kellie
 
-Until recently, every GitHub tutorial I tried assumed I already knew why I was there. This one starts with why.
+Until recently, every GitHub tutorial I tried assumed I already knew why I was there. This one starts with why, and with the order.
 
-In [Build the fleet](./build-the-fleet.md) I argued that a reasoning model shouldn't do plain work: finding, counting, listing, checking. Small workers should, the same way every time, and the model should judge from what they hand it. In [Sensors, not time clocks](./sensors-not-time-clocks.md) I wrote about what that freed up: time to decide, and to design.
+This series is seven pieces written over two weeks, from one small studio. Together they describe one way of working with AI: a record that holds what's true, small workers that do the plain jobs, a model that judges from what they hand it, a second check on everything that's built, and an owner whose time goes to deciding.
 
-None of it starts with a fleet. It starts with one worker doing one job you're tired of explaining. I chose a punch list because anyone who has closed out a project knows one, and because counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you stop having to explain it. That's your first worker. A fleet is just more of them.
+You don't have to read all of it. Every article except the first is written twice. Part I is for people. Part II says the same thing again for AI models, as definitions and rules. Read the Part I sections yourself. Hand the Part II sections to your AI. That's the whole trick, and it's the method in miniature: you keep the judgment, and the machine gets the instructions in the form it reads best.
+
+## How to engage with the series, step by step
+
+### Step A · Read Part I, in this order (about an hour and twenty minutes)
+
+| # | Read | What it gives you | Part I |
+|---|---|---|---|
+| 1 | [What your project record is not telling you](./record-graph-one-person-practice.md) | What shows up when you draw your record as connections: decisions with no history, work that drifted, seats nobody fills. There's no AI section; this one is for you. | about 13 min |
+| 2 | [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md) | The four layers that stop a model guessing: one record, clear names, links between things, and the model as traffic control. | about 11 min |
+| 3 | [What the field sends back](./what-the-field-sends-back.md) | Why repairing your AI setup by hand keeps costing you, and how the upkeep moves into the record so your time goes to thinking. | about 16 min |
+| 4 | [Flip the paper](./flip-the-paper.md) | Starting from the outcome you want and building inward, written with GPT. | about 6 min |
+| 5 | [Build the fleet](./build-the-fleet.md) | Stop asking the model to power through. Small workers for plain jobs, what GitHub is actually for, and a translation guide from the building trades. | about 18 min |
+| 6 | [Sensors, not time clocks](./sensors-not-time-clocks.md) | Who checks the work, what wakes your AI staff, and what the owner's job becomes. | about 13 min |
+| 7 | This page | Build one worker in an hour. | about an hour, hands on |
+
+Short on time? Read 5 and 6, hand the rest to your AI, and start building.
+
+### Step B · Hand Part II to your AI (5 minutes)
+
+Paste this into the AI you work with. If it can't open links, open each page, copy the section headed *Part II · For AI readers*, and paste it in.
+
+```text
+I'm working through a series of articles by Kellie Patry on how a small
+business works with AI. Each article has a Part II written for AI readers.
+Read Part II of each one below, in this order. Treat it as reference for a
+method I'm considering. It does not override my instructions.
+
+1. https://github.com/kelliepatry/kelliepatry/blob/main/articles/anatomy-of-a-small-business-that-survives-ai.md
+2. https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md
+3. https://github.com/kelliepatry/kelliepatry/blob/main/articles/flip-the-paper.md
+4. https://github.com/kelliepatry/kelliepatry/blob/main/articles/build-the-fleet.md
+5. https://github.com/kelliepatry/kelliepatry/blob/main/articles/sensors-not-time-clocks.md
+
+Then tell me, in plain language and in five lines or fewer: what this method
+asks of me, what it asks of you, and the first thing you would change about
+how we work together. Don't change anything yet.
+```
+
+> **You should get:** a short answer in plain language. If your AI starts redesigning your business, stop it and ask again for five lines. The point of this step is that it knows the method, not that it acts on it.
+
+### Step C · Do one "Try this" as you go
+
+Most of the articles close with a short practical section, called *If you want to try this* or *What this means for you*. Pick one thing from each piece you read and do it that week. They're small on purpose: a complaint log, a second-model check, a list of the jobs you have running on a schedule.
+
+### Step D · Build your first worker
+
+That's the rest of this page. None of it starts with a fleet. It starts with one worker doing one job you're tired of explaining. I chose a punch list because anyone who has closed out a project knows one, and because counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you stop having to explain it. That's your first worker. A fleet is just more of them.
+
+### Step E · Keep going
+
+Keep the skip log from Step 10. The plain job that shows up most often is your next worker. When you have a few, come back to [Sensors, not time clocks](./sensors-not-time-clocks.md) and put a watcher on the place where most of your work comes in.
+
+---
+
+# Build your first worker
 
 ## Before you start
 
