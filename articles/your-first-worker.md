@@ -551,6 +551,7 @@ Once a week, read it. The line that shows up most often is your next worker. Go 
 - **Build the second worker** from the top line of your skip log.
 - **Put a sensor on your inbox or your meeting notes.** That's where most real work enters a small business, and most of it arrives unwatched. [Sensors, not time clocks](./sensors-not-time-clocks.md) explains why.
 - **Read the reasoning** behind all of this in [Build the fleet](./build-the-fleet.md).
+- **Give the packet a staff member** who acts on it, wakes only when it changes, and can work through email at draft-only: [Your first staff member](./your-first-staff-member.md).
 
 ## What this explainer isn't
 
