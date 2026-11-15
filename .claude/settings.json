@@ -31,5 +31,18 @@
       "mcp__Supabase__restore_project",
       "mcp__Supabase__create_project"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/no-new-md.mjs"
+          }
+        ]
+      }
+    ]
   }
 }
