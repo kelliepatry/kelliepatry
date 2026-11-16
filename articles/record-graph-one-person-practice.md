@@ -1,5 +1,7 @@
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # What your project record is not telling you
@@ -18,7 +20,7 @@
 
 ## Abstract
 
-If you run a small design practice, your working record is probably split across a database or project tool and a document workspace, and it probably holds far more about how your studio runs than about what you actually decided on each project. This paper describes a way to see that: a live graph drawn over the record you already have, in which every entity is a node, every node has exactly one origin link back to the studio, every link carries a provenance label (original, calculated, editorial), and a missing origin is drawn as a defect. The graph is served by one read function to a human visual and to the AI models that work in the record.
+If you run a small design practice, your working record is probably split across a database or project tool and a document workspace, and it probably holds far more about how your studio runs than about what you actually decided on each project. This paper describes a way to see that: a live graph drawn over the record you already have, in which every entity is a node, each non-root node has one organizational parent, explicit roots have none, every link carries a provenance label (original, calculated, editorial), and a missing required parent is drawn as a defect. The graph is served by one read function to a human visual and to the AI models that work in the record.
 
 Built over two days on one practice, the graph showed what tables did not: 68 disconnected fragments that resolved to categories nobody had named; 86 recorded decisions with zero decision-to-decision links; a governance layer recorded more carefully than the design work it governs; and work delivered beyond contract on a completed project that nobody had noticed. The approach is positioned against design rationale research, requirements traceability, W3C PROV, digital-thread knowledge graphs, Architecture Decision Records and graph-based retrieval for language models. Nothing here is a new ontology. It is a working combination for the smallest firm: capture where decisions already happen, an AI as the primary reader, provenance on every edge, and absence as a first-class signal.
 
@@ -36,7 +38,7 @@ You do not have to invent this from scratch. Five fields have worked on pieces o
 
 **Design rationale and the capture problem.** IBIS, gIBIS, QOC and Compendium spent four decades trying to record the issues, options and arguments behind design. The field's own retrospective names the obstacle: the capture problem, how to get quality input into a rationale system without disrupting the process it documents, and the observation that it is not just a capture problem but a *useful* capture problem [1]. Designers in familiar situations do not feel a need to record rationale; they reflect at breakdowns [2]. Compendium's answer was to do the structuring in the room, with the stakeholders present [1].
 
-*What this means for you:* do not ask yourself to write rationale. You will not do it, and the research says nobody does. Extract decisions from the meetings and field notes you already produce, with the AI pipeline that already writes your recaps, and write them as records with a change-target and a supersedes link. Your only job is confirmation.
+*What this means for you:* reduce the extra work of recording rationale. The research documents adoption barriers and examples of use, not universal non-use. Start with meetings and field notes you already produce. An AI can propose decision records with source references and a change-target; you must check that the source supports them. Add a supersedes link only when a decision actually replaces another.
 
 **Requirements traceability.** Gotel and Finkelstein found in 1994 that most traceability failures come from the inability to trace a requirement back to its origin, its stakeholders and the process that produced it, and concluded that traceability is socio-technical, not a tooling problem [3]. Trace-link recovery research treats missing links as an information-retrieval task and treats every recovered link as a candidate until a person vets it [4].
 
@@ -54,7 +56,7 @@ You do not have to invent this from scratch. Five fields have worked on pieces o
 
 *What this means for you:* your decision records are ADRs for buildings. The link roles that matter are supersedes, refines, contradicts and feedback-to. The faithfulness problem in [13] is your first risk: an AI that enriches a transcript can invent a decision you never made.
 
-**Graph-based retrieval for language models.** GraphRAG retrieves connected evidence rather than similar text, and current systems log the anchors, paths and supporting passages with each answer so the provenance trace is part of the output [14].
+**Graph-based retrieval for language models.** GraphRAG can combine graph relationships with text retrieval: local search mixes structured graph data and source text, while global search uses community summaries. Logging the sources and retrieval path is an implementation choice, not a property every graph system supplies. Retrieval-state diagnostics examine how a system can remain locked onto the wrong evidence [14].
 
 *What this means for you:* the graph described here is not an index a model built from your documents. It is your record itself, read through one function that returns a revision hash with every answer. That is what makes the model's reading auditable.
 
@@ -68,7 +70,7 @@ You do not have to invent this from scratch. Five fields have worked on pieces o
 
 **Record model.** Node types: studio, standing area, initiative (lab, program, build), study, ruling, project, phase, decision, milestone, execution process, tool, staff team, staff persona. Five rules:
 
-1. Every record has exactly one origin link. No orphans, no multiple parents.
+1. Every non-root record has one organizational parent. Explicit roots have no parent and state why. Supporting sources and derivation links are separate and may be multiple; a missing required parent is a defect.
 2. Every node and edge carries a provenance label: original, calculated or editorial.
 3. Decisions are split into a lineage family (design, scope, scope change, direction, field change) and an operational family (approval, publication, governance, budget, procurement). Only lineage-family decisions take decision-to-decision links.
 4. Closed records stay inside their origin, drawn faint. No separate archive pile.
@@ -128,7 +130,7 @@ Baseline recorded 3 November 2026 on the case practice. No post-baseline reading
 2. **The mirror partly paints itself.** Team groupings, several done-when statements and every calculated edge in the case were written by the model. A defect count of zero can mean model-written answers. Label provenance on every edge and flag model-drafted content.
 3. **Text match masquerading as lineage.** A make and model agreeing is a clue, not a line.
 4. **Inferred lineage is worse than none.** A wrong supersedes link misleads every later read. Write only where the newer record names the older one, or you confirm.
-5. **Same-provider review.** Most checks in the case were run by the system that built it. Get an independent read.
+5. **Self-review.** Most checks in the case were run by the system that built it. An independent read can challenge that evidence; a different provider alone does not establish independence.
 6. **Survivorship.** The record over-represents whichever project happened to be captured. Absence elsewhere may be capture failure, not silence.
 7. **You are the subject.** When you audit your own decision-making from your own record, section 6 is self-report. The case author is too.
 
@@ -155,7 +157,7 @@ As a method: the five record rules and the forward rules in section 3, and the p
 
 ## References
 
-1. Buckingham Shum, S.J., Selvin, A.M., Sierhuis, M., Conklin, J., Haley, C.B., Nuseibeh, B. *Hypermedia support for argumentation-based rationale: 15 years on from gIBIS and QOC.* In Rationale Management in Software Engineering, Springer, 2006.
+1. Buckingham Shum, S.J., Selvin, A.M., Sierhuis, M., Conklin, J., Haley, C.B., Nuseibeh, B. [*Hypermedia support for argumentation-based rationale: 15 years on from gIBIS and QOC.*](https://oro.open.ac.uk/3032/1/HypermediaSupport.pdf) In Rationale Management in Software Engineering, Springer, 2006.
 2. Horner, J., Atwood, M.E. *Effective design rationale: understanding the barriers.* Same volume.
 3. Gotel, O.C.Z., Finkelstein, A.C.W. *An analysis of the requirements traceability problem.* ICRE 1994. [doi:10.1109/ICRE.1994.292398](https://doi.org/10.1109/ICRE.1994.292398)
 4. Borg, M. *Advancing trace recovery evaluation.* [arXiv:1602.07633](https://arxiv.org/abs/1602.07633). See also Niu et al. on task-aware trace vetting.
@@ -168,7 +170,7 @@ As a method: the five record rules and the forward rules in section 3, and the p
 11. Sinequa. *From digital thread to decision thread in manufacturing AI.* 2026. Industry source.
 12. Nygard, M. [*Documenting architecture decisions.*](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) 2011. Brown, S. *Visualising ADRs.* Pryce, N. *adr-tools.*
 13. da Silva, L.D.C., Gama, K. *GADR: Gathering Architecture Decision Records from meeting transcriptions.* [arXiv:2608.17694](https://arxiv.org/abs/2608.17694).
-14. *OntoGraphRAG retrieval-state diagnostics.* [arXiv:2606.22728](https://arxiv.org/abs/2606.22728). Microsoft Research, *GraphRAG*, 2024, [arXiv:2404.16130](https://arxiv.org/abs/2404.16130).
+14. Julka, S. *When Confidence Takes the Wrong Path: Diagnosing Retrieval-State Lock-In in RAG.* 2026. [arXiv:2606.22728](https://arxiv.org/abs/2606.22728). Edge, D. et al. *From Local to Global: A Graph RAG Approach to Query-Focused Summarization*, 2024, [arXiv:2404.16130](https://arxiv.org/abs/2404.16130). Microsoft, [GraphRAG local search](https://github.com/microsoft/graphrag/blob/main/docs/query/local_search.md).
 15. Community critiques of Obsidian graph view at scale, forum.obsidian.md and r/ObsidianMD, 2025 to 2026.
 
 ---
