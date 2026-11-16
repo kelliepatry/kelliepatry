@@ -42,6 +42,7 @@ The whole practice on one map: every project, every phase it passed through, and
 
 ### Writing from the process side
 
+- [The research behind the answer](./articles/the-research-behind-the-answer.md): November 2026. How I’m using NotebookLM as research background for an agent system: bounded questions, checked citations and findings another assistant can return to. Written twice: Part I for people, Part II for AI readers.
 - [The Experience of Being Designed For](./articles/experience-of-being-designed-for.md) — how the ambition to create places that amaze and lift the spirit extends to the client's experience of design, decisions and project continuity.
 - [What your project record is not telling you](./articles/record-graph-one-person-practice.md) — working paper, November 2026. For small practices: what a live graph over your own record will show you that tables do not (unlinked decisions, scope drift, empty seats), what to build, what to measure, and what the research already settled.
 - [The anatomy of a small business that survives AI](./articles/anatomy-of-a-small-business-that-survives-ai.md): a joint article with Claude, November 2026. Brain, ontology, fascia, orchestration: why AI guesses in a small firm and the four layers that stop it. Written twice: Part I for people, Part II for AI readers.
