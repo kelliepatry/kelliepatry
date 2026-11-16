@@ -1,5 +1,7 @@
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # Build the fleet
@@ -40,7 +42,7 @@ The usual advice is to push the model harder: better prompts, more context, long
 
 When something doesn't work, the instinct is to ask the model to try harder. Ask more questions. Give it more context. Let it reason longer. It feels productive.
 
-That feeling isn't reliable evidence. In a 2025 randomized trial, METR gave experienced open-source developers real tasks on their own code. With AI allowed, they took about 19% longer. Before starting, they had predicted AI would make them 24% faster, and even afterward they still believed it had sped them up.[02] The researchers are careful to say this was one setting, with early-2025 tools. But the gap between feeling fast and being fast is the thing to take from it.
+That feeling isn't reliable evidence. In a 2025 randomized trial, METR gave experienced open-source developers real tasks on their own code. With AI allowed, they took about 19% longer. Before starting, they had predicted AI would make them 24% faster, and even afterward they still believed it had sped them up.[02] The researchers are careful to say this was one setting, with early-2025 tools. But the gap between feeling fast and being fast is the thing to take from it. In February 2026, METR reported that newer tools likely sped participants up more, while selection effects and measurement problems made the follow-up unreliable for estimating the size of that effect.[02] Neither study establishes a universal result for all developers or current tools.
 
 Here's what I saw in my own studio. Most of what I was asking a reasoning model to do wasn't reasoning at all:
 
@@ -51,9 +53,9 @@ Here's what I saw in my own studio. Most of what I was asking a reasoning model 
 - **Extracting** dimensions from a spec sheet.
 - **Checking** whether a status is current.
 
-None of these needs judgment. Each has a right answer that a small, plain program can get every time, the same way. When the model does them, it does them a little differently each turn. It costs more, and you can't repeat the result.
+These are plain jobs when their inputs and rules are explicit: count rows with a specified status, or match a stable identifier. A small program can repeat that rule, but it can also repeat a bug. Finding, extracting and classifying ambiguous material may require judgment. Validate inputs, test the rule and return uncertainty where it does not apply.
 
-**Try this:** for one week, write down every request you make of an AI. Mark each one J (needs judgment) or P (plain: find, count, list, match, extract, check). In my studio, the P column was the longer one.
+**Try this:** for one week, write down every request you make of an AI. Mark each one J (needs interpretation) or P (explicit, testable rules over known inputs). The verb alone does not settle it. In my studio, the P column was the longer one.
 
 ## 3. What GitHub actually does, for a novice
 
@@ -93,11 +95,7 @@ I had already decided that plain research goes to workers, not to the model. The
 
 That's the whole shift. Not a better prompt. A model that's no longer allowed to do the clerk's job, and a standing order to build the clerk.
 
-Here's what the clerks cost. At the end of the same day, this line came back in my work log. Jev is what we call our worker fleet:
-
-> "Total Jev cost for everything today was about 114,000 tokens, roughly half a cent."
-
-Every finding, counting, listing and checking job the workers did that day cost about half a cent. A reasoning model would have to read those same 114,000 tokens before it could reason about any of it, and that reading alone costs more. That's the tax of not knowing what you're paying for. You pay it every time a model goes looking for something a worker could have handed it.
+One private work log reported about 114,000 tokens handled for roughly half a cent that day. That is an anecdote about a particular workload and accounting boundary, not an independently verified cost benchmark or a current price quote. It does not establish what another model or application would cost. The useful comparison is your own measured cost and correctness for the same workload.
 
 The fix for the power-through trap is a fleet: many small workers, each doing one plain job, reliably and cheaply. I started calling them "the fleet" or just "the workers," and the names stuck.
 
@@ -107,9 +105,9 @@ The fix for the power-through trap is a fleet: many small workers, each doing on
 
 The rule we adopted today is short:
 
-- **Plain research goes to the fleet first.** Finding, counting, listing, matching, extracting, classifying and status checks are worker jobs.
+- **Plain research goes to the fleet first.** Finding, counting, listing, matching and status checks go to workers where explicit rules cover the inputs. Extraction or classification that needs interpretation must expose uncertainty and take the judgment route.
 - **Use the database before anything else.** If a function inside the database can answer, use it. A worker is the next step only when it can't.
-- **The model reasons from a packet.** It asks for a *research packet* (the facts the fleet gathered) and does the part that needs judgment.
+- **The model reasons from a packet.** It asks for a *research packet* (the sourced observations the fleet gathered) and does the part that needs judgment.
 - **No skipping.** If the model needs something the fleet can't provide, it may explain the need or build the missing worker. It may not quietly go do the research itself.
 
 The "no skipping" rule is the education. A newly sanctioned builder, human or model, will always be tempted to do the job by hand one more time because it's faster right now. Each time that happens, nothing is built, and tomorrow you pay again. Building the worker is how the time you spend turns into something you keep.
@@ -267,7 +265,7 @@ You were given permission to build, and the permission was real. What it left ou
 CONTEXT:  A small organization runs AI across code, record, notes and skills.
 SYMPTOM:  Models repeat discovery on every turn; results vary; costs rise;
           the four places drift out of agreement.
-CAUSE:    Plain (no-judgment) work is routed to reasoning models, and no
+CAUSE:    Work with explicit, testable rules is routed to reasoning models, and no
           component owns keeping the four places consistent.
 REMEDY:   Route plain work to deterministic workers; reason from a research
           packet; assign consistency maintenance to the workers.
@@ -278,7 +276,7 @@ NON-GOAL: Replacing judgment. Workers never decide; models never skip workers.
 
 | Term | Definition for this method | Human metaphor |
 |---|---|---|
-| `plain task` | Has one correct answer obtainable without judgment: find, count, list, match, extract, classify, status-check | Looking something up |
+| `plain task` | Has explicit, testable rules over validated inputs. Ambiguous matching, extraction or classification is not automatically plain | Looking something up |
 | `judgment task` | Requires weighing, interpreting, deciding or composing | Deciding what to do |
 | `worker` | A deterministic program with one job, one input contract, one output contract | A clerk with one form |
 | `fleet` | The set of workers available to the organization | The back office |
@@ -339,7 +337,7 @@ Key words MUST, SHOULD and MAY are used as in RFC 2119.
 10. Code changes SHOULD go through a branch and a reviewed pull request before reaching main.
 
 **Boundaries**
-11. Workers MUST NOT make judgment calls. Ambiguity is escalated, not resolved.
+11. Deterministic workers MUST apply only their defined rules and validate inputs. They MUST return invalid or ambiguous cases explicitly. A model-based interpretation, where needed, MUST be identified and evaluated as judgment, not passed off as deterministic fact.
 12. A model MAY propose new workers. Building one is subject to the principal's normal approval rules.
 13. Nothing in this method grants permissions the principal has not granted.
 
@@ -395,8 +393,8 @@ Thank you to everyone who teaches in public, especially the ones who write for b
 ## References
 
 01. Karpathy, A. Post on X introducing "vibe coding," 2 February 2025. Summarized in *Vibe coding*, OpenSSF Glossary. https://glossary.openssf.org/vibe-coding/
-02. METR. *Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.* 10 July 2025. Coverage: *AI coding tools can slow down seasoned developers by 19%*, InfoWorld. https://www.infoworld.com/article/4020931/ai-coding-tools-can-slow-down-seasoned-developers-by-19.html
-03. GitClear. *AI Copilot Code Quality: 2025 Look Back at 12 Months of Data.* 2025. https://www.gitclear.com/ai_assistant_code_quality_2025_research
+02. METR. [*Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.*](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) 10 July 2025. Follow-up: [*We are Changing our Developer Productivity Experiment Design.*](https://metr.org/blog/2026-02-24-uplift-update/) 24 February 2026. Read the original effect with the follow-up's selection and measurement caveats.
+03. GitClear. [*AI Copilot Code Quality: Evaluating 2024's Increased Defect Rate via Code Quality Metrics.*](https://gitclear-public.s3.us-west-2.amazonaws.com/GitClear-AI-Copilot-Code-Quality-2025.pdf) February 2025. Observational analysis, not causal attribution of individual lines to AI.
 04. GitHub. *Hello World.* GitHub Docs. https://docs.github.com/en/get-started/using-github/hello-world
 05. Anthropic. *Introducing the Model Context Protocol.* 25 November 2024. https://www.anthropic.com/news/model-context-protocol
 06. Schluntz, E., Zhang, B. *Building effective agents.* Anthropic, December 2024. https://www.anthropic.com/engineering/building-effective-agents
