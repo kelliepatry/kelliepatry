@@ -1,5 +1,7 @@
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # Start here: what we're building, in plain words
@@ -20,7 +22,7 @@
 
 ### What it is
 
-A way for a small business to work with AI **without the AI guessing.**
+A way for a small business to work with AI **with fewer unsupported guesses and clearer evidence.**
 
 It isn't a product you buy. It's an arrangement of four ordinary services, a few small programs you write once, and some rules about who does what.
 
@@ -31,7 +33,7 @@ When you ask an AI about your business, it doesn't know your business. It search
 Two things are going wrong:
 
 - **The facts are scattered.** Your projects are in one app, your notes in another, your files in a third. The AI has to hunt, and hunting is where guessing starts.
-- **The AI is doing jobs that don't need intelligence.** Counting open items, finding a date, listing who owes what. These jobs have one right answer. A small program gets them right every time. An AI gets them mostly right, slowly, at a higher cost, and a little differently each time.
+- **The AI is doing jobs that don't need intelligence.** Counting open items, finding a date, listing who owes what. With explicit rules and validated inputs, these jobs can be handled by a small program. It repeats the rule consistently; tests still have to establish that the rule and implementation are right. Ambiguous inputs need interpretation or a clear failure.
 
 ### What the system does
 
@@ -47,7 +49,7 @@ It splits the work by kind, and gives each kind to whatever is best at it.
 
 ### The result
 
-The AI stops guessing, because it's reading facts instead of hunting for them. The plain jobs get done the same way every time. When the AI needs a fact nobody has gathered, it says so, and that becomes the next small program to build. Your time goes to deciding, not to re-explaining and fixing.
+The AI receives sourced observations instead of having to reconstruct every count. It can still misread them or reason incorrectly. Plain programs repeat defined operations; validation and tests establish what their outputs mean. When the AI needs a fact nobody has gathered, it says so, and that becomes the next small program to build. Your time goes to deciding, not to re-explaining and fixing.
 
 ### What you need
 
@@ -76,7 +78,7 @@ Everything in the system lives in one of four places. Each holds a different kin
 Two common mix-ups:
 
 - **GitHub is not your database.** It keeps instructions and their history. Your live business records belong in the record.
-- **Your notes are not your record.** A meeting note says what people said. The record says what's true now. When they disagree, the record wins, and the note gets updated.
+- **Your notes and your record have different jobs.** A meeting note preserves what was said. The named record tracks accepted decisions. When they disagree, check sources, revision and authority; preserve the original note and record the correction rather than rewriting evidence to agree with a summary.
 
 ### Words for the work
 
@@ -86,10 +88,10 @@ Two common mix-ups:
 | **Judgment job** | A job that needs weighing, interpreting, deciding or writing something new | Deciding what to do about the reading |
 | **Worker** | A small program that does one plain job, from one input, to one output, the same way every time. No AI inside | A clerk with one form |
 | **Worker card** | The worker's job description, written before any code: its one job, input, output, when it wakes, and what it **never** does | The specification |
-| **Packet** | What a worker hands over: a short page of facts, no opinions, ending with what it does *not* know | A field report |
+| **Packet** | What a worker hands over: a short page of sourced observations, with date, scope and what it does *not* know | A field report |
 | **Fleet** | All your workers together | The back office |
 | **Database function** | A small piece of logic that lives inside the database itself. If one can answer, use it before building a worker | A circuit already built into the panel |
-| **Skill** | Written instructions you give an AI model so it works your way every time | Training a new hire |
+| **Skill** | Written instructions that guide an AI model's work; compliance still needs checking | Training a new hire |
 
 ### Words for where and when it runs
 
@@ -128,7 +130,7 @@ flowchart LR
     N["Notes<br/>what people write<br/>(Notion)"]
     C["Code<br/>worker instructions<br/>(GitHub)"]
     W["Worker<br/>does one plain job"]
-    P["Packet<br/>facts only"]
+    P["Packet<br/>sourced observations"]
     AI{{"Intelligence<br/>judgment<br/>(Claude or GPT)"}}
     K["Second reviewer<br/>checks every change"]
     Y(["You<br/>decide and release"])
@@ -219,11 +221,11 @@ One service may fill two roles. Note it, and confirm the user can say which role
 
 **The six checks.** Score each `pass`, `partial` or `missing`, with one line of evidence from what the user told you.
 
-1. **One record.** Current facts live in one place, and the user can name it. Fail: the same fact is kept in several places with no winner.
+1. **One record.** Accepted decisions have a named authority, and supporting evidence is preserved. Fail: conflicting sources are silently resolved or a stale summary overwrites primary evidence.
 2. **Plain and judgment are split.** Plain jobs (find, count, list, match, extract, check) go to a database function or a worker. Fail: the user routinely asks a model to count or look things up.
-3. **Packets.** Workers hand the model facts only, ending with what they don't know. Fail: the model gathers its own facts.
+3. **Packets.** Workers hand the model sourced observations with scope, date and limitations. Fail: a packet is treated as unquestionable truth or its version and completeness are not checked.
 4. **Wakes on change.** Workers start when their input changes, with a heartbeat to prove they're alive. Fail: everything runs on a timer, or by hand.
-5. **Second key.** No change goes live on the approval of whoever built it. A different model or person reviews. Fail: the builder checks its own work.
+5. **Checks and release.** Run acceptance checks for the exact change, label self-checks honestly, and obtain independent review where required. Fail: a claim of being tested substitutes for evidence or required review is skipped.
 6. **Owner decides.** The model recommends; the user releases anything financial, external, irreversible or security-related. Fail: the model acts on those without approval.
 
 **Rules for you.**
@@ -247,7 +249,7 @@ This page is the way into a series from one small studio. Most articles are writ
 | # | Read | What it gives you | Part I |
 |---|---|---|---|
 | 1 | [What your project record is not telling you](./record-graph-one-person-practice.md) | What shows up when you draw your record as connections: decisions with no history, work beyond contract, seats nobody fills | about 13 min |
-| 2 | [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md) | The four layers that stop a model guessing | about 11 min |
+| 2 | [The anatomy of a small business that survives AI](./anatomy-of-a-small-business-that-survives-ai.md) | Four layers for grounding and continuity | about 11 min |
 | 3 | [What the field sends back](./what-the-field-sends-back.md) | Why fixing your AI setup by hand keeps costing you, and how the upkeep moves into the record | about 16 min |
 | 4 | [Flip the paper](./flip-the-paper.md) | Starting from the outcome and building inward, written with GPT | about 6 min |
 | 5 | [Build the fleet](./build-the-fleet.md) | Small workers for plain jobs, what GitHub is actually for, and a trade-to-AI translation guide | about 18 min |
@@ -261,7 +263,7 @@ Short on time? Read *Build the fleet* and *Sensors, not time clocks*, then build
 
 None of this starts with a fleet. It starts with one worker doing one job you're tired of explaining. The example is a construction punch list, because anyone who has closed out a project knows one, and counting it has exactly one right answer. The point of the next hour isn't the punch list. It's the moment a small program does a plain job for you the same way twice, and you stop having to explain it. A fleet is just more of them.
 
-> **What you'll have at the end.** A small program on GitHub that wakes when its input changes, writes a short packet of facts, and saves it where you and your AI can read it. Plus the habit of a second reviewer on every change. No installs, no command line, no paid plan.
+> **What you'll have at the end.** A small program on GitHub that wakes when its input changes, writes a short packet of facts, and saves it where you and your AI can read it. Plus acceptance checks and a review process appropriate to the change. No installs, no command line, no paid plan.
 
 ## Before you start
 
@@ -277,7 +279,7 @@ The same three files are in this repository under [examples/first-worker](../exa
 
 ## Step 1 · Find the plain job (15 minutes, or a week of noticing)
 
-Not everything you ask an AI to do needs intelligence. Some of it is plain: there's one right answer and a simple program can get it every time.
+Not everything you ask an AI to do needs intelligence. Some of it is plain: explicit rules over validated inputs are enough. A program can repeat those rules; tests check that it does so correctly.
 
 For the next requests you make of an AI, or the last ten you can remember, mark each one:
 
@@ -349,58 +351,110 @@ Dates are written year-month-day so the worker can compare them. Status is eithe
 2. Paste this:
 
 ```python
-"""Punch-list worker: one plain job, done the same way every time.
+"""Validate a punch list, then write a dated packet of sourced counts.
 
-Input:  punch-list.csv  (columns: id,item,area,owner,status,due,updated)
-Output: packet.md       (a short research packet a person or a model can read)
-
-It counts, lists and flags. It never decides, edits the list or contacts anyone.
+Input columns: id,item,area,owner,status,due,updated
+Allowed statuses: open, done (case-insensitive).
+Invalid input fails the run and writes no new packet. An older packet may remain.
 """
 import csv
+import hashlib
 import sys
 from datetime import date
+from pathlib import Path
 
-SOURCE = sys.argv[1] if len(sys.argv) > 1 else "punch-list.csv"
-PACKET = sys.argv[2] if len(sys.argv) > 2 else "packet.md"
-today = date.today()
+REQUIRED = ("id", "item", "area", "owner", "status", "due", "updated")
 
-with open(SOURCE, newline="", encoding="utf-8") as f:
-    rows = list(csv.DictReader(f))
 
-open_items = [r for r in rows if r["status"].strip().lower() != "done"]
-overdue = [r for r in open_items if date.fromisoformat(r["due"]) < today]
+def read_rows(source):
+    with open(source, newline="", encoding="utf-8-sig") as stream:
+        reader = csv.DictReader(stream)
+        headers = reader.fieldnames or []
+        if len(headers) != len(set(headers)) or set(headers) != set(REQUIRED):
+            raise ValueError("Header must contain each required column exactly once: "
+                             + ",".join(REQUIRED))
+        rows, seen, errors = [], set(), []
+        for number, raw in enumerate(reader, start=2):
+            if None in raw or any(value is None for value in raw.values()):
+                errors.append(f"row {number}: wrong number of fields")
+                continue
+            row = {key: value.strip() for key, value in raw.items()}
+            for key in REQUIRED:
+                if not row[key]:
+                    errors.append(f"row {number}: {key} is blank")
+            if row["id"] in seen:
+                errors.append(f"row {number}: duplicate id {row['id']!r}")
+            seen.add(row["id"])
+            row["status"] = row["status"].lower()
+            if row["status"] not in {"open", "done"}:
+                errors.append(f"row {number}: unsupported status {row['status']!r}")
+            for key in ("due", "updated"):
+                try:
+                    parsed = date.fromisoformat(row[key])
+                    if parsed.isoformat() != row[key]:
+                        raise ValueError()
+                except ValueError:
+                    errors.append(f"row {number}: {key} must be a valid YYYY-MM-DD date")
+            rows.append(row)
+        if errors:
+            raise ValueError("\n".join(errors))
+        return rows
 
-by_owner = {}
-for r in open_items:
-    by_owner[r["owner"]] = by_owner.get(r["owner"], 0) + 1
 
-lines = [
-    "# Punch-list packet",
-    "",
-    f"Prepared by the punch-list worker on {today.isoformat()} from `{SOURCE}`.",
-    "Facts only. No recommendations.",
-    "",
-    f"- Items on the list: {len(rows)}",
-    f"- Open: {len(open_items)}",
-    f"- Overdue: {len(overdue)}",
-    "",
-    "## Overdue",
-    "",
-]
-lines += [f"- #{r['id']} {r['item']} ({r['area']}, {r['owner']}), due {r['due']}" for r in overdue] or ["- None"]
-lines += ["", "## Open items by owner", ""]
-lines += [f"- {owner}: {n}" for owner, n in sorted(by_owner.items())] or ["- None"]
-lines += ["", "## What this packet does not know", "",
-          "- Whether an item is really finished on site. It only reads the status column.",
-          "- Anything not written in the list.", ""]
+def make_packet(source, today):
+    rows = read_rows(source)
+    open_items = [row for row in rows if row["status"] == "open"]
+    overdue = [row for row in open_items if date.fromisoformat(row["due"]) < today]
+    by_owner = {}
+    for row in open_items:
+        by_owner[row["owner"]] = by_owner.get(row["owner"], 0) + 1
 
-with open(PACKET, "w", encoding="utf-8") as f:
-    f.write("\n".join(lines))
+    # Include a content digest so a change outside the summary remains visible.
+    digest = hashlib.sha256(Path(source).read_bytes()).hexdigest()
+    lines = [
+        "# Punch-list packet", "",
+        f"Prepared by the punch-list worker on {today.isoformat()} from `{source}`.",
+        f"Source SHA-256: `{digest}`.",
+        "Validated list data. No recommendations.", "",
+        f"- Items on the list: {len(rows)}",
+        f"- Open: {len(open_items)}",
+        f"- Overdue: {len(overdue)}", "", "## Overdue", "",
+    ]
+    lines += [
+        f"- #{r['id']} {r['item']} ({r['area']}, {r['owner']}), due {r['due']}"
+        for r in overdue
+    ] or ["- None"]
+    lines += ["", "## Open items by owner", ""]
+    lines += [f"- {owner}: {count}" for owner, count in sorted(by_owner.items())] or ["- None"]
+    lines += ["", "## What this packet does not know", "",
+              "- Whether an item is really finished on site. It only reads the status column.",
+              "- Anything not written in the list.",
+              "- Whether a later revision has changed this list.", ""]
+    return "\n".join(lines)
 
-print(f"Wrote {PACKET}: {len(open_items)} open, {len(overdue)} overdue")
+
+def main():
+    source = sys.argv[1] if len(sys.argv) > 1 else "punch-list.csv"
+    target = Path(sys.argv[2] if len(sys.argv) > 2 else "packet.md")
+    try:
+        packet = make_packet(source, date.today())
+    except (ValueError, OSError, csv.Error) as error:
+        print(f"Invalid punch list; no new packet written:\n{error}", file=sys.stderr)
+        return 1
+    temporary = target.with_suffix(target.suffix + ".tmp")
+    temporary.write_text(packet, encoding="utf-8", newline="\n")
+    temporary.replace(target)
+    print(f"Wrote {target} from validated input")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 ```
 
 3. **Commit changes** twice.
+
+This worker accepts only `open` and `done`, requires all seven columns and nonblank fields, checks unique IDs and valid dates, and stops on invalid rows. It writes no new packet on failure; an older packet may still exist, so check the latest run before using it. Its counts describe the list, not a site inspection.
 
 You don't need to read Python to use this. Read the docstring at the top and the last section of the packet, *What this packet does not know*. A good worker says what it can't see. That's how a model reading the packet knows where the facts stop.
 
@@ -417,33 +471,82 @@ name: Punch-list worker
 
 on:
   push:
+    branches: [main]
     paths:
-      - "punch-list.csv"      # the sensor: runs when the list changes
-      - "worker.py"           # and when the worker itself changes
+      - "punch-list.csv"
+      - "worker.py"
+      - ".github/workflows/worker.yml"
   schedule:
-    - cron: "17 14 * * 1-5"   # the heartbeat: weekday mornings, 14:17 UTC
-  workflow_dispatch:          # the test button: run it by hand
+    - cron: "17 14 * * 1-5"   # weekday heartbeat, 14:17 UTC
+  workflow_dispatch:
 
 permissions:
-  contents: write             # lets the worker save packet.md back to the repo
+  contents: write             # repository write access, used here to save packet.md
+
+concurrency:
+  group: punch-list-worker
+  cancel-in-progress: false
 
 jobs:
   run-worker:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.12"
-      - name: Run the worker
-        run: python worker.py punch-list.csv packet.md
+      - name: Run and compare the packet
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess
+          from datetime import date
+          from pathlib import Path
+          from worker import make_packet
+
+          previous = Path("packet.md").read_text(encoding="utf-8") if Path("packet.md").exists() else ""
+          current = make_packet("punch-list.csv", date.today())
+          def meaning(text):
+              return "\n".join(line for line in text.splitlines() if not line.startswith("Prepared by "))
+          Path("packet.md").write_text(current, encoding="utf-8", newline="\n")
+          Path("packet.json").write_text(json.dumps({
+              "changed": meaning(previous) != meaning(current),
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "run_attempt": os.environ["GITHUB_RUN_ATTEMPT"],
+              "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "packet_sha256": hashlib.sha256(current.encode("utf-8")).hexdigest(),
+          }), encoding="utf-8")
+          PY
       - name: Save the packet
         run: |
           git config user.name "punch-list-worker"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add packet.md
-          git diff --cached --quiet || git commit -m "Packet: punch list as of $(date -u +%F)"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Update punch-list packet"
+          fi
+          git push origin HEAD:main
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          path = Path("packet.json")
+          metadata = json.loads(path.read_text(encoding="utf-8"))
+          metadata["packet_revision"] = subprocess.check_output(
+              ["git", "log", "-1", "--format=%H", "--", "packet.md"], text=True
+          ).strip()
+          path.write_text(json.dumps(metadata), encoding="utf-8")
+          PY
+      - name: Keep the packet from this run
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: packet-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            packet.md
+            packet.json
+          if-no-files-found: error
+          retention-days: 30
 ```
 
 4. **Commit changes** twice.
@@ -453,7 +556,9 @@ What each part does, in trade terms:
 - **`push` on `punch-list.csv`** is the sensor. Nothing runs until the list changes. Edit the list and the worker wakes. It also wakes when `worker.py` changes, so a change you merge in Step 9 is tested straight away. This is the simplest kind of sensor. Watching an inbox or meeting notes is the same idea with more plumbing.
 - **`schedule`** is the heartbeat: one run on weekday mornings that leaves a dated packet behind. If the dates in the history stop, something is wrong. You have to look; nothing alerts you yet. GitHub's clock is in UTC unless you say otherwise, so 14:17 UTC is 6:17 in the morning in Los Angeles in winter. If you'd rather think in local time, add a line under the cron line: `timezone: "America/Los_Angeles"` (lined up with the word `cron`), and change the hour to 6 (update the comment too). Odd minutes like :17 are deliberate: runs on the hour are the busiest and the most likely to be delayed.[01]
 - **`workflow_dispatch`** adds a **Run workflow** button so you can test by hand.
-- **`permissions: contents: write`** lets the worker save its packet. Without it, the last step fails.
+- **`permissions: contents: write`** grants repository-content write access, used here to save the packet. Branch protections or repository settings may still prevent that write; the example does not bypass them.
+- **The artifact** keeps this run's packet and metadata for 30 days. The doorbell in the next guide reads that exact artifact, rather than whichever packet happens to be on main later.
+- **Concurrency** prevents simultaneous worker writes. GitHub can delay scheduled runs and replace older pending runs, so this is not a guaranteed event queue. A rejected push or failed upload makes the run fail; investigate before treating an old packet as current.
 
 You might worry that the worker's own save will wake the sensor and loop forever. It won't. Changes saved with the built-in Actions token don't start new runs, and the sensor only watches the punch list anyway.[02]
 
@@ -463,7 +568,7 @@ You might worry that the worker's own save will wake the sensor and loop forever
 2. Click **Punch-list worker** on the left.
 3. Click **Run workflow** → **Run workflow**.
 4. Wait a minute. A yellow dot turns into a green check.
-5. Go back to the **Code** tab. A new file, `packet.md`, is there. Open it.
+5. Go back to the **Code** tab. A new file, `packet.md`, is there. Open it. The successful run also holds a packet artifact with the source commit, revision, digest and change flag.
 
 > **You should see:** your numbers will differ from ours as the dates pass. A short page with the count of items, open items and overdue items, a list of overdue items and their owners, and the "does not know" section. The exact overdue count depends on today's date.
 
@@ -487,7 +592,8 @@ The worker gathers facts. Your AI model judges. Open the AI you normally use, pa
 
 ```text
 Read the packet above before anything else. It was prepared by a worker
-that reads the punch list. Treat it as the facts.
+that reads the punch list. Treat it as sourced evidence. Check its date, source revision, scope and
+limitations; it may be stale, incomplete or wrong. Preserve any conflicting evidence.
 
 Do not search for or recount anything yourself. If you need a fact that
 isn't in the packet, don't guess: tell me which worker I would need to
@@ -503,10 +609,10 @@ The middle paragraph is the **no-skip rule**. It stops the model from quietly re
 
 ## Step 9 · Add the second key (10 minutes)
 
-The person or model that changes the worker shouldn't be the one who approves the change. From now on, every change to `worker.py` or `worker.yml` goes through a **pull request**: a proposed change that someone else reads before it lands.
+Use a **pull request** to inspect changes before they land. Run acceptance checks against the original requirement and exact revision. Obtain independent review where your process requires it; a fresh reviewer should read the sources and test results, not just the builder's summary.
 
 1. Open `worker.py` and click the pencil.
-2. Make a small change. For example, change `"Facts only. No recommendations."` to `"Facts only. No recommendations. Built from the punch list."`
+2. Make a small change. For example, change `"Validated list data. No recommendations."` to `"Validated list data. No recommendations. Built from the punch list."`
 3. Click **Commit changes**. A box opens. Choose **Create a new branch for this commit and start a pull request**, then click **Propose changes**. On the next page, click **Create pull request**.
 4. Click the **Files changed** tab. Red lines are removed, green lines are added.
 5. Now the second key. Copy the change and your worker card into a **different** AI model from the one that wrote the change, or send it to a colleague, and ask: *"Here is a worker's job card and a proposed change. Does the change keep the worker inside its job? What could go wrong?"*
