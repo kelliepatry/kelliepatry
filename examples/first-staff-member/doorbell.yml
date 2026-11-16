@@ -1,45 +1,75 @@
 name: Doorbell
 
-# Rings the staff member when the punch-list worker saves a packet that says something new.
-# Put this file at .github/workflows/doorbell.yml, next to worker.yml.
-
+# Tutorial for a trusted main branch. Never execute code from the downloaded packet.
 on:
   workflow_run:
-    workflows: ["Punch-list worker"]   # must match the name: line in worker.yml exactly
+    workflows: ["Punch-list worker"]
+    branches: [main]
     types: [completed]
 
 permissions:
+  actions: read
   contents: read
-  issues: write                        # lets the doorbell open an issue, nothing more
+  issues: write  # issue-write permission; not a create-only permission
+
+# Serialize issue lookup + creation. GitHub may replace pending runs; see article limits.
+concurrency:
+  group: punch-list-doorbell
+  cancel-in-progress: false
 
 jobs:
   ring:
-    if: github.event.workflow_run.conclusion == 'success'
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      (github.event.workflow_run.event == 'push' ||
+       github.event.workflow_run.event == 'schedule' ||
+       github.event.workflow_run.event == 'workflow_dispatch')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Read only the triggering run's packet
+        uses: actions/download-artifact@v8.0.2
         with:
-          fetch-depth: 50
-      - name: Ring only if the packet says something new
-        env:
-          GH_TOKEN: ${{ github.token }}
-          STARTED: ${{ github.event.workflow_run.run_started_at }}
-        run: |
-          mapfile -t packets < <(git log -2 --format=%H -- packet.md)
-          if [ ${#packets[@]} -eq 0 ]; then
-            echo "No packet yet. No signal."; exit 0
-          fi
-          if [ "$(git log -1 --format=%ct "${packets[0]}")" -lt "$(date -d "$STARTED" +%s)" ]; then
-            echo "This run saved no new packet. No signal."; exit 0
-          fi
-          if [ ${#packets[@]} -eq 2 ]; then
-            if ! git diff "${packets[1]}" "${packets[0]}" -- packet.md \
-                 | grep -E '^[+-]' | grep -vE '^(\+\+\+|---) ' \
-                 | grep -qv 'Prepared by'; then
-              echo "Only the date moved. No signal."; exit 0
-            fi
-          fi
-          gh issue create \
-            --title "New packet for the punch-list coordinator · $(date -u +%F)" \
-            --body-file packet.md
-          echo "Rang the doorbell."
+          name: packet-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+          path: delivery
+      - name: Validate and ring once for this revision
+        uses: actions/github-script@v9.0.0
+        with:
+          script: |
+            const fs = require('node:fs');
+            const crypto = require('node:crypto');
+            const run = context.payload.workflow_run;
+            const packet = fs.readFileSync('delivery/packet.md', 'utf8');
+            const meta = JSON.parse(fs.readFileSync('delivery/packet.json', 'utf8'));
+            if (String(meta.run_id) !== String(run.id) ||
+                String(meta.run_attempt) !== String(run.run_attempt) ||
+                typeof meta.changed !== 'boolean' ||
+                !/^[0-9a-f]{40}$/.test(meta.source_commit) ||
+                !/^[0-9a-f]{40}$/.test(meta.packet_revision) ||
+                crypto.createHash('sha256').update(packet).digest('hex') !== meta.packet_sha256 ||
+                Buffer.byteLength(packet, 'utf8') > 50000) {
+              throw new Error('Invalid or mismatched packet artifact; no issue created');
+            }
+            if (!meta.changed) {
+              core.info('No source or summary change. No signal.');
+              return;
+            }
+            const marker = '<!-- punch-list-revision:' + meta.packet_revision + ' -->';
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              ...context.repo, state: 'all', per_page: 100
+            });
+            if (issues.some(issue => !issue.pull_request && (issue.body || '').startsWith(marker + '\n'))) {
+              core.info('This revision already has an issue. No duplicate.');
+              return;
+            }
+            const runUrl = 'https://github.com/' + context.repo.owner + '/' +
+              context.repo.repo + '/actions/runs/' + run.id;
+            await github.rest.issues.create({
+              ...context.repo,
+              title: 'New packet for the punch-list coordinator · run ' + run.id,
+              body: marker + '\nSnapshot from [worker run](' + runUrl + '). Source commit: ' +
+                meta.source_commit + '. Check for newer work before acting.\n\n' + packet
+            });
