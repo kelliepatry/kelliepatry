@@ -1,5 +1,7 @@
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # How an artist sees
@@ -8,7 +10,7 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.1**
 
-> **Where this sits.** The studio has been mapping three ways of reading the same image. The language model's map is the read map: a path of read first, read next, stop when, write back. The architect's map is 5D and fascia: the model whose components carry their own information, and the typed links that carry change between records. This paper is the third map, the artist's. It is a method you can run on any image, a worksheet to run it with, and a translation of each reading into the room. The last section sets the three maps side by side.
+> **Where this sits.** The studio has been mapping three ways of reading the same image. The language model's map is the read map: a path of read first, read next, stop when, write back. The architect's map is an information-rich component model and fascia: components carry their own information, and typed links identify dependencies between records. This paper is the third map, the artist's. It is a method you can run on any image, a worksheet to run it with, and a translation of each reading into the room. The last section sets the three maps side by side.
 
 ---
 
@@ -34,13 +36,13 @@ Below are nine dimensions in the order an artist tends to reach for them. They d
 
 ### 2.1 Subject: what it is of, and what it is about
 
-Three questions, in order, following Erwin Panofsky's three levels of reading a picture. [4]
+Three questions, loosely adapted from Panofsky's distinction between subject matter, conventional meaning and cultural interpretation [4]. This is a teaching exercise, not a complete account of his method.
 
 - **What is literally there.** A woman, a table, a window, a bowl of lemons. No interpretation yet. This is the pre-iconographic read.
-- **What those things are.** The window is a studio window. The lemons sit on a Delft plate. The woman is reading a letter. Now the objects have names and histories. This is the iconographic read.
-- **What the picture is about.** Not lemons. Waiting, perhaps. Or interior light as a stand-in for an interior life. This is the iconological read, and it is where the artist's intent lives.
+- **What conventions they invoke.** Does the letter, costume or arrangement belong to an identifiable story or symbolic tradition? Naming a plate is still description; an iconographic reading needs evidence of a conventional meaning.
+- **What cultural meaning it may carry.** Waiting, perhaps, or interior light as a suggestion of interior life. Treat this as interpretation to support with context, not direct access to the artist's intent.
 
-The gap between the first and third answers is the whole work. A still life of lemons is never about lemons.
+The gap between the first and third answers is the whole work. A still life of lemons may invite more than a description of the fruit.
 
 Also ask: **where is the viewer standing?** Eye level, above, below, inside the scene or outside it. The viewpoint is a decision about who you are in the picture.
 
@@ -72,7 +74,7 @@ An artist reads colour on three axes at once, the ones Albert Munsell named: hue
 
 Then the relations:
 
-- **Temperature.** Warm against cool. Not absolute. A cool red is still warmer than any blue, but cooler than the red beside it. Temperature carries space: warm advances, cool recedes, mostly.
+- **Temperature.** Warm against cool. Not absolute. Compare the particular reds and blues in the image; temperature is a relational judgment, not a universal ranking of hue names. Temperature carries space: warm advances, cool recedes, mostly.
 - **Chroma distribution.** Where the clean colour is and where the greyed colour is. In most strong images, pure colour is a small percentage, and it sits at or near the focal point. The rest is greyed toward a shared neutral. James Gurney calls the chosen limited region of colour a *gamut*, and the picture's unity comes from staying inside it. [7]
 - **Proportion.** Which hue dominates by area, which supports it, which appears as accent. Johannes Itten listed the contrast of extension, meaning proportion, among his seven colour contrasts: hue, light and dark, cold and warm, complementary, simultaneous, saturation, extension. [8] All seven are worth checking on any image.
 - **Simultaneous contrast.** What each colour is doing to its neighbours. A grey beside orange turns blue. The artist uses this. A measurement cannot see it, because it is in the eye, not the pixel.
@@ -85,7 +87,7 @@ Colour is the result of light. Read the light before trusting the colour.
 
 - **Source.** Where it comes from, how many sources, whether natural or artificial.
 - **Quality.** Hard light with sharp shadows, or soft light with gradual ones. Hard light is drama. Soft light is intimacy.
-- **Colour of light and colour of shadow.** Warm light throws cool shadows, and the reverse. If the shadows are the same hue as the light, the image is lit from nowhere.
+- **Colour of light and colour of shadow.** A warm direct light can contrast with cooler ambient illumination in the shadows, and the reverse can occur. Shadow colour also depends on the surface, reflected light and other light sources. Similar hues do not by themselves prove impossible lighting. [10]
 - **Atmosphere.** Whether distant things go lighter, cooler, and lower in contrast. This is aerial perspective and it is how depth is felt rather than drawn.
 
 ### 2.6 Form, space, depth
@@ -164,7 +166,7 @@ COLOUR
 LIGHT
   source        <direction, count, natural / artificial>
   quality       <hard / soft>
-  light / shadow colour  <warm into cool, cool into warm, or flat>
+  light / shadow colour  <observed direct, ambient and reflected light; surface colours>
   atmosphere    <does distance go lighter, cooler, softer>
 
 FORM + SPACE
@@ -230,13 +232,13 @@ Two of these deserve a note.
 
 The studio now has three maps of seeing, and they are not the same kind of thing.
 
-- **The architect's map is a structure.** It is 5D and fascia. 5D is the model in which every component carries its own classification, tags, attributes and scenes, so geometry, information, sequence and quantity live in one object. Fascia is the typed, directed links between records that carry change from one to its dependents. Together they say what exists, what it is, and what moves when it moves.
-- **The model's map is a path.** It is the read map. A language model holds nothing between calls, so its need per task is not a schema but a route: read first, read next, stop when, write back. Every record it reads carries four spine fields: id, state, a one-line summary, and what it supersedes.
+- **The architect's map is a structure.** Components can carry classifications, tags and attributes alongside geometry. Conventional 5D BIM adds cost information to a 3D model and time or sequence; that term is narrower than the information-rich model meant here [11]. Fascia is our metaphor for typed dependencies. An authorized process must use those links to review, apply and verify changes; the links do not update drawings themselves.
+- **The model's map is a path.** It is the read map. A model application can retain state and retrieve memories between calls. Each task still needs a route through current evidence: read first, read next, stop when, write back. The proposed record has id, state, a one-line summary and an optional supersedes field. Source and derivation links are recorded separately.
 - **The artist's map is a relation.** Nothing in the image has a value on its own. A colour is only warmer or cooler than its neighbour. An edge is only harder or softer than the edge beside it. The artist's method is an order of comparison, whole to parts and back.
 
 Set against the same image, the three read like this.
 
-| Dimension | Artist: the relation | Architect: 5D and fascia | Model: the read map |
+| Dimension | Artist: the relation | Architect: component model and fascia | Model: the read map |
 | --- | --- | --- | --- |
 | Subject | What it is about, under what it is of | What it is for: programme, occupant, the component's classification | The one-line summary; the id and state it carries |
 | Composition | Focal point, eye path, figure and ground, edges | Plan, section, scene set; the tag hierarchy that says which things belong together | Read first. The record the route opens before any other |
@@ -254,16 +256,17 @@ Set against the same image, the three read like this.
 
 The read map asks every record to carry four fields. The other two maps already carry them, in their own words.
 
-| Spine field | Read map | 5D and fascia | The artist's image |
+| Spine field | Read map | Component model and fascia | The artist's image |
 | --- | --- | --- | --- |
 | id | Record id | Component id, tag, sheet number | Title, maker, date |
 | state | One of four states | Phase, lifecycle, issued or draft | Study, sketch or finished work |
 | one-line summary | What the record is, in a line | The component's classification and attribute set | What the picture is about, in a line |
-| supersedes | The record this replaces | The revision this replaces, carried by fascia | The study this came from, the version this corrects |
+| supersedes | The record this replaces, or null | The revision this replaces, or null | The version this replaces, or null |
+| derived_from | Sources used to make this record | Source models and studies | The studies this came from; this does not imply replacement |
 
 ### 5.2 Where to trust each map
 
-The three are not in competition. The model's route can measure what the artist can only compare, and it can be run again tomorrow and return the same answer. The artist can see what measurement cannot: the grey that turns blue beside orange, the edge that lets the eye slide, the lemon that is really about waiting. The architect's structure holds both inside a budget, a lease and a code, and carries a change from a decision to every drawing it touches.
+The three are not in competition. A deterministic measurement can be repeated with fixed inputs, code and versions. A model's judgment may vary between runs, so retain its input, model version and result and test repeatability rather than assume it. The artist can see what measurement cannot: the grey that turns blue beside orange, the edge that lets the eye slide, the lemon that is really about waiting. The architect's structure holds both inside a budget, a lease and a code, and identifies the drawings to check when a decision changes.
 
 So the working rule is: the read map for the record, the relation for the decision, the structure for the build. A measured palette goes in the record. The choice of which measured colour becomes the field and which becomes the accent is a relation, and it stays with the person. Once chosen, the finish is a component in the model, and fascia carries it to the schedule, the sheet and the spec.
 
@@ -281,9 +284,12 @@ So the working rule is: the read map for the record, the relation for the decisi
 8. Itten, J. *The Art of Color.* Reinhold, 1961. The seven colour contrasts.
 9. Arnheim, R. *Art and Visual Perception: A Psychology of the Creative Eye.* University of California Press, 1954. Balance, figure and ground, visual weight.
 
+10. Exploratorium. [Colored Shadows](https://www.exploratorium.edu/snacks/colored-shadows). How different light sources affect shadow colour.
+11. Autodesk. [5D BIM](https://www.autodesk.com/solutions/5d-bim). Cost integrated with model and schedule information.
+
 ---
 
-*Working draft. The method in sections 2 and 3 is standard atelier and art-school practice, assembled here in one order. The translation in section 4 and the comparison in section 5 are the studio's own and are open to revision. Section 5 uses the read map and the 5D and fascia vocabulary as the studio currently defines them, and should be re-read if those definitions move. Comments and corrections: open an issue on this repository.*
+*Working draft. The method in sections 2 and 3 is standard atelier and art-school practice, assembled here in one order. The translation in section 4 and the comparison in section 5 are the studio's own and are open to revision. Section 5 uses the proposed read map and component-model/fascia vocabulary, and should be re-read if those definitions move. Comments and corrections: open an issue on this repository.*
 
 ---
 
