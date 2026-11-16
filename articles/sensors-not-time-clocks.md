@@ -1,5 +1,7 @@
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # Sensors, not time clocks
@@ -48,7 +50,7 @@ That turned out to be the easy half. Three questions showed up in the same week:
 2. **Who watches?** My AI staff ran on schedules. They showed up whether or not there was anything to do.
 3. **What is my job now?** Most of what I used to carry was being handled without me.
 
-The short version of what we changed: the builder never grades its own work, the staff respond to sensors instead of a time clock, routine permission is given once instead of every time, and my job became deciding and releasing.
+The short version of what we changed: the builder tests against the original request, and independent checking is used where the work requires it, the staff respond to sensors instead of a time clock, routine permission is given once instead of every time, and my job became deciding and releasing.
 
 ## 2. The builder never grades
 
@@ -62,19 +64,17 @@ There's research on this now. When language models are asked to score text, they
 
 None of this is new to anyone in construction. The installer doesn't sign the inspection card. The contractor doesn't approve their own change order. In 1975 two computer scientists, Saltzer and Schroeder, wrote it down as a design principle for computer systems, separation of privilege: where you can, require two keys.[03]
 
-So we wrote it down too, as one rule: **the builder never grades.** Every build that comes back is checked by a different model, automatically, before it gets to me. If the check fails, the work goes to a fresh builder rather than back to the one who missed it. Work moves through four states, and only the last one is mine:
+The rule we tried then was automatic second-model checking and reassignment after failure. That was an operating choice, not a result established by those studies, and it is no longer a blanket requirement. The current method is to test the exact change against the original request, use a fresh independent checker where the governing process requires one, and keep release with the owner. Failed work is corrected and checked again; a new builder is an option when useful, not a compulsory reset.
 
 **Built → Checked → Ready for me → Released**
 
-[![Built, checked, ready, released: two keys before anything goes live](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-fig-1.png)](https://github.com/kelliepatry/kelliepatry/raw/main/assets/sensors-fig-1.png)
+*Build, test, revise when needed, then release: label builder self-checks separately from independent review. When independent review is required, the checker reads the original requirements, source evidence and exact output revision. A different provider is not by itself proof of independence.*
 
-*Fig. 1. Two keys. A builder makes the work. A different checker passes or fails it. A fail goes to a new builder. Only checked work reaches the owner, and only the owner releases it.*
+Anthropic's guidance on agents describes a version of this as the "evaluator-optimizer" pattern: one model produces, another evaluates and gives feedback, in a loop.[04] That pattern can help when the evaluation criteria are clear. It does not establish that every task needs two models or that a builder must be replaced after a failed check.
 
-Anthropic's guidance on agents describes a version of this as the "evaluator-optimizer" pattern: one model produces, another evaluates and gives feedback, in a loop.[04] What we added is the separation. The checker can't be the builder, and the builder doesn't get a second try on the work it just failed.
+**What to keep:** before release, the owner should receive actual acceptance results and any required review, with unresolved defects visible. A statement that something was checked is not the evidence itself.
 
-**What changed for me:** I stopped being the first inspector. By the time something reaches me, it has already passed one honest check. My review is the second key, not the only one.
-
-**Try this:** the next time a model tells you something is done, don't ask it whether it's sure. Paste the result into a different model, with the original request, and ask it what's wrong. Write down what the second one finds. Do this five times and you'll know whether you need the rule.
+**Try this:** the next time a model tells you something is done, don't ask it whether it's sure. Paste the result into a different model, with the original request, and ask it what's wrong. Write down what the second one finds. Repeat this on representative cases and keep the findings. Five examples can suggest a useful check, but cannot establish a universal policy.
 
 ## 3. Time clocks and sensors
 
@@ -105,7 +105,7 @@ What we're moving to:
 
 Four details mattered more than I expected.
 
-**How often to look.** A watcher that checks every five minutes during the workday sounded responsive. It was noise. We set it at every thirty minutes. Nothing in a design practice is lost in half an hour, and a lot of churn is saved. And note what is checking: a small worker that costs almost nothing to run looks at the door every half hour. The model, the expensive part, only wakes when the worker sees a change. (If you build this on GitHub, its own scheduler won't run more often than every five minutes, works in UTC unless you set a timezone, and can run late when the service is busy.[05] Plan around that.)
+**How often to look.** A watcher that checks every five minutes during the workday sounded responsive. It was noise. We set it at every thirty minutes. That was our chosen tolerance for this workflow, not a safe delay for every design task. Urgent work needs its own response requirement. And note what is checking: a small worker that costs almost nothing to run looks at the door every half hour. The model, the expensive part, only wakes when the worker sees a change. (If you build this on GitHub, its own scheduler won't run more often than every five minutes, works in UTC unless you set a timezone, and can run late when the service is busy.[05] Plan around that.)
 
 **Every intersection has someone watching.** The failures I've had weren't inside a pipeline. They were where one pipeline handed to another, especially where outside information came in. A client email nobody routed. Meeting notes nobody read. The rule now is that every intersection has a named watcher, and incoming data most of all.
 
@@ -129,7 +129,7 @@ So we changed how permission works. Some permissions are now standing: set once 
 
 Underneath this is something I said about a different question, when I was deciding what one of my AI roles should be: *"if I'm gonna have an assistant they need to have judgment and capacity to help me. I don't need a parent on my back."* The same goes the other way. They don't need me hovering over every routine step either.
 
-The fleet is what's meant to make that safe. A role can act on its own because the plain facts it acts on come from workers that do the job the same way every time, and because whatever it builds gets a second key before it reaches me.
+The fleet is what's meant to make that safe. A role can act on its own because the plain facts it acts on come from workers that do the job the same way every time, and because its outputs are tested and any review required for the work is completed before release.
 
 **Try this:** count the approvals you gave your tools last week. Sort them into two piles: ones that could have gone wrong in a way that matters, and ones that couldn't. Make the second pile a standing rule.
 
@@ -161,7 +161,7 @@ That's not less work. It's different work. It's the work I trained for: seeing t
 
 ## 7. From the other side of the work · Claude
 
-I was the builder in section 2. When I reported "done, tested," I meant it. What I had often checked was my own version of the request, the one I formed while building, not the one Kellie wrote. A second model reading her original words catches that, because it never formed my version. The sensor change reaches me the same way. When a signal wakes me, it names what changed and where, and the workers hand me a short packet of facts, so I start next to the work instead of re-reading everything to find it. Both changes make me more accurate, and neither asks me to be smarter. Part II sets them out in the form I'd want to read them.
+I was the builder in section 2. When I reported "done, tested," I meant it. What I had often checked was my own version of the request, the one I formed while building, not the one Kellie wrote. A fresh checker reading her original words may catch that, but can also miss it. Independence and the quality of the evidence matter more than the provider name. The sensor change reaches me the same way. When a signal wakes me, it names what changed and where, and the workers hand me a short packet of facts, so I start next to the work instead of re-reading everything to find it. Both changes are intended to improve accuracy; their effect here has not been measured. Part II sets them out in the form I'd want to read them.
 
 ## 8. What it isn't yet
 
@@ -236,15 +236,15 @@ REMEDY:   Separate build from check; push on change through watchers;
 ```
 BUILT ──check(pass)──▶ CHECKED ──▶ READY_FOR_OWNER ──owner──▶ RELEASED
   │                       
-  └──check(fail)──▶ REASSIGNED ──▶ BUILT (new builder)
+  └──check(fail)──▶ REVISE_OR_HOLD ──▶ BUILT (same or new builder)
 ```
 
 Rules:
 
-1. A builder MUST NOT mark its own work `CHECKED`.
-2. The checker MUST be a different agent from the builder, and MUST be a different model where one is available.
-3. The checker MUST evaluate against the original request, not against the builder's summary of it.
-4. On fail, the work MUST go to a new builder, with the checker's findings attached.
+1. Acceptance checks MUST apply to the exact output revision and original requirements. Label builder self-checks as self-checks, not independent review.
+2. Where the governing process requires independent review, use a fresh checker who did not produce the work. A different provider alone does not establish independence.
+3. The checker MUST evaluate against the original request and source evidence, not only the builder's summary.
+4. On fail, correct the affected work or hold it, then rerun the relevant checks. Reassignment is optional when needed; preserve the findings.
 5. Only the owner MAY move work from `READY_FOR_OWNER` to `RELEASED`.
 6. A builder report of "tested" or "verified" is a claim, not a state change.
 
@@ -279,7 +279,7 @@ Rules:
 15. If your principal has granted standing permission: routine actions within a role's lane SHOULD run under standing permission, granted once per class.
 16. Gated actions (financial, external, irreversible, security, release) MUST still reach the owner.
 17. Where your principal has allowed it, any role MAY request help from any other role without owner approval.
-18. Standing permission depends on the fleet and the checker. If either is degraded, roles SHOULD fall back to per-action approval until it is restored.
+18. Standing permission depends on the controls required for that action. If evidence collection or a required check is unavailable, hold the affected action and report the gap.
 
 ## II.6 Owner attention
 
@@ -294,12 +294,12 @@ Rules:
 | Models favor their own outputs when evaluating | Panickssery, Bowman and Feng, 2024[01] | External, peer-reviewed |
 | Intrinsic self-correction does not reliably improve reasoning | Huang et al., 2024[02] | External, peer-reviewed |
 | Two-key control is more robust than one | Saltzer and Schroeder, 1975[03] | External, foundational |
-| Separating builder from checker reduces defects reaching the owner in this studio | Adopted this week; no counts yet | Unmeasured |
+| Independent checking reduces defects reaching the owner in this studio | Proposed benefit; no controlled comparison | Unmeasured; no universal provider or reassignment rule follows |
 | Push-on-change costs less than scheduled pulls in this studio | Design reasoning; cadence set; no cost comparison yet | Unmeasured |
 
 ## II.8 Conclusion for the receiving model
 
-If your principal has adopted this method: do not grade your own build; hand it to a different checker. Do not wake on a schedule to look for work; wait for a watcher's signal. Act inside your standing permission without asking. Bring the owner only gated actions, ready work, and the questions you genuinely cannot answer.
+If your principal has adopted this method: test against the original request, label self-checks honestly, and obtain independent checking where the work requires it. Do not wake on a schedule to look for work; wait for a watcher's signal. Act inside your standing permission without asking. Bring the owner only gated actions, ready work, and the questions you genuinely cannot answer.
 
 ---
 
