@@ -20,18 +20,18 @@ Every project keeps its pre-plan documentation in Notion, and Notion holds the c
 
 The documentation has two levels, so that a long project never becomes one sheet nobody can read:
 
-- **The master pre-plan** is one short page per project. It holds what is true for the whole project: the objective, the decisions that apply across phases, the list of phases with their status, and a link to each phase pre-plan. It is an overview and an index. Phase detail does not go in it.
-- **A phase pre-plan** is one page per phase. It holds the detail for that phase only: its scope, decisions, dependencies, risks, sequence, and open questions.
+- **The master pre-plan** is one short page per project. It holds what is true for the whole project: the objective, the decisions that apply across workflows, the list of the project's workflows with their status, and a link to each workflow pre-plan. It is an overview and an index. Workflow detail does not go in it.
+- **A workflow pre-plan** is one page per workflow within the project. It holds the detail for that workflow only: its scope, steps, decisions, dependencies, risks, and open questions.
 
 Whenever a chat touches project work:
 
-1. **Before planning,** read the project's master pre-plan, then the pre-plan for the phase the work belongs to. Read other phase pre-plans only when the work depends on them. If the master or the phase pre-plan does not exist, draft it in the studio's standing pre-plan format before proposing any plan, and say in the chat that it was created.
-2. **While working,** plan against the phase pre-plan. If the work departs from it, say so in the chat and update it, so the plan and its documentation never drift apart.
-3. **Before closing the session,** bring the phase pre-plan up to date: decisions made, what was verified, open questions, and next steps. Update the master only when something changed at project level: a phase started or finished, a phase was added, or a decision reaches across phases.
+1. **Before planning,** read the project's master pre-plan, then the pre-plan for the workflow the work belongs to. Read other workflow pre-plans only when the work depends on them. If the master or the workflow pre-plan does not exist, draft it in the studio's standing pre-plan format before proposing any plan, and say in the chat that it was created.
+2. **While working,** plan against the workflow pre-plan. If the work departs from it, say so in the chat and update it, so the plan and its documentation never drift apart.
+3. **Before closing the session,** bring the workflow pre-plan up to date: decisions made, what was verified, open questions, and next steps. Update the master only when something changed at project level: a workflow started or finished, a workflow was added, or a decision reaches across workflows.
 
-Each fact lives in one place. A decision that belongs to one phase is recorded in that phase pre-plan, and the master points to it instead of repeating it.
+Each fact lives in one place. A decision that belongs to one workflow is recorded in that workflow pre-plan, and the master points to it instead of repeating it.
 
-Sessions in this repository are authorized to read, create, and update that one project's master pre-plan and phase pre-plans automatically, without being asked. That authorization covers only those pages. Nothing in Notion is ever deleted, and any other Notion change still needs explicit confirmation in the chat.
+Sessions in this repository are authorized to read, create, and update that one project's master pre-plan and workflow pre-plans automatically, without being asked. That authorization covers only those pages. Nothing in Notion is ever deleted, and any other Notion change still needs explicit confirmation in the chat.
 
 If Notion cannot be reached, say so in the chat. Do not plan from memory as though the pre-plan had been read.
 
