@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">KPHD</title>
+  <desc id="desc">Kellie Patry Hospitality Design wordmark</desc>
+  <rect width="1200" height="300" fill="#F4F4F2"/>
+  <text x="96" y="181" font-family="'Space Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="82" font-weight="700" letter-spacing="-2">
+    <tspan fill="#A6A6A3">[</tspan><tspan fill="#161615">KP</tspan><tspan fill="#A6A6A3">/</tspan><tspan fill="#161615">HD</tspan><tspan fill="#A6A6A3">]</tspan>
+  </text>
+  <text x="1104" y="72" text-anchor="end" font-family="'Space Mono','SFMono-Regular',Consolas,'Liberation Mono',monospace" font-size="17" font-weight="400" letter-spacing="3.2" fill="#7C7C79">LOS ANGELES · PROFILE</text>
+  <line x1="96" y1="232" x2="1104" y2="232" stroke="#DCDCD9" stroke-width="1"/>
+</svg>

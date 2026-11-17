@@ -1,0 +1,45 @@
+name: Doorbell
+
+# Rings the staff member when the punch-list worker saves a packet that says something new.
+# Put this file at .github/workflows/doorbell.yml, next to worker.yml.
+
+on:
+  workflow_run:
+    workflows: ["Punch-list worker"]   # must match the name: line in worker.yml exactly
+    types: [completed]
+
+permissions:
+  contents: read
+  issues: write                        # lets the doorbell open an issue, nothing more
+
+jobs:
+  ring:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
+      - name: Ring only if the packet says something new
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STARTED: ${{ github.event.workflow_run.run_started_at }}
+        run: |
+          mapfile -t packets < <(git log -2 --format=%H -- packet.md)
+          if [ ${#packets[@]} -eq 0 ]; then
+            echo "No packet yet. No signal."; exit 0
+          fi
+          if [ "$(git log -1 --format=%ct "${packets[0]}")" -lt "$(date -d "$STARTED" +%s)" ]; then
+            echo "This run saved no new packet. No signal."; exit 0
+          fi
+          if [ ${#packets[@]} -eq 2 ]; then
+            if ! git diff "${packets[1]}" "${packets[0]}" -- packet.md \
+                 | grep -E '^[+-]' | grep -vE '^(\+\+\+|---) ' \
+                 | grep -qv 'Prepared by'; then
+              echo "Only the date moved. No signal."; exit 0
+            fi
+          fi
+          gh issue create \
+            --title "New packet for the punch-list coordinator · $(date -u +%F)" \
+            --body-file packet.md
+          echo "Rang the doorbell."
