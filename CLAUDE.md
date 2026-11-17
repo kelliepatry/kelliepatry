@@ -15,7 +15,7 @@ Backend and system work does not happen in this repository.
 Writing notes, summaries, plans, handoffs, changelogs, READMEs or "docs" as `.md` files violates studio protocol. Do not create them, in this repository or in a scratch folder, unless the owner asks for that specific file in the chat.
 
 - New `.md` files belong only under `articles/` (the writing) or `examples/` (files an article ships). Editing an existing `.md` file is fine.
-- Explanations, status and summaries go in the chat reply. Anything that must be kept goes to the studio record through the session protocol, never to a file.
+- Explanations, status and summaries go in the chat reply. Anything that must be kept goes to the project's Notion pre-plans or the studio record through the session protocol, never to a file.
 - A `PreToolUse` hook (`.claude/hooks/no-new-md.mjs`) refuses new `.md` files outside `articles/` and `examples/`. Do not get around it with a shell command, a different extension or another folder.
 
 ## Studio session protocol
