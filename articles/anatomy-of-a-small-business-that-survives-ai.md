@@ -1,17 +1,23 @@
+<<<<<<< origin/main
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
 ---
 
+=======
+>>>>>>> origin/article/anatomy-small-business-ai
 # The anatomy of a small business that survives AI
 
 ### Brain, ontology, fascia, orchestration: how a very small practice stops paying the AI guessing tax
 
 **Kellie Patry · KPHD Studio, Los Angeles · and Claude (Anthropic) · 5 November 2026 · v1.2**
 
+<<<<<<< origin/main
 **Read the series:** [1. The record graph](./record-graph-one-person-practice.md) · [2. The anatomy](./anatomy-of-a-small-business-that-survives-ai.md) · [3. What the field sends back](./what-the-field-sends-back.md) · [4. Flip the paper](./flip-the-paper.md)
 
 **Jump to:** [This article’s conclusion](#conclusion) · [The series conclusion](./flip-the-paper.md#conclusion)
 
+=======
+>>>>>>> origin/article/anatomy-small-business-ai
 ![A hospitality floor plan glitching into a typed node graph: on the left, the room in warm and cool channels slightly out of register; on the right, the same room as a record, every table, booth and station a node, joined by fibrous links](../assets/anatomy-header.png)
 
 *Header: Room / Record, a joint design by Kellie Patry and Claude. The room is the designer's channel (warm) and the record is the model's (cool). They only line up in the middle band, where both read the same thing. Every node sits on a real element of the plan. Dashed nodes are records that should exist and don't.*
@@ -142,8 +148,11 @@ Here we push back a little on our own headline.
 - **"Survival" is a position, not a finding.** What we can support is less re-explaining, and continuity that doesn't depend on anyone's memory. Whether that keeps a small business alive is something to test over years, not weeks.
 - **One practice, one main model.** Most of the checking in our case was done by the same system that built it. Get an outside reader before you trust anyone's results, including ours.
 
+<<<<<<< origin/main
 <a name="conclusion"></a>
 
+=======
+>>>>>>> origin/article/anatomy-small-business-ai
 ## 8. If you want to try this
 
 - **Pick one authority.** Decide where truth lives and treat everything else as a copy.
@@ -291,16 +300,20 @@ loop:
 
 ---
 
+<<<<<<< origin/main
 ## With gratitude
 
 This method stands on other people's work. Vannevar Bush imagined linked trails of thought in 1945. Niklas Luhmann kept a linked card index for decades. Tiago Forte gave the second brain a practical shape. Andy Clark and David Chalmers argued that our tools can be part of how we think, and Daniel Wegner showed how groups remember together. Thomas Gruber gave us a working definition of ontology. The researchers behind retrieval-augmented generation, graph-based retrieval and the study of hallucination and long contexts explained, carefully and in public, why models guess and what helps. Jan Wilke, Robert Schleip and the fascia research community changed how the body's connective tissue is understood, and gave this article its central image. Orlena Gotel and Anthony Finkelstein named the traceability problem thirty years ago. Anthropic's engineers shared plainly what works when building agents.
 
 Kellie also learned a great deal from scientists and educators who explain this field openly online. You don't get to the point where you can build something like this without people willing to teach in public. Thank you.
 
+=======
+>>>>>>> origin/article/anatomy-small-business-ai
 ## References
 
 1. Breaux, C., Khatiwoda, D. *Large firms with at least 20 employees biggest AI users.* US Census Bureau, Business Trends and Outlook Survey, May 2026. https://www.census.gov/library/stories/2026/05/ai-use-businesses.html
 2. Survey roundups of small-business AI use, 2026 (Goldman Sachs 10,000 Small Businesses Voices; SBE Council Small Business Technology Use Survey; Thryv). Definitions differ from the Census measure; see each survey's method.
+<<<<<<< origin/main
 3. Ji, Z. et al. *Survey of hallucination in natural language generation.* ACM Computing Surveys 55(12), 2023. [arXiv:2202.03629](https://arxiv.org/abs/2202.03629)
 4. Liu, N.F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., Liang, P. *Lost in the middle: how language models use long contexts.* TACL, 2023. [arXiv:2307.03172](https://arxiv.org/abs/2307.03172)
 5. Lewis, P. et al. *Retrieval-augmented generation for knowledge-intensive NLP tasks.* NeurIPS, 2020. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
@@ -313,12 +326,29 @@ Kellie also learned a great deal from scientists and educators who explain this 
 12. Pan, S. et al. *Unifying large language models and knowledge graphs: a roadmap.* IEEE TKDE, 2024. [arXiv:2306.08302](https://arxiv.org/abs/2306.08302)
 13. Wilke, J., Schleip, R., Yucesoy, C.A., Banzer, W. *Not merely a protective packing organ? A review of fascia and its force transmission capacity.* Journal of Applied Physiology, 2018. [PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=Not+merely+a+protective+packing+organ+fascia+force+transmission) See also Schleip, R., Findley, T.W., Chaitow, L., Huijing, P.A. (eds.) *Fascia: The Tensional Network of the Human Body.* Elsevier, 2012.
 14. Gotel, O.C.Z., Finkelstein, A.C.W. *An analysis of the requirements traceability problem.* ICRE, 1994. [doi:10.1109/ICRE.1994.292398](https://doi.org/10.1109/ICRE.1994.292398)
+=======
+3. Ji, Z. et al. *Survey of hallucination in natural language generation.* ACM Computing Surveys 55(12), 2023. arXiv:2202.03629.
+4. Liu, N.F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., Liang, P. *Lost in the middle: how language models use long contexts.* TACL, 2023. arXiv:2307.03172.
+5. Lewis, P. et al. *Retrieval-augmented generation for knowledge-intensive NLP tasks.* NeurIPS, 2020. arXiv:2005.11401.
+6. Edge, D. et al. *From local to global: a graph RAG approach to query-focused summarization.* Microsoft Research, 2024. arXiv:2404.16130.
+7. Bush, V. *As we may think.* The Atlantic, July 1945.
+8. Forte, T. *Building a Second Brain.* Atria Books, 2022.
+9. Clark, A., Chalmers, D. *The extended mind.* Analysis 58(1), 1998.
+10. Wegner, D.M. *Transactive memory: a contemporary analysis of the group mind.* In Mullen & Goethals (eds.), Theories of Group Behavior, Springer, 1987.
+11. Gruber, T.R. *A translation approach to portable ontology specifications.* Knowledge Acquisition 5(2), 1993.
+12. Pan, S. et al. *Unifying large language models and knowledge graphs: a roadmap.* IEEE TKDE, 2024. arXiv:2306.08302.
+13. Wilke, J., Schleip, R., Yucesoy, C.A., Banzer, W. *Not merely a protective packing organ? A review of fascia and its force transmission capacity.* Journal of Applied Physiology, 2018. See also Schleip, R., Findley, T.W., Chaitow, L., Huijing, P.A. (eds.) *Fascia: The Tensional Network of the Human Body.* Elsevier, 2012.
+14. Gotel, O.C.Z., Finkelstein, A.C.W. *An analysis of the requirements traceability problem.* ICRE, 1994.
+>>>>>>> origin/article/anatomy-small-business-ai
 15. Schluntz, E., Zhang, B. *Building effective agents.* Anthropic, December 2024. https://www.anthropic.com/engineering/building-effective-agents
 
 ---
 
 *Written jointly by Kellie Patry and Claude, a language model made by Anthropic, from the process side of the studio. The studio's record and systems are internal. This article describes the method and does not expose them. Comments and corrections: open an issue on this repository.*
+<<<<<<< origin/main
 
 ---
 
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
+=======
+>>>>>>> origin/article/anatomy-small-business-ai
