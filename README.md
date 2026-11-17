@@ -52,6 +52,12 @@ The whole practice on one map: every project, every phase it passed through, and
 - [Start here: what we're building, in plain words](./articles/your-first-worker.md): November 2026. What the system is and does, every term defined (worker, runner, runtime and the rest), the four services it runs on and their equivalents, a prompt that lets your own AI evaluate your setup, and one worker you can build in an hour.
 - [Your first staff member](./articles/your-first-staff-member.md): November 2026. The follow-on to Start here: what a virtual staff member is, what scheduling one really means (sensors, clocks, heartbeats and quiet alarms), how it can work through email without your inbox, a prompt that lets your own AI evaluate your setup, and a role you can set up in an hour.
 - [How an artist sees](./articles/how-an-artist-sees.md): working draft, November 2026. Breaking an image down in the order an artist does it, subject, structure, value, colour, light, mark, with a worksheet, a translation of each reading into the room, and the artist, architect and model set side by side.
+<<<<<<< origin/main
+=======
+- [The body at the fixture](./articles/body-at-the-fixture.md): study note, November 2026. Aalto's Paimio washbasin section read closely, then turned into a drawing language for an Instagram series: ink section and plan with cut photographs of the body, a flipbook for movement, and the rules agents follow to draw it.
+- [Binding the three maps](./articles/binding-the-three-maps.md): working draft, November 2026. Every active registered database (234) given one of eight read classes and, through it, a role in the read map, in 5D and fascia, and in the artist's relation. Aliases, duplicate pairs and the Image read row proposed for one ruling.
+- [One record, one projection](./articles/one-record-one-projection.md): the build, November 2026. Every active registered database moves into its Supabase home; Notion keeps prose and generated projections and loses human-edited structured databases. Target map for all 234, gates, sequence, and where the studio types afterwards.
+>>>>>>> origin/claude/aalto-sanitarium-study-920cqo
 
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
 
