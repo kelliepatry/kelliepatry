@@ -1,5 +1,7 @@
 [← Back to Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Reviewed; no confirmed technical defect found in this pass · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # The Experience of Being Designed For
@@ -66,7 +68,7 @@ When we ask a client to make a decision, we should make that decision as underst
 
 ## What a project remembers
 
-In another working paper, [*What your project record is not telling you*](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md), I examined the information systems behind a small design practice.
+In another working paper, [*What your project record is not telling you*](./record-graph-one-person-practice.md), I examined the information systems behind a small design practice.
 
 One finding was revealing: the practice could record the status of its projects far more easily than it could explain the relationships between the decisions that shaped them.
 

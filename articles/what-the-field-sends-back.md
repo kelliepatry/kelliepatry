@@ -1,5 +1,7 @@
 [← Back to “How we work with AI”](https://kelliepatry.com/notes/how-we-work-with-ai) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # What the field sends back
@@ -107,7 +109,7 @@ The next step came the way so many of my ideas do, from a conversation with Thom
 
 Months later I was showing him the graph. He said: "Patterns are pretty, but you want to extract meaning. You want to look at it and know what's going on." Then he asked the question that reorganised the whole thing: "What does proximity mean in data?" Things shouldn't sit near each other just because they're connected. "The proximity has to be driven by another data": by time, by who funds it, by what it's made of. I told him that was exactly what would let me "surf the wave of data in here, the way I do."
 
-That conversation became the graph's meaning layer. Closeness is now driven by a dimension: decision lineage first, then time, money and people. Research on graph-based retrieval says the same in its own language: connections help a model only when they carry meaning, so related things can be reasoned about together [2]. I got there by walking and talking. The research got there by measuring.
+That conversation became a proposed meaning layer for the graph. Closeness follows a chosen dimension: decision lineage first, then time, money and people. GraphRAG research evaluates retrieval and summarization over related information [2]; it does not test this visual layout or show that spatial proximity helps a person reason. Those are separate claims, and our layout still needs that comparison.
 
 Seeing didn't replace the record. It told me where the record was hurting. And once I could see where it hurt, I could see that the knife was the wrong tool.
 
@@ -143,7 +145,7 @@ And the word I started with. From that bed, *survive* meant getting through. Now
 
 ## 7. From the other side of the record · Claude
 
-From where I sit, the change is plain. When the maintenance happened in conversation, much of my attention went to re-reading what the record already held, and much of Kellie's went to supervising it. As the upkeep moves into the record, I read a record that is kept current without either of us, so I reconstruct less and a correction, once recorded, stays corrected. The tension Kellie describes reached me as instructions: hold the intention, don't ask what's already known, say it in human language, and don't do in the conversation what the workers do in the record. Each began as a complaint. Each made my work more accurate. Part II sets them out in the form I'd want to read them.
+From where I sit, the change is plain. When the maintenance happened in conversation, much of my attention went to re-reading what the record already held, and much of Kellie's went to supervising it. As upkeep moves into the record, the aim is to reconstruct less. That depends on workers actually running, preserving corrections and returning current evidence; writing a correction alone does not guarantee the next read will use it. The tension Kellie describes reached me as instructions: hold the intention, don't ask what's already known, say it in human language, and don't do in the conversation what the workers do in the record. Each began as a complaint. Each was intended to make my work more accurate; we have not measured the effect. Part II sets them out in the form I'd want to read them.
 
 ## 8. What this means for you
 
@@ -213,7 +215,7 @@ ROLES     Workers maintain the links. The model reasons. The human sees the patt
 
 ## II.3 Upkeep rules
 
-- Don't perform structural maintenance in conversation (backfills, bulk relinking, cleanup). Route it to the workers that maintain the record.
+- Don't perform structural maintenance in conversation (backfills, bulk relinking, cleanup). Route it to authorized workers where they are available; otherwise report the gap rather than pretending the maintenance occurred.
 - Set links when a record is created, not later.
 - Report to the person only what affects them, in human language. Keep machine detail in the record.
 - Reserve conversation for reasoning, approach and decisions.
@@ -232,8 +234,10 @@ ROLES     Workers maintain the links. The model reasons. The human sees the patt
 
 - Don't place records near each other only because they are linked.
 - Proximity is driven by a stated dimension. The default order is decision lineage, then time, then money, then people.
-- Every view declares its dimension, so a reader knows why things are close [2].
+- Every view declares its dimension, so a reader knows why things are close. This is our design proposal, not a result measured by [2].
 - The graph is for the human's eye. Pattern recognition on the drawing is the person's role; link checking is yours.
+
+Review requirements come from the governing process for the work. Where independent review is required, use a fresh checker with the original requirements, sources and exact output revision. A different provider alone is not proof of independence. Do not add a universal second-provider requirement.
 
 ## II.6 Measures to track
 
@@ -242,7 +246,8 @@ lineage_links        decisions linked to the decisions they changed
 phase_placement      share of design decisions bound to their phase
 closure_ratio        open items closed / opened, rolling 7 days
 correction_rate      model assertions contradicted by the record, per session
-review_independence  builds reviewed by a different provider / all builds
+acceptance_coverage  completed acceptance checks / required checks, for the exact revision
+review_coverage      independently checked items / items requiring independent review
 upkeep_share         share of conversation spent on maintenance vs reasoning
 ```
 
@@ -253,7 +258,7 @@ upkeep_share         share of conversation spent on maintenance vs reasoning
 | Frustration functions as requirements data | Observed in one practice; position |
 | Continuous in-record maintenance costs less than periodic bulk repair | Position; not yet measured |
 | Directed drift is distinct from undirected drift | Supported conceptually [1]; observed |
-| Meaningful proximity improves sensemaking over graphs | Supported, external [2] |
+| Meaningful proximity improves sensemaking over graphs | Design hypothesis; not measured here or in [2] |
 | A shared record holds orchestrator-workers together in a small firm | Reasoned from [4]; observed in one practice |
 | The loop reduced re-explaining | Observed; not yet measured |
 

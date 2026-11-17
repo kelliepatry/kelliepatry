@@ -2,30 +2,79 @@ name: Punch-list worker
 
 on:
   push:
+    branches: [main]
     paths:
-      - "punch-list.csv"      # the sensor: runs when the list changes
-      - "worker.py"           # and when the worker itself changes
+      - "punch-list.csv"
+      - "worker.py"
+      - ".github/workflows/worker.yml"
   schedule:
-    - cron: "17 14 * * 1-5"   # the heartbeat: weekday mornings, 14:17 UTC
-  workflow_dispatch:          # the test button: run it by hand
+    - cron: "17 14 * * 1-5"   # weekday heartbeat, 14:17 UTC
+  workflow_dispatch:
 
 permissions:
-  contents: write             # lets the worker save packet.md back to the repo
+  contents: write             # repository write access, used here to save packet.md
+
+concurrency:
+  group: punch-list-worker
+  cancel-in-progress: false
 
 jobs:
   run-worker:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.12"
-      - name: Run the worker
-        run: python worker.py punch-list.csv packet.md
+      - name: Run and compare the packet
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess
+          from datetime import date
+          from pathlib import Path
+          from worker import make_packet
+
+          previous = Path("packet.md").read_text(encoding="utf-8") if Path("packet.md").exists() else ""
+          current = make_packet("punch-list.csv", date.today())
+          def meaning(text):
+              return "\n".join(line for line in text.splitlines() if not line.startswith("Prepared by "))
+          Path("packet.md").write_text(current, encoding="utf-8", newline="\n")
+          Path("packet.json").write_text(json.dumps({
+              "changed": meaning(previous) != meaning(current),
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "run_attempt": os.environ["GITHUB_RUN_ATTEMPT"],
+              "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "packet_sha256": hashlib.sha256(current.encode("utf-8")).hexdigest(),
+          }), encoding="utf-8")
+          PY
       - name: Save the packet
         run: |
           git config user.name "punch-list-worker"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add packet.md
-          git diff --cached --quiet || git commit -m "Packet: punch list as of $(date -u +%F)"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Update punch-list packet"
+          fi
+          git push origin HEAD:main
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          path = Path("packet.json")
+          metadata = json.loads(path.read_text(encoding="utf-8"))
+          metadata["packet_revision"] = subprocess.check_output(
+              ["git", "log", "-1", "--format=%H", "--", "packet.md"], text=True
+          ).strip()
+          path.write_text(json.dumps(metadata), encoding="utf-8")
+          PY
+      - name: Keep the packet from this run
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: packet-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            packet.md
+            packet.json
+          if-no-files-found: error
+          retention-days: 30

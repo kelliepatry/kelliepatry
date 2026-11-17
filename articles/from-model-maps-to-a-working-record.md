@@ -1,14 +1,16 @@
 [← How do we keep the reason with the design?](https://kelliepatry.com/notes/how-do-we-keep-the-reason-with-the-design) · [Field Notes](https://kelliepatry.com/notes) · [Home](https://kelliepatry.com/)
 
+*Accuracy corrections and source checks · 16 November 2026 · with OpenAI Codex assistance. [Read the review explainer](./accuracy-and-continuity-update.md). Original authorship and dates are retained below.*
+
 ---
 
 # From model maps to a working record
 
-### You can’t see inside the model. You already know how to document everything around it.
+### Ordinary use doesn’t reveal the model’s full computation. You already know how to document the work around it.
 
 **Kellie Patry · KPHD Studio, Los Angeles · 8 November 2026 · working draft v0.8**
 
-**Read alongside:** [The record graph](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md) · [The Experience of Being Designed For](https://github.com/kelliepatry/kelliepatry/blob/main/articles/experience-of-being-designed-for.md) · [What the field sends back](https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md)
+**Read alongside:** [The record graph](./record-graph-one-person-practice.md) · [The Experience of Being Designed For](./experience-of-being-designed-for.md) · [What the field sends back](./what-the-field-sends-back.md)
 
 > **Two readers, two languages.** Part I is for the artist, architect or designer who never meant to end up working on AI systems and is now doing it anyway, usually alone. It is written for readers with strong pattern recognition, and explains the technical architecture in the vocabulary of drawings, revisions and sign-offs you already use. Part II restates the same method for AI readers as definitions, evidence requirements and checks. [Jump to Part II](#part-ii--for-ai-readers) · [References](#references)
 
@@ -22,7 +24,7 @@
 
 You trained to see. You make drawings, models, images and spaces. Nobody told you that a few years into your practice you would be reading about context windows, databases and model providers just to keep your business running.
 
-But here you are. Maybe a client expects it. Maybe you’re working alone and AI is the only help you can afford. Maybe, like me, you reached for it in a moment when there was no one else to hold the work. ([I wrote about that here.](https://github.com/kelliepatry/kelliepatry/blob/main/articles/what-the-field-sends-back.md)) Either way, you’re now responsible for a technical system you never chose to build.
+But here you are. Maybe a client expects it. Maybe you’re working alone and AI is the only help you can afford. Maybe, like me, you reached for it in a moment when there was no one else to hold the work. ([I wrote about that here.](./what-the-field-sends-back.md)) Either way, you’re now responsible for a technical system you never chose to build.
 
 Most of what you read about that system is written by engineers for engineers. It’s all words, and it assumes you think in code. If you think in patterns instead, you have to translate every paragraph before it makes sense. I did, for months.
 
@@ -114,7 +116,7 @@ You know this instinctively as a visual person: **the graphic standard carries m
 
 ## 6. What I learned before this
 
-This wasn’t my first map. My Information Geometry study produced a source-linked relationship map, and it taught me to separate a research handoff that *worked* from a result that’s *accepted* for drawings or production. The [record-graph paper](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md) laid a graph over my existing project record and showed me material sitting disconnected and decisions with no recorded reasons. [3](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md)
+This wasn’t my first map. My Information Geometry study produced a source-linked relationship map, and it taught me to separate a research handoff that *worked* from a result that’s *accepted* for drawings or production. The [record-graph paper](./record-graph-one-person-practice.md) laid a graph over my existing project record and showed me material sitting disconnected and decisions with no recorded reasons. [3](./record-graph-one-person-practice.md)
 
 One result humbled me. In a bounded comparison, adding an AI evaluation layer didn’t beat the simpler baseline on the labels agreed in advance. That doesn’t prove the approach useless, and it doesn’t justify building more. It made the question smaller and better: **which judgment, with which evidence, would actually change what I do next?**
 
@@ -133,7 +135,7 @@ Neither answer changes the drawing. Rules take the answers and route the work: p
 
 Confidence needs the same care. TypeSafe’s documentation separates the probabilities behind an answer from a summary of how settled it is. [5](https://docs.typesafe.ai/confidence) How sure is sure enough depends on the question and what it costs to be wrong. An unsure answer should come to you for review, not be rounded up.
 
-A naming note for honesty’s sake: my studio also runs an internal service called JEV that is broader than TypeSafe’s model. The name alone doesn’t show that a particular step called Jev. When I evaluate a judgment, I log the actual model, question, input and response.
+A product name alone doesn’t show that a particular step called a model. To evaluate a judgment, log the actual provider and model, question, input and response.
 
 ## 8. The state layer: a project file that outlasts the chat
 
@@ -220,7 +222,7 @@ The examples here are hypothetical. Client records, correspondence, project iden
 
 ## Conclusion
 
-I started out asking how a machine arrives at an answer. The research says we’ll only ever see part of that, and that the model’s own account isn’t reliable evidence.
+I started out asking how a machine arrives at an answer. The research described here captures only part of that computation, and the model’s own account is not reliable evidence of its mechanism. That is a limit of the current method, not a prediction about what will ever be possible.
 
 So I asked a question I could act on, and it turned out to be one my training had prepared me for: **what evidence did this work use, what judgment was made, who could approve the next step and what actually happened?**
 
@@ -287,7 +289,7 @@ The [client-facing interactive index](https://kelliepatry.com/index) provides a 
 
 1. Nate. [Beyond Black Boxes: Mapping the Multidimensional Continuums of Modern LLMs](https://natesnewsletter.substack.com/p/beyond-black-boxes-mapping-the-multidimensional). Nate’s Newsletter, 1 April 2025 (public page date). Discovery context; strongest recovered candidate, not a verified reading-history match.
 2. Anthropic. [Tracing the thoughts of a large language model](https://www.anthropic.com/research/tracing-thoughts-language-model). 27 March 2025. Primary source for the interpretability findings and their limits.
-3. Kellie Patry / KPHD. [What your project record is not telling you](https://github.com/kelliepatry/kelliepatry/blob/main/articles/record-graph-one-person-practice.md). Working draft v0.2, 4 November 2026. Related practice study; the separate Information Geometry comparison is reported here from the studio’s retained private research record.
+3. Kellie Patry / KPHD. [What your project record is not telling you](./record-graph-one-person-practice.md). Working draft v0.2, 4 November 2026. Related practice study; the separate Information Geometry comparison is reported here from the studio’s retained private research record.
 4. TypeSafe. [Documentation index](https://docs.typesafe.ai/llms.txt). Current model and primitive descriptions, accessed 8 November 2026.
 5. TypeSafe. [Confidence](https://docs.typesafe.ai/confidence). Probability and confidence interpretation, accessed 8 November 2026.
 6. Supabase. [Database overview](https://supabase.com/docs/guides/database/overview). Postgres foundation, accessed 8 November 2026.
