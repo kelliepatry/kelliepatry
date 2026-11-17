@@ -1,7 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
+      "Read",
+      "Edit",
+      "Write",
       "Bash(ls:*)",
       "Bash(pwd)",
       "Bash(cat:*)",
@@ -15,15 +19,19 @@
       "Bash(git log:*)",
       "Bash(git show:*)",
       "Bash(git branch)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(ruby *)"
     ],
     "ask": [
       "Bash(git push:*)",
-      "Bash(rm:*)",
       "Bash(git reset:*)",
       "Bash(git clean:*)"
     ],
     "deny": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(del *)",
+      "Bash(Remove-Item *)",
       "mcp__Supabase__delete_branch",
       "mcp__Supabase__reset_branch",
       "mcp__Supabase__merge_branch",
