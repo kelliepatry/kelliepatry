@@ -1,6 +1,6 @@
 <a href="https://kelliepatry.com/index"><img src="./assets/kphd-wordmark.svg" alt="[KP/HD] — Kellie Patry Hospitality Design" width="100%"></a>
 
-[Home](https://kelliepatry.com/) · [Services](https://kelliepatry.com/services) · [How we work](https://kelliepatry.com/how-we-work) · [KPHD Index](https://kelliepatry.com/index) · [Field Notes](https://kelliepatry.com/notes)
+[Home](https://kelliepatry.com/) · [Services](https://kelliepatry.com/services) · [How we work](https://kelliepatry.com/how-we-work) · [KPHD Index](https://kelliepatry.com/index) · [Press](https://kelliepatry.com/press) · [Field Notes](https://kelliepatry.com/notes)
 
 # Design is the operator's strategy, made physical.
 
@@ -17,6 +17,15 @@ KPHD is an operator-first hospitality design studio. Bars, restaurants, cafés, 
 ### → [Enter the KPHD Index](https://kelliepatry.com/index)
 
 Browse projects by place type and phase, and read the Field Notes that connect the work to how it was done.
+
+### Bar design in the press
+
+- [Walker Inn](https://kelliepatry.com/projects/walker-inn) · [Architectural Digest](https://www.architecturaldigest.com/gallery/stylish-los-angeles-bars) · joint design credit
+- [The Barrelhouse Flat](https://kelliepatry.com/projects/the-barrelhouse-flat) · [The Columbia Chronicle](https://columbiachronicle.com/campus/9ae297a9-5a2e-51a0-9e5d-b5291750ff02/) · joint practice credit
+- [The Normandie Club](https://kelliepatry.com/projects/the-normandie-club) · [Los Angeles Times](https://www.latimes.com/food/dailydish/la-dd-the-normandie-club-a-new-cocktail-bar-opens-in-koreatown-20150128-story.html) · [Timed bar layout test](https://kelliepatry.com/notes/the-room-has-two-sides)
+- [Honeycut](https://kelliepatry.com/projects/honeycut) · [UrbanDaddy](https://www.urbandaddy.com/articles/27364/los-angeles/honeycut-dirty-sexy-honey-billiards-cardamom-spiked-bourbon-and-a-disco) · venue coverage
+
+[All press & references](https://kelliepatry.com/press)
 
 ---
 
