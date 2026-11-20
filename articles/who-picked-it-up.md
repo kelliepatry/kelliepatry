@@ -4,7 +4,7 @@
 
 **Kellie Patry · KPHD Studio, Los Angeles**
 
-[KPHD studio website](https://kelliepatry.com/) · [Kellie Patry on GitHub](https://github.com/kelliepatry) · [How we work with AI](https://kelliepatry.com/notes/how-we-work-with-ai)
+[KPHD studio website](https://kelliepatry.com/) · [Kellie Patry on GitHub](https://github.com/kelliepatry) · [How we work with AI](https://kelliepatry.com/notes/how-we-work-with-ai) · [Where AI fits in our design practice](https://kelliepatry.com/notes/where-ai-fits-in-our-design-practice)
 
 Previous in the series: [The research behind the answer](https://github.com/kelliepatry/kelliepatry/blob/main/articles/the-research-behind-the-answer.md).
 
