@@ -8,7 +8,7 @@
 
 KPHD is an operator-first hospitality design studio. Bars, restaurants, cafés, hotels — rooms that have to win over guests, work for staff and hold margin, all on the same night. Front and back of house are one project. Plans are tuned to service flow and revenue up front, not corrected after permit. We're not decorating rooms. We're building businesses.
 
-**[Services](https://kelliepatry.com/services)** · Restaurant design, bar design, [café and coffee shop design in Los Angeles](https://kelliepatry.com/services/cafe-design-los-angeles), hotel spaces, retail and salon design, and luxury medical design.
+**[Services](https://kelliepatry.com/services)** · Restaurant design, [Los Angeles cocktail bar design](https://kelliepatry.com/services#cocktail-bar-design), [café and coffee shop design in Los Angeles](https://kelliepatry.com/services/cafe-design-los-angeles), hotel spaces, retail and salon design, and luxury medical design.
 
 **[How we work](https://kelliepatry.com/how-we-work)** · [Before the lease](https://kelliepatry.com/how-we-work#stage-00) · [Discovery](https://kelliepatry.com/how-we-work#stage-01) · [Design](https://kelliepatry.com/how-we-work#stage-02) · [Documents + permits](https://kelliepatry.com/how-we-work#stage-03) · [Build](https://kelliepatry.com/how-we-work#stage-04) · [Opening](https://kelliepatry.com/how-we-work#stage-05).
 
