@@ -1,6 +1,6 @@
 <a href="https://kelliepatry.com/index"><img src="./assets/kphd-wordmark.svg" alt="[KP/HD] — Kellie Patry Hospitality Design" width="100%"></a>
 
-[Home](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes)
+[Home](https://kelliepatry.com/) · [Services](https://kelliepatry.com/services) · [How we work](https://kelliepatry.com/how-we-work) · [KPHD Index](https://kelliepatry.com/index) · [Field Notes](https://kelliepatry.com/notes)
 
 # Design is the operator's strategy, made physical.
 
@@ -8,11 +8,15 @@
 
 KPHD is an operator-first hospitality design studio. Bars, restaurants, cafés, hotels — rooms that have to win over guests, work for staff and hold margin, all on the same night. Front and back of house are one project. Plans are tuned to service flow and revenue up front, not corrected after permit. We're not decorating rooms. We're building businesses.
 
-<a href="https://kelliepatry.com/index"><img src="./assets/kphd-index-card.svg" alt="KPHD Index — 17 projects, 6 place types, 5 stages, 14 Field Notes. Open the index at kelliepatry.com/index." width="100%"></a>
+**[Services](https://kelliepatry.com/services)** · Restaurant design, bar design, [café and coffee shop design in Los Angeles](https://kelliepatry.com/services/cafe-design-los-angeles), hotel spaces, retail and salon design, and luxury medical design.
+
+**[How we work](https://kelliepatry.com/how-we-work)** · [Before the lease](https://kelliepatry.com/how-we-work#stage-00) · [Discovery](https://kelliepatry.com/how-we-work#stage-01) · [Design](https://kelliepatry.com/how-we-work#stage-02) · [Documents + permits](https://kelliepatry.com/how-we-work#stage-03) · [Build](https://kelliepatry.com/how-we-work#stage-04) · [Opening](https://kelliepatry.com/how-we-work#stage-05).
+
+<a href="https://kelliepatry.com/index"><img src="./assets/kphd-index-card.svg" alt="KPHD Index map of published projects, place types, project phases, and Field Notes" width="100%"></a>
 
 ### → [Enter the KPHD Index](https://kelliepatry.com/index)
 
-The whole practice on one map: every project, every phase it passed through, and the Field Notes written along the way. Filter by stage: Discovery · Design · Documents + permits · Build · Opening.
+Browse projects by place type and phase, and read the Field Notes that connect the work to how it was done.
 
 ---
 
@@ -30,7 +34,9 @@ The whole practice on one map: every project, every phase it passed through, and
 | [The Barrelhouse Flat](https://kelliepatry.com/projects/the-barrelhouse-flat) | [The Assembly](https://kelliepatry.com/projects/the-assembly) | |
 | [Honeycut](https://kelliepatry.com/projects/honeycut) | | |
 
-[All 17 projects →](https://kelliepatry.com/index)
+[Kitchen + workplace · Crafted Kitchen](https://kelliepatry.com/projects/crafted-kitchen) · [Retail + salon · Regne](https://kelliepatry.com/projects/regne)
+
+[All projects →](https://kelliepatry.com/index)
 
 ### Read first
 
