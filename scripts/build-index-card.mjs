@@ -76,7 +76,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" v
     <text x="672" y="312" font-size="44" font-weight="700" fill="#F4F4F2">${pad(notes)}</text>
     <text x="672" y="338" font-size="13" letter-spacing="2.6" fill="#A6A6A3">FIELD NOTES</text>
   </g>
-  <text x="72" y="380" class="m" font-size="11" letter-spacing="2.2" fill="#7C7C79">UPDATED ${updated} · RECOUNTED DAILY FROM THE LIVE INDEX</text>
+  <text x="72" y="380" class="m" font-size="11" letter-spacing="2.2" fill="#7C7C79">INDEX SNAPSHOT · ${updated}</text>
 
   <line x1="880" y1="128" x2="880" y2="352" stroke="#3A3A38"/>
 ${stageRows}

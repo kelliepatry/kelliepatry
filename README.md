@@ -1,6 +1,6 @@
 <a href="https://kelliepatry.com/index"><img src="./assets/kphd-wordmark.svg" alt="[KP/HD] — Kellie Patry Hospitality Design" width="100%"></a>
 
-[Home](https://kelliepatry.com/) · [Field Notes](https://kelliepatry.com/notes)
+[Home](https://kelliepatry.com/) · [Services](https://kelliepatry.com/services) · [How we work](https://kelliepatry.com/how-we-work) · [KPHD Index](https://kelliepatry.com/index) · [Field Notes](https://kelliepatry.com/notes)
 
 # Design is the operator's strategy, made physical.
 
@@ -8,11 +8,15 @@
 
 KPHD is an operator-first hospitality design studio. Bars, restaurants, cafés, hotels — rooms that have to win over guests, work for staff and hold margin, all on the same night. Front and back of house are one project. Plans are tuned to service flow and revenue up front, not corrected after permit. We're not decorating rooms. We're building businesses.
 
-<a href="https://kelliepatry.com/index"><img src="./assets/kphd-index-card.svg" alt="KPHD Index — 17 projects, 6 place types, 5 stages, 14 Field Notes. Open the index at kelliepatry.com/index." width="100%"></a>
+**[Services](https://kelliepatry.com/services)** · Restaurant design, [Los Angeles cocktail bar design](https://kelliepatry.com/services#cocktail-bar-design), [café and coffee shop design in Los Angeles](https://kelliepatry.com/services/cafe-design-los-angeles), hotel spaces, retail and salon design, and luxury medical design.
+
+**[How we work](https://kelliepatry.com/how-we-work)** · [Before the lease](https://kelliepatry.com/how-we-work#stage-00) · [Discovery](https://kelliepatry.com/how-we-work#stage-01) · [Design](https://kelliepatry.com/how-we-work#stage-02) · [Documents + permits](https://kelliepatry.com/how-we-work#stage-03) · [Build](https://kelliepatry.com/how-we-work#stage-04) · [Opening](https://kelliepatry.com/how-we-work#stage-05).
+
+<a href="https://kelliepatry.com/index"><img src="./assets/kphd-index-card.svg" alt="KPHD Index map of published projects, place types, project phases, and Field Notes" width="100%"></a>
 
 ### → [Enter the KPHD Index](https://kelliepatry.com/index)
 
-The whole practice on one map: every project, every phase it passed through, and the Field Notes written along the way. Filter by stage: Discovery · Design · Documents + permits · Build · Opening.
+Browse projects by place type and phase, and read the Field Notes that connect the work to how it was done.
 
 ---
 
@@ -30,7 +34,9 @@ The whole practice on one map: every project, every phase it passed through, and
 | [The Barrelhouse Flat](https://kelliepatry.com/projects/the-barrelhouse-flat) | [The Assembly](https://kelliepatry.com/projects/the-assembly) | |
 | [Honeycut](https://kelliepatry.com/projects/honeycut) | | |
 
-[All 17 projects →](https://kelliepatry.com/index)
+[Kitchen + workplace · Crafted Kitchen](https://kelliepatry.com/projects/crafted-kitchen) · [Retail + salon · Regne](https://kelliepatry.com/projects/regne)
+
+[All projects →](https://kelliepatry.com/index)
 
 ### Read first
 
@@ -42,22 +48,17 @@ The whole practice on one map: every project, every phase it passed through, and
 
 ### Writing from the process side
 
+- [Who picked it up?](./articles/who-picked-it-up.md): how Staff Desk and My Desk share the work, what proves someone picked it up, and how the next person knows where to begin.
 - [The research behind the answer](./articles/the-research-behind-the-answer.md): November 2026. How I’m using NotebookLM as research background for an agent system: bounded questions, checked citations and findings another assistant can return to. Written twice: Part I for people, Part II for AI readers.
-- [The Experience of Being Designed For](./articles/experience-of-being-designed-for.md) — how the ambition to create places that amaze and lift the spirit extends to the client's experience of design, decisions and project continuity.
 - [What your project record is not telling you](./articles/record-graph-one-person-practice.md) — working paper, November 2026. For small practices: what a live graph over your own record will show you that tables do not (unlinked decisions, scope drift, empty seats), what to build, what to measure, and what the research already settled.
+- [KPHD Index card workflow](./.github/workflows/index-card.yml)
 - [The anatomy of a small business that survives AI](./articles/anatomy-of-a-small-business-that-survives-ai.md): a joint article with Claude, November 2026. Brain, ontology, fascia, orchestration: why AI guesses in a small firm and the four layers that stop it. Written twice: Part I for people, Part II for AI readers.
 - [What the field sends back](./articles/what-the-field-sends-back.md): the closing article, with Claude, November 2026. The knife, the tax and the tending: why repairing your AI setup by hand keeps costing a small business, and how moving the upkeep inside the record gives the owner's time back. Written twice: Part I for people, Part II for AI readers.
 - [Build the fleet](./articles/build-the-fleet.md): with Claude, November 2026. How to educate the newly sanctioned AI power vibe coder: stop asking the model to power through, learn what GitHub actually does, build workers for the plain jobs, wire everything together, and a trade-to-AI translation guide for whoever the normal reader is. Written twice: Part I for people, Part II for AI readers.
 - [Sensors, not time clocks](./articles/sensors-not-time-clocks.md): with Claude, November 2026. After the fleet: the builder never grades its own work, AI staff wake on a change instead of a schedule, and the owner's job becomes intention, decisions and release. Written twice: Part I for people, Part II for AI readers.
 - [Start here: what we're building, in plain words](./articles/your-first-worker.md): November 2026. What the system is and does, every term defined (worker, runner, runtime and the rest), the four services it runs on and their equivalents, a prompt that lets your own AI evaluate your setup, and one worker you can build in an hour.
 - [Your first staff member](./articles/your-first-staff-member.md): November 2026. The follow-on to Start here: what a virtual staff member is, what scheduling one really means (sensors, clocks, heartbeats and quiet alarms), how it can work through email without your inbox, a prompt that lets your own AI evaluate your setup, and a role you can set up in an hour.
-- [How an artist sees](./articles/how-an-artist-sees.md): working draft, November 2026. Breaking an image down in the order an artist does it, subject, structure, value, colour, light, mark, with a worksheet, a translation of each reading into the room, and the artist, architect and model set side by side.
-<<<<<<< origin/main
-=======
 - [The body at the fixture](./articles/body-at-the-fixture.md): study note, November 2026. Aalto's Paimio washbasin section read closely, then turned into a drawing language for an Instagram series: ink section and plan with cut photographs of the body, a flipbook for movement, and the rules agents follow to draw it.
-- [Binding the three maps](./articles/binding-the-three-maps.md): working draft, November 2026. Every active registered database (234) given one of eight read classes and, through it, a role in the read map, in 5D and fascia, and in the artist's relation. Aliases, duplicate pairs and the Image read row proposed for one ruling.
-- [One record, one projection](./articles/one-record-one-projection.md): the build, November 2026. Every active registered database moves into its Supabase home; Notion keeps prose and generated projections and loses human-edited structured databases. Target map for all 234, gates, sequence, and where the studio types afterwards.
->>>>>>> origin/claude/aalto-sanitarium-study-920cqo
 
 **Why a designer is on GitHub.** This is the process side of the studio: the models, drawing pipelines and systems that carry design intent from first sketch to opening night. The photography lives at the studio site.
 
